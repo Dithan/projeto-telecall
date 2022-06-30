@@ -1,0 +1,353 @@
+/*header*/
+@charset "UTF-8";
+
+:root{
+    --body-bg: #ffffff;
+    --body-color: #222222;
+    --fundo-img:#ffffff;
+    --produto:linear-gradient(180deg, #313131e5 0%, #000000 100%);
+  }
+  
+body.darkmode{
+    --body-bg: #222222;
+    --body-color: #ffffff;
+    --fundo-img:#303030;
+    --produto:linear-gradient(180deg, #1a1a1a7a 0%, #00000074 100%);
+}
+  
+/*reset*/
+body,
+h1,
+h2,
+p,
+ul,
+a {
+  margin: 0px;
+  padding: 0px;
+  color: var(--body-color);
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  height: 100vh;
+  background: var(--body-bg);
+}
+
+    .dark{
+        align-self: center;
+        margin-left: 10px;
+    }
+  
+  .dark button {
+    background-color: #00000000;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .dark button:hover {
+    border: 2px solid #cd2131;
+  }
+  
+  .dark img {
+    width: 22px;
+    height: 30px;
+  }
+  
+
+
+a {
+  text-decoration: none;
+}
+
+/*img com max do seu tamanho e responsiva*/
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/*ao add padding não soma e sim diminui o conteúdo*/
+* {
+    box-sizing: border-box;
+}
+
+.menu-bg{
+    background: linear-gradient(180deg, #3477A7 0%, #0D4E7C 100%);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.entrar-button{
+    padding: 10px 20px;
+    background: linear-gradient(180deg, #e83142 0%, #cd2131 100%);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    color: white;
+}
+
+.entrar-button:hover{
+    background: linear-gradient(180deg, #b72735 0%, #851621 100%);
+}
+
+/*passou de 960px alinha ao centro*/
+.menu{
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 20px;
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 15px auto;
+    align-items: center;
+}
+
+.menu-logo{
+   max-width: 100%;
+   
+}
+
+.logo-telecall{
+    margin: 0 auto 10px auto;
+    width: 200px;
+}
+
+.bem-vindo{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.bem-vindo p{
+    color: #ffffff;
+    margin: 10px;
+    
+}
+
+.bem-vindo a{
+    display: block;
+}
+/*fim do header*/
+
+
+.container{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.conteudo{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--fundo-img);
+    max-width: auto;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    gap: 50px;
+}
+
+.form-image{
+    max-width: 400px;
+    margin: auto auto;
+}
+
+.form{
+    max-width: 600px;
+    padding: 0px 50px 0px 0px;
+}
+
+.title {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.title h1{
+    
+    margin: 50px 5px 30px 5px;
+    color: #0D4E7C;
+}
+
+.title h1::after{
+    display: block;
+    content: "";
+    width: 80px;
+    height: 3px;
+    background: #b72735;
+}
+
+.input-group{
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.group{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+}
+
+.group label{
+    display: block;
+    text-align: left;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.group input{
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: 2px solid #0D4E7C;
+    text-align: left;
+}
+
+.group input:hover {
+    border: 2px solid #cd2131;
+}
+
+.birth-input1{
+    text-align: left;
+    margin: 0px;
+}
+
+.gender-inputs{
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.gender-itens{
+    display: grid;
+    grid-template-columns: 185px 185px;
+    gap: 1rem;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.gender-itens p{
+    grid-column: 1 / 3;
+    justify-self: start;
+}
+
+.gender-box1{
+    text-align: left;
+}
+
+.gender-box2{
+    text-align: left;
+}
+.cadastrar input{
+    font-size: 1rem;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px 30px 50px 30px;
+    background: linear-gradient(180deg, #e83142 0%, #cd2131 100%);
+    color: #fff6f9;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+.cadastrar input:hover{
+    background: linear-gradient(180deg, #b72735 0%, #851621 100%);
+}
+
+.footer-fundo{
+    background: rgb(28, 28, 28);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.footer p{
+    flex: 1;
+    text-align: center;
+    color: white;
+}
+
+
+@media (max-width: 800px){
+    .menu{
+        justify-content: center;
+    }
+
+    .form-image{
+        display: none;
+    }
+
+    .title h1{
+        margin-top: 10px;
+    }
+
+    .form{
+        display: flex;
+        margin: 55px;
+        padding: 0;
+        flex: 1;
+        flex-wrap: wrap;
+        justify-content: center;
+        
+    }
+
+    .group input{
+        font-size: 1.2rem;
+        padding: 5px;
+    }
+    
+    .group label{
+        margin-top: 20px;
+    }
+    
+    
+
+    .conteudo{
+        display: flex;
+    }
+
+    .group{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0px;
+    }
+
+    .gender-itens{
+        grid-template-columns: auto 1fr;
+        gap: 0.2rem;
+        margin-top: 20px;
+    }
+
+    .gender-input{
+        padding: 10px;
+    }
+
+    .gender-box1{
+        margin: 0px;
+        
+    }
+
+    .container{
+        height: auto;
+    }
+
+
+
+
+
+
+    .footer-fundo{
+        padding: 10px 30px;
+    }
+}

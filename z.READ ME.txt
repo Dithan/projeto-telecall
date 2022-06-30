@@ -1,0 +1,28 @@
+Projeto: Telecall - Unisuam 1°periodo 2022
+
+Análise e Desenvolvimento de Sistemas  - Unisuam - Bangu manhã.
+
+Grupo Dev.: 
+Thiago de Sousa Rocha
+Mateus Nascimento Amorim
+Natã Florêncio dos Santos
+Alexandre Silva Felismino
+
+Repositório:
+https://github.com/Dithan/dithan.github.io
+
+Créditos:
+Textos e imagens por:
+MODAVO/ Telecall
+
+Ilustrações:
+https://storyset.com/
+https://undraw.co/
+
+Icones:
+https://fonts.google.com/icons
+
+
+
+
+

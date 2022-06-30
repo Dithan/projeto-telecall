@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telecall - Cadastro</title>
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="shortcut icon" href="media/Icons/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header class="menu-bg">
+        <div class="menu">
+            <div class="menu-logo">
+                <a href="index.html"><img class="logo-telecall" src="./media/imagens/logo_telecall_branco_vermelho_p.png" alt="Telecall"></a>
+            </div>
+
+            <div class="bem-vindo">
+                <p>BEM VINDO(A) !</p>
+                <a class="entrar-button" href="log.html">ENTRAR</a>
+                <div class="dark">
+                    <button><img src="media/Icons/dark_mode_FILL0_wght400_GRAD0_opsz48.svg" alt="Modo Escuro" title="Modo Escuro" id="dark"></button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="conteudo">
+            <div class="form-image">
+                <img src="./media/SVG/undraw_learning_re_32qv.svg" alt="">
+            </div>
+
+            <div class="form">
+                <form action="./">
+                    <div class="form-header">
+                        <div class="title">
+                            <h1>CADASTRE-SE</h1>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="group">
+                            <div class="input-box1">
+                                <label for="nome">Nome completo</label>
+                                <input type="text" id="nome" name="nome" required>
+
+                                <label for="cpf">CPF</label>
+                                <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required onblur="mascaraCpf(this)">
+
+
+                                <label for="nomematerno">Nome Materno</label>
+                                <input type="text" id="nomematerno" name="nomematerno" required>
+
+                                <label for="endereco">Endereço</label>
+                                <input type="text" id="endereco" name="endereco" required>
+                            
+                                <label for="fixo">Telefone Fixo</label>
+                                <input type="tel" id="fixo" name="fixo" placeholder="(xx) xxxx-xxxx" onblur="mascaraTele(this)" onfocus="tiraHifen(this)">
+                            </div>
+                            <div class="input-box2">
+                                <label for="celular">Telefone Celular</label>
+                                <input type="text" id="celular" name="celular"
+                                placeholder="(xx) xxxxx-xxxx" onblur="mascaraCell(this)" onfocus="tiraHifen(this)">
+
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+
+                                <label for="senha">Senha</label>
+                                <input type="password" id="senha" name="senha" required>
+
+                                <label for="confirme">Confirme sua senha</label>
+                                <input type="password" id="confirme" name="confirme" required>
+
+                                <div class="birth">
+                                    <div class="birth-input1">
+                                        <label for="nasc">Data de Nascimento</label>
+                                        <input type="date" id="nasc" name="nasc" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gender-inputs">
+                        <div class="gender-itens">
+
+                            
+                            <p>Gênero:</p>
+                            <div class="gender-box1">
+                                
+                                <div class="gender-input">
+                                    <input type="radio" id="famele" name="gender">
+                                    <label for="famele">Feminino</label>
+                                </div>
+
+                                <div class="gender-input">
+                                    <input type="radio" id="mele" name="gender">
+                                    <label for="mele">Masculino</label>
+                                </div>
+                            </div>
+                            <div class="gender-box2">
+                                <div class="gender-input">
+                                    <input type="radio" id="others" name="gender">
+                                    <label for="others">Outro</label>
+                                </div>
+
+                                <div class="gender-input">
+                                    <input type="radio" id="none" name="gender">
+                                    <label for="none">Prefiro não dizer</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cadastrar">
+                        <input type="submit" value="CADASTRAR" onclick="verificar(this.form)">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="JavaScript/Cadastro.js"></script>
+    <script src="JavaScript/Darkmode.js"></script>
+
+</body>
+<footer>
+    <div class="footer-fundo">
+        <div class="footer">
+            <p>Copyright © 2022 Telecall. Todos os direitos reservados.</p>
+        </div>
+    </div>
+</footer>
+</html>
