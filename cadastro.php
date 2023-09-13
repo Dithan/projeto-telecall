@@ -5,25 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telecall - Cadastro</title>
-    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="media/Icons/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header class="menu-bg">
-        <div class="menu">
-            <div class="menu-logo">
-                <a href="index.html"><img class="logo-telecall" src="./media/imagens/logo_telecall_branco_vermelho_p.png" alt="Telecall"></a>
-            </div>
+    <!-- Inclui Header -->
+    <?php include('./estrutura/header.php')?>
 
-            <div class="bem-vindo">
-                <p>BEM VINDO(A) !</p>
-                <a class="entrar-button" href="log.html">ENTRAR</a>
-                <div class="dark" id="dark">
-                    <button><img src="media/Icons/dark_mode_FILL0_wght400_GRAD0_opsz48.svg" alt="Modo Escuro" title="Modo Escuro" ></button>
-                </div>
-            </div>
-        </div>
-    </header>
     <main class="container">
         <div class="conteudo">
             <div class="form-image">
@@ -122,11 +110,8 @@
     <script src="JavaScript/Darkmode.js"></script>
 
 </body>
-<footer>
-    <div class="footer-fundo">
-        <div class="footer">
-            <p>Copyright © 2022 Telecall. Todos os direitos reservados.</p>
-        </div>
-    </div>
-</footer>
+
+<!-- Inclui Footer -->
+<?php include('./estrutura/footer.php')?>
+
 </html>

@@ -1,0 +1,21 @@
+/* FOOTER */
+.footer-fundo {
+  background: rgb(28, 28, 28);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer p {
+  flex: 1;
+  text-align: center;
+  color: white;
+}
+
+/* MEDIA QUERY */
+@media (max-width: 820px) {
+  .footer-fundo {
+    padding: 10px 30px;
+  }
+}

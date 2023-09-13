@@ -6,11 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telecall- Redefinir Senha</title>
-    <link rel="stylesheet" href="./css/redefinir.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="media/Icons/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
+    <!-- Inclui Header -->
+    <?php include('./estrutura/header.php')?>
+
     <div class="container">
         <div class="conteudo">
             <a href="index.html"><img src="./media/Icons/telecall_icone_p.png" alt="Telecall"></a>
@@ -31,12 +34,10 @@
         </div>
     </div>
 <script src="JavaScript/Redefinir.js"></script>
+
 </body>
-<footer>
-    <div class="footer-fundo">
-        <div class="footer">
-            <p>Copyright © 2022 Telecall. Todos os direitos reservados.</p>
-        </div>
-    </div>
-</footer>
+
+<!-- Inclui Footer -->
+<?php include('./estrutura/footer.php')?>
+
 </html>

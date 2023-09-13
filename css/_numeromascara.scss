@@ -1,156 +1,5 @@
 @charset "UTF-8";
 
-:root{
-  --body-bg: #ffffff;
-  --body-color: #222222;
-  --fundo-img:#ffffff;
-  --produto:linear-gradient(180deg, #313131e5 0%, #000000 100%);
-}
-
-body.darkmode{
-  --body-bg: #222222;
-  --body-color: #ffffff;
-  --fundo-img:#303030;
-  --produto:linear-gradient(180deg, #1a1a1a7a 0%, #00000074 100%);
-}
-
-
-
-/*reset*/
-body,
-h1,
-h2,
-p,
-ul,
-a {
-  margin: 0px;
-  padding: 0px;
-  color: var(--body-color);
-}
-
-/*ao add padding não soma e sim diminui o conteúdo*/
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--body-bg);
-}
-
-p {
-  letter-spacing: 1.4px;
-  line-height: 135%;
-}
-
-/*img com max do seu tamanho e responsiva*/
-img {
-  display: block;
-  max-width: 100%;
-}
-
-#btn-mobile{
-  display: none;
-}
-
-.menu-bg {
-  background: linear-gradient(180deg, #3477a7 0%, #0d4e7c 100%);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-/*passou de 1080px alinha ao centro*/
-.menu {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 20px 0;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.menu-logo img{
-  max-width: 200px;
-}
-
-.menu-nav{
-  margin-left: 0px;
-  justify-self: center;
-  align-self: center;
-}
-
-.menu-nav ul {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  align-items: center;
-  padding: 0 20px;
-  gap: 20px;
-  color: #ffffff;
-}
-
-.menu-nav a {
-  padding: 3px;
-  text-decoration: none;
-  position: relative;
-  color: #ffffff;
-}
-
-.log {
-  padding-left: 60px;
-}
-
-.menu-nav a:after{
-  content: "";
-  display: block;
-  height: 1px;
-  width: 0;
-  background-color: #29abe2;
-  margin-top: 4px;
-  transition: 0.3s;
-  position: absolute;
-}
-
-.menu-nav a:hover::after{
-  width: 100%;
-}
-
-.menu-nav a:hover {
-  color: #29abe2;
-}
-
-.dark{
-  width: 35px;
-}
-
-.dark img{
-  width: 22px;
-}
-
-.dark button{
-  background-color: #ffffff00;
-  border: 2px solid #ffffff;
-  border-radius: 50%;
-  padding: 3px;
-  cursor: pointer;
-}
-
-.dark button:hover{
-  border: 2px solid #29abe2;
-}
-
-.mobile-menu-icon{
-  display: none;
-}
-
-.mobile-menu{
-  display: none;
-}
-
-
-
-/*------------------fim do header----------------*/
-
 .numero-mascara {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -369,26 +218,6 @@ img {
   color: #29abe2;
 }
 
-.footer-fundo {
-  background: rgb(28, 28, 28);
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.footer p {
-  flex: 1;
-  text-align: center;
-  color: white;
-}
-
-@media (max-width: 1300px) {
-  .menu-nav a:after {
-    display: none;
-  }
-}
-
 @media (max-width: 1120px) {
   .numero-mascara,
   .quem-usa2,
@@ -457,9 +286,6 @@ img {
 }
 
 @media (max-width: 800px) {
-  .log {
-    padding: 0;
-  }
 
   .numero-mascara {
     grid-template-columns: 1fr;

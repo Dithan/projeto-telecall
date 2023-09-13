@@ -6,11 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telecall - Login</title>
-    <link rel="stylesheet" href="./css/log.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="media/Icons/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
+    <!-- Inclui Header -->
+    <?php include('./estrutura/header.php')?>
 
     <div class="log">
         <div class="bem-vindo-fundo">
@@ -18,11 +20,11 @@
                 <button><img src="media/Icons/dark_mode_FILL0_wght400_GRAD0_opsz48.svg" alt="Modo Escuro" title="Modo Escuro" ></button>
             </div>
             <div class="bem-vindo">
-                <a href="index.html"><img src="./media/Icons/telecall_icone_p.png" alt="Telecall"></a>
+                <a href="index.php"><img src="./media/Icons/telecall_icone_p.png" alt="Telecall"></a>
                 <h1>Bem Vindo(a)!</h1>
                 <p>Continue conosco fazendo login em sua conta.</p>
                 <p class="ou">ou</p>
-                <a class="bem-vindo-a" href="cadastro.html">CADASTRE-SE</a>
+                <a class="bem-vindo-a" href="cadastro.php">CADASTRE-SE</a>
             </div>
         </div>
 
@@ -39,7 +41,7 @@
 
 
                     <div class="checkbox">
-                        <a href="redefinir.html">Esqueceu sua senha?</a>
+                        <a href="redefinir.php">Esqueceu sua senha?</a>
                         <input type="checkbox" id="lembrar-senha" name="lembrar-senha" value="aceito">
                         <label for="lembrar-senha">Lembrar Senha</label>
                     </div>
@@ -55,12 +57,7 @@
     <script src="JavaScript/Login.js"></script>
 
 </body>
-<footer>
-    <div class="footer-fundo">
-        <div class="footer">
-            <p>Copyright © 2022 Telecall. Todos os direitos reservados.</p>
-        </div>
-    </div>
-</footer>
+<!-- Inclui Footer -->
+<?php include('./estrutura/footer.php')?>
 
 </html>
