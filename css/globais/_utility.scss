@@ -1,0 +1,58 @@
+// Botões
+
+// Títulos
+.titulo {
+  font-size: 38px;
+  position: relative;
+  margin-bottom: 40px;
+
+  // TABLET
+  @include mq(m) {
+    font-size: 28px;
+  }
+
+  // MOBILE
+  @include mq(s) {
+    font-size: 22px;
+  }
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 90px;
+    height: 1px;
+    background: $cor_terciaria;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
+}
+// Titulo Azul
+.azul {
+  color: $cor_terciaria;
+}
+.titulo-blocos {
+  font-size: 24px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+//Form
+label {
+  display: block;
+  margin-top: 30px;
+  color: var(--body-color);
+}
+
+input {
+  padding: 8px 50px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 2px solid #0d4e7c;
+  text-align: left;
+}
+
+input:hover {
+  border: 2px solid #cd2131;
+}

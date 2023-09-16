@@ -24,35 +24,6 @@
   align-self: flex-start;
 }
 
-.titulo {
-  grid-column: 1 / -1;
-  margin-bottom: 30px;
-  font-size: 3rem;
-}
-
-.titulo-0 {
-  margin-bottom: 30px;
-  font-size: 3rem;
-}
-
-.titulo::after,
-.titulo-0::after {
-  display: block;
-  content: '';
-  width: 90px;
-  height: 3px;
-  background-color: #29abe2;
-}
-
-.h2-azul {
-  color: #29abe2;
-  margin: 5px 0;
-}
-
-.h2-2 {
-  margin-bottom: 30px;
-}
-
 .info-2fa p {
   margin-bottom: 30px;
 }
@@ -146,11 +117,6 @@
 .beneficios {
   max-width: 1080px;
   margin: 0 auto 50px auto;
-}
-
-.quem-usa2-h1 {
-  max-width: 1080px;
-  margin: 0 auto;
 }
 
 .quem-usa {
@@ -253,12 +219,5 @@
   .passo3,
   .passo4 {
     height: 350px;
-  }
-}
-
-@media (max-width: 480px) {
-  .titulo,
-  .titulo-0 {
-    font-size: 2rem;
   }
 }

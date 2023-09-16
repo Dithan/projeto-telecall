@@ -24,31 +24,6 @@
   align-self: flex-start;
 }
 
-.titulo {
-  grid-column: 1 / -1;
-  margin-bottom: 30px;
-  font-size: 3rem;
-}
-
-.titulo-0 {
-  margin-bottom: 30px;
-  font-size: 3rem;
-}
-
-.titulo::after,
-.titulo-0::after {
-  display: block;
-  content: "";
-  width: 90px;
-  height: 3px;
-  background-color: #29abe2;
-}
-
-.h2-azul {
-  color: #29abe2;
-  margin: 5px 0 30px 0;
-}
-
 .sms p {
   margin-bottom: 30px;
 }
@@ -192,60 +167,6 @@
   }
 }
 
-@media (max-width: 820px){
-
-  .menu-nav{
-    display: none;
-  }
-
-  .mobile-menu-icon{
-    display: inline-block;
-  }
-
-  .mobile-menu-icon button{
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-  }
-
-  .mobile-menu ul{
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    padding-bottom: 1rem;
-    list-style: none;
-  }
-
-  .mobile-menu li{
-    display: block;
-    padding-top: 1.2rem;
-    text-decoration: none;
-    list-style: none;
-  }
-
-  .mobile-menu a{
-    text-decoration: none;
-    color: #fff;
-  }
-
-  .dark{
-    justify-self: center;
-    text-align: center;
-    margin: 20px auto;
-  }
-
-  .open{
-    display: block;
-  }
-
-  .menu{
-    display: flex;
-    margin-left: 20px;
-    margin-right: 20px;
-    justify-content: space-between;
-  }
-}
-
 @media (max-width: 800px) {
 
   .sms-img {
@@ -256,10 +177,6 @@
     grid-template-columns: auto;
     margin-top: 20px;
     margin-bottom: 50px;
-  }
-
-  .sms h2 {
-    margin-bottom: 20px;
   }
 
   .info{
@@ -279,10 +196,6 @@
 }
 
 @media (max-width: 480px){
-    .titulo,
-    .titulo-0 {
-      font-size: 2rem;
-    }
 
     .principal p {
         text-align: center;

@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+:root {
+  --body-bg: #e7e9f1;
+  --body-color: #222222;
+  --fundo-img: #f3f3f4;
+  --produto: linear-gradient(180deg, #313131e5 0%, #000000 100%);
+}
+
+body.darkmode {
+  --body-bg: #222222;
+  --body-color: #ffffff;
+  --fundo-img: #303030;
+  --produto: linear-gradient(180deg, #1a1a1a7a 0%, #00000074 100%);
+}
+
+$cor_primaria: #0d4e7c;
+$cor_secundaria: #cd2131;
+$cor_terciaria: #29abe2;
+
+/*reset*/
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+a,
+figure {
+  margin: 0px;
+  padding: 0px;
+  color: var(--body-color);
+}
+
+/*ao add padding não soma e sim diminui o conteúdo*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--body-bg);
+}
+
+p {
+  letter-spacing: 1.4px;
+  line-height: 135%;
+}
+
+/*img com max do seu tamanho e responsiva*/
+img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#btn-mobile {
+  display: none;
+}
+
+// Tamanho máximo 1200px
+.container {
+  max-width: 1200px;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+$largura_desktop: 1200px;
+$largura_tablet: 760px;
+$largura_smartphone: 480px;
+
+// Mixin de media-queries
+@mixin mq($largura) {
+  @if $largura == l {
+    @media screen and (min-width: #{$largura_desktop}) {
+      @content;
+    }
+  } @else if $largura == m {
+    @media screen and (min-width: #{$largura_tablet}) and (max-width: #{$largura_desktop - 1}) {
+      @content;
+    }
+  } @else if $largura == s {
+    @media screen and (max-width: #{$largura_tablet - 1}) {
+      @content;
+    }
+  }
+}

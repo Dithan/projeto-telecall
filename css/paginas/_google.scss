@@ -10,26 +10,6 @@
   gap: 0px;
 }
 
-.titulo {
-  grid-column: 1 / -1;
-  margin-bottom: 30px;
-  font-size: 3rem;
-}
-
-.titulo-0 {
-  margin-bottom: 30px;
-  font-size: 3rem;
-}
-
-.titulo::after,
-.titulo-0::after {
-  display: block;
-  content: "";
-  width: 90px;
-  height: 3px;
-  background-color: #29abe2;
-}
-
 .google-verified-img {
   max-width: 500px;
   grid-column: 2;
@@ -37,12 +17,6 @@
   justify-content: center;
   align-items: center;
   align-self: flex-start;
-}
-
-.google-verified h2 {
-  margin-bottom: 30px;
-  color: #29abe2;
-  margin: 5px 0;
 }
 
 .google-verified p {
@@ -250,10 +224,6 @@
     margin-bottom: 50px;
   }
 
-  .google-verified h2 {
-    margin-bottom: 20px;
-  }
-
   .google-verified p strong {
     font-size: 1rem;
   }
@@ -313,15 +283,6 @@
 @media (max-width: 480px) {
   .problema {
     margin: 20px;
-  }
-
-  .titulo,
-  .titulo-0 {
-    font-size: 2rem;
-  }
-
-  .titulo-0{
-    margin-right: 60px;
   }
 
   .como-funciona-1,

@@ -7,7 +7,7 @@ body{
     background: var(--body-bg);
 }
 
-.container{
+.container-redefinir{
     display: flex;
     width: 100%;
     height: 100vh;
@@ -23,16 +23,6 @@ body{
     border-radius: 5px;
     text-align: center;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-}
-
-h1{
-    margin: 0px 5px 30px 5px;
-    color: #0D4E7C;
-}
-
-p{
-    margin: 25px;
-    color: var(--body-color);
 }
 
 .button-1 a{

@@ -14,7 +14,7 @@
     <!-- Inclui Header -->
     <?php include('./estrutura/header.php')?>
 
-    <div class="container">
+    <div class="container-redefinir">
         <div class="conteudo">
             <a href="index.html"><img src="./media/Icons/telecall_icone_p.png" alt="Telecall"></a>
             <h1>Redefinir Senha</h1>

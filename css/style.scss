@@ -1,20 +1,20 @@
 /* GLOBAIS */
-@import './global';
-@import './utility';
+@import './globais/global';
+@import './globais/utility';
 
 /* ESTRUTURA */
-@import './header';
-@import './footer';
+@import './estrutura/header';
+@import './estrutura/footer';
 
 /* PÁGINAS */
-@import './index';
-@import './2fa';
-@import './google';
-@import './numeromascara';
-@import './numeromascara';
-@import './sms';
+@import './paginas/index';
+@import './paginas/2fa';
+@import './paginas/google';
+@import './paginas/numeromascara';
+@import './paginas/numeromascara';
+@import './paginas/sms';
 
-/* OUTRAS PÁGINAS */
-@import './cadastro';
-@import './redefinir';
-@import './redefinirii';
+/* PÁGINAS LOGIN / CADASTRO */
+@import './paginas/cadastro';
+@import './paginas/redefinir';
+@import './paginas/redefinirii';

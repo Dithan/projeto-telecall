@@ -1,4 +1,5 @@
 <header class="menu-bg">
+    <div class="container">
         <div class="menu">
             <div class="menu-logo">
                 <a href="index.php"><img class="logo-telecall"
@@ -37,4 +38,5 @@
                 </div>
             </ul>
         </div>
-    </header>
+    </div>
+</header>
