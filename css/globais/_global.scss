@@ -1,5 +1,26 @@
 @charset "UTF-8";
 
+$largura_desktop: 1200px;
+$largura_tablet: 760px;
+$largura_smartphone: 480px;
+
+// Mixin de media-queries
+@mixin mq($largura) {
+  @if $largura == l {
+    @media screen and (min-width: #{$largura_desktop}) {
+      @content;
+    }
+  } @else if $largura == m {
+    @media screen and (min-width: #{$largura_tablet}) and (max-width: #{$largura_desktop - 1}) {
+      @content;
+    }
+  } @else if $largura == s {
+    @media screen and (max-width: #{$largura_tablet - 1}) {
+      @content;
+    }
+  }
+}
+
 :root {
   --body-bg: #e7e9f1;
   --body-color: #222222;
@@ -26,10 +47,15 @@ h3,
 p,
 ul,
 a,
-figure {
+figure,
+button {
   margin: 0px;
   padding: 0px;
   color: var(--body-color);
+  background: none;
+  border: none;
+  list-style: none;
+  text-decoration: none;
 }
 
 /*ao add padding não soma e sim diminui o conteúdo*/
@@ -40,6 +66,14 @@ figure {
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: var(--body-bg);
+
+  // Compensa Header Fixo
+  padding-top: 88px;
+
+  //MOBILE
+  @include mq(s) {
+    padding-top: 73px;
+  }
 }
 
 p {
@@ -63,30 +97,10 @@ img {
 // Tamanho máximo 1200px
 .container {
   max-width: 1200px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   height: auto;
   margin-left: auto;
   margin-right: auto;
-}
-
-$largura_desktop: 1200px;
-$largura_tablet: 760px;
-$largura_smartphone: 480px;
-
-// Mixin de media-queries
-@mixin mq($largura) {
-  @if $largura == l {
-    @media screen and (min-width: #{$largura_desktop}) {
-      @content;
-    }
-  } @else if $largura == m {
-    @media screen and (min-width: #{$largura_tablet}) and (max-width: #{$largura_desktop - 1}) {
-      @content;
-    }
-  } @else if $largura == s {
-    @media screen and (max-width: #{$largura_tablet - 1}) {
-      @content;
-    }
-  }
+  overflow: hidden !important;
 }

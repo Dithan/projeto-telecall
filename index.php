@@ -44,7 +44,7 @@
                     </p>
                 </div>
                 <div class="info-image">
-                    <img src="./media/SVG/App development-amico.svg" alt="">
+                    <img src="./media/SVG/App-development-amico.svg" alt="">
                 </div>
             </div>
         </div>

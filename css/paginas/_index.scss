@@ -68,6 +68,12 @@
   border-radius: 15px;
   color: rgb(254, 254, 254);
   text-align: center;
+
+  //MOBILE
+  @include mq(s) {
+    padding: 20px;
+    font-size: 18px;
+  }
 }
 
 .cpaas-info2 p strong {
@@ -231,7 +237,7 @@
   display: grid;
   height: auto;
   grid-template-columns: 350px 1fr;
-  margin: 0 auto 120px auto;
+  margin: 0 auto 40px;
   justify-content: center;
   align-items: center;
   gap: 0px;

@@ -21,7 +21,7 @@
                 </div>
             </nav> 
             <div class="mobile-menu-icon">
-                <button onclick="menuShow()"><img class="icon" src="media/Icons/menu_FILL0_wght400_GRAD0_opsz48.svg" alt="Menu de Navegação"></button>
+                <button onclick="menuShow()"><span class="btn-mobile" id="hamburguer"></span></button>
             </div>
         </div>
 
