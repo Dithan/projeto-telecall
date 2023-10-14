@@ -5,17 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telecall - Cadastro</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="shortcut icon" href="media/Icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="shortcut icon" href="./assets/media/Icons/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <!-- Inclui Header -->
     <?php include('./estrutura/header.php')?>
 
-    <main class="container">
-        <div class="conteudo">
+    <main class="cadastro-section container">
+        <div class="conteudo-cadastro">
             <div class="form-image">
-                <img src="./media/SVG/undraw_learning_re_32qv.svg" alt="">
+                <img src="./assets/media/SVG/undraw_learning_re_32qv.svg" alt="">
             </div>
 
             <div class="form">
@@ -77,24 +77,24 @@
                             <div class="gender-box1">
                                 
                                 <div class="gender-input">
-                                    <input type="radio" id="famele" name="gender">
                                     <label for="famele">Feminino</label>
+                                    <input type="radio" id="famele" name="gender">
                                 </div>
 
                                 <div class="gender-input">
-                                    <input type="radio" id="mele" name="gender">
                                     <label for="mele">Masculino</label>
+                                    <input type="radio" id="mele" name="gender">
                                 </div>
                             </div>
                             <div class="gender-box2">
                                 <div class="gender-input">
-                                    <input type="radio" id="others" name="gender">
                                     <label for="others">Outro</label>
+                                    <input type="radio" id="others" name="gender">
                                 </div>
 
                                 <div class="gender-input">
-                                    <input type="radio" id="none" name="gender">
                                     <label for="none">Prefiro não dizer</label>
+                                    <input type="radio" id="none" name="gender">
                                 </div>
                             </div>
                         </div>
@@ -107,7 +107,7 @@
         </div>
     </main>
     <script src="JavaScript/Cadastro.js"></script>
-    <script src="JavaScript/Darkmode.js"></script>
+    <script src="./assets/JavaScript/Darkmode.js"></script>
 
 </body>
 

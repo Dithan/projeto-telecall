@@ -43,21 +43,47 @@
 }
 
 .info-image img {
-  max-width: 500px;
+  max-width: 460px;
   margin: 0 auto;
   align-self: flex-start;
 }
 
 .info-conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  // TABLET
+  @include mq(m) {
+    gap: 10px;
+  }
+
+  // MOBILE
+  @include mq(s) {
+    gap: 10px;
+  }
+
+  .titulo {
+    margin-bottom: 20px;
+
+    // TABLET
+    @include mq(m) {
+      margin-bottom: 10px;
+    }
+
+    // MOBILE
+    @include mq(s) {
+      margin-bottom: 10px;
+    }
+  }
 }
 
 .info-conteudo p {
   letter-spacing: 1.4px;
-  margin-bottom: 30px;
 }
 
 .cpaas-oque-e2 {
-  margin: 0 auto 50px auto;
+  margin: 0 auto 40px auto;
 }
 
 .cpaas-info2 p {
@@ -81,12 +107,11 @@
 }
 
 .cpaas-trans-digital {
-  margin: 0 auto 50px auto;
+  margin: 0 auto 40px auto;
 }
 
 .cpaas-trans-digital-lista ul {
   list-style: none;
-  margin-bottom: 40px;
 }
 
 .cpaas-trans-digital-lista li {

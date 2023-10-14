@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telecall - SMS Programável </title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="shortcut icon" href="media/Icons/favicon.ico" type="image/x-icon">
-    <script src="JavaScript/sms.js"></script>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="shortcut icon" href="./assets/media/Icons/favicon.ico" type="image/x-icon">
+    <script src="./assets/JavaScript/sms.js"></script>
 </head>
 
 <body>
    <!-- Inclui Header -->
    <?php include('./estrutura/header.php')?>
    
-    <section class="sms">
-        <h1 class="titulo-0">SMS Programável</h1>
+    <section class="sms container">
+        <h1 class="titulo">SMS Programável</h1>
         <h2 class="h2-azul">Conecte-se com seus clientes.</h2>
         <p>É muito provável que você já tenha recebido uma mensagem de texto de uma empresa ou organização.</p>
         <p>Com uma API, qualquer empresa pode enviar mensagens de texto e impactar clientes, prospects ou fornecedores
@@ -24,11 +24,11 @@
         <p>Com essa ferramenta você envia mensagens de SMS com as informações que o seu cliente precisa e com a
             segurança, a velocidade e a confiabilidade que você espera.</p>
         <div class="sms-img">
-            <img src="media/SVG/Cell phone-amico.svg" alt="">
+            <img src="./assets/media/SVG/Cell phone-amico.svg" alt="">
         </div>
     </section>
 
-    <section class="info">
+    <section class="info container">
         <div class="principal">
             <p>SMS é a forma mais rápida, eficiente e de baixo custo para se comunicar com seus clientes.</p>
         </div>
@@ -45,39 +45,40 @@
             <p><strong>35x</strong><br>maior a probabilidade de um cliente abrir um SMS do que um e-mail.</p>
         </div>
     </section>
-    <section class="quem-usa">
+    <section class="container">
         <h2 class="titulo">Quem usa?</h2>
         <h3>São muitos os casos de uso, veja alguns exemplos:</h3>
+
         <div class="img-div">
             <div class="exe">
-                <img src="media/exemplos/Divulgacao_fix.PNG" alt="">
+                <img src="./assets/media/exemplos/Divulgacao_fix.PNG" alt="">
                 <p>Divulgação</p>
             </div>
             <div class="exe">
-                <img src="media/exemplos/transacoes_fix.PNG" alt="">
+                <img src="./assets/media/exemplos/transacoes_fix.PNG" alt="">
                 <p>Transações</p>
             </div>
             <div class="exe">
-                <img src="media/exemplos/seguranca_fix.PNG" alt="">
+                <img src="./assets/media/exemplos/seguranca_fix.PNG" alt="">
                 <p>Segurança</p>
             </div>
             <div class="exe">
-                <img src="media/exemplos/suporte_fix.PNG" alt="">
+                <img src="./assets/media/exemplos/suporte_fix.PNG" alt="">
                 <p>Suporte ao Cliente</p>
             </div>
             <div class="exe">
-                <img src="media/exemplos/notificacoes_fix.PNG" alt="">
+                <img src="./assets/media/exemplos/notificacoes_fix.PNG" alt="">
                 <p>Notificações</p>
             </div>
         </div>
     </section>
-    <section class="jornada-cliente">
+    <section class="jornada-cliente container">
         <h2 class="titulo">Jornada do cliente</h2>
         <h3>Ofereça uma melhor experiência ao cliente acompanhando a sua jornada de compra.</h3>
-        <img src="media/imagens/diagrama.PNG" alt="Diagrama">
+        <img src="./assets/media/imagens/diagrama.PNG" alt="Diagrama">
         <p>Envio de SMS</p>
     </section>
-    <section class="beneficios">
+    <section class="beneficios-sms container">
         <h2 class="titulo">Benefícios</h2>
         <ul>
             <li>Comunicação rápida, efetiva e escalável.</li>
@@ -91,7 +92,7 @@
         </ul>
     </section>
 
-    <script src="JavaScript/Darkmode.js"></script>
+    <script src="./assets/JavaScript/Darkmode.js"></script>
 
 </body>
 

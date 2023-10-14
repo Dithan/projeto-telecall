@@ -6,17 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Telecall- Redefinir Senha</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="shortcut icon" href="media/Icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="shortcut icon" href="./assets/media/Icons/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
     <!-- Inclui Header -->
     <?php include('./estrutura/header.php')?>
 
-    <div class="container-redefinir">
-        <div class="conteudo">
-            <a href="index.html"><img src="./media/Icons/telecall_icone_p.png" alt="Telecall"></a>
+    <section class="container-redefinir">
+        <div class="conteudo-redefinir1">
             <h1>Redefinir Senha</h1>
             <p>Informe seu email cadastrado.</p>
 
@@ -27,13 +26,13 @@
                     <br>
                     <!--Definir botão para submit-->
                     <div class="enviar">
-                        <button onclick="validarEmail(this.form)" class="botao" >Enviar um email de redefinição de senha</button>
+                        <button class="btn-primario" onclick="validarEmail(this.form)" class="botao" >Enviar um email de redefinição de senha</button>
                     </div>
                 </form>
             </div>
         </div>
-    </div>
-<script src="JavaScript/Redefinir.js"></script>
+    </section>
+<script src="./assets/JavaScript/Redefinir.js"></script>
 
 </body>
 

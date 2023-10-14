@@ -1,6 +1,15 @@
 @charset "UTF-8";
 
-.conteudo {
+.cadastro-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 168px);
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.conteudo-cadastro {
   display: grid;
   grid-template-columns: 1fr 1fr;
   background-color: var(--fundo-img);
@@ -12,16 +21,37 @@
   text-align: center;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   gap: 50px;
+  padding: 40px;
+
+  @include mq(m){
+    grid-template-columns: 1fr;
+  }
+
+  @include mq(s){
+    grid-template-columns: 1fr;
+  }
+
+  .title{
+    margin-bottom: 20px;
+  }
 }
 
 .form-image {
   max-width: 400px;
   margin: auto auto;
+
+  @include mq(m){
+    display: none;
+  }
+
+  @include mq(s){
+    display: none;
+  }
 }
 
 .form {
   max-width: 600px;
-  padding: 0px 50px 0px 0px;
+  margin: 0 auto;
 }
 
 .input-group {
@@ -33,8 +63,12 @@
 
 .group {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  @include mq(s){
+    grid-template-columns: 1fr;
+  }
 }
 
 .group label {
@@ -49,6 +83,7 @@
   border-radius: 5px;
   border: 2px solid #0d4e7c;
   text-align: left;
+  width: 250px;
 }
 
 .group input:hover {
@@ -66,23 +101,50 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  width: 100%;
+
+  label {
+    margin-top: 0;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    display: inline-block;
+  }
+
+  input {
+    margin: 0 auto;
+  }
+}
+
+.gender-input{
+  
 }
 
 .gender-itens {
   display: grid;
-  grid-template-columns: 185px 185px;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
   justify-content: center;
   margin: 20px auto;
+  width: 100%;
+
+  @include mq(s){
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
 }
 
 .gender-itens p {
   grid-column: 1 / 3;
   justify-self: start;
+
+  @include mq(s){
+    grid-column: 1;
+  }
 }
 
 .gender-box1 {
   text-align: left;
+  width: 100%;
 }
 
 .gender-box2 {
@@ -94,7 +156,6 @@
   text-decoration: none;
   display: inline-block;
   padding: 10px 20px;
-  margin: 20px 30px 50px 30px;
   background: linear-gradient(180deg, #e83142 0%, #cd2131 100%);
   color: #fff6f9;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
@@ -103,58 +164,4 @@
 
 .cadastrar input:hover {
   background: linear-gradient(180deg, #b72735 0%, #851621 100%);
-}
-
-@media (max-width: 800px) {
-
-  .form-image {
-    display: none;
-  }
-
-  .form {
-    display: flex;
-    margin: 55px;
-    padding: 0;
-    flex: 1;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .group input {
-    font-size: 1.2rem;
-    padding: 5px;
-  }
-
-  .group label {
-    margin-top: 20px;
-  }
-
-  .conteudo {
-    display: flex;
-  }
-
-  .group {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0px;
-  }
-
-  .gender-itens {
-    grid-template-columns: auto 1fr;
-    gap: 0.2rem;
-    margin-top: 20px;
-  }
-
-  .gender-input {
-    padding: 10px;
-  }
-
-  .gender-box1 {
-    margin: 0px;
-  }
-
-  .container {
-    height: auto;
-  }
 }

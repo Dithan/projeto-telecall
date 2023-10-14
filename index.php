@@ -6,11 +6,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telecall</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="shortcut icon" href="media/Icons/favicon.ico" type="image/x-icon">
-    <script src="JavaScript/index.js"></script>
-    
+    <title>Telecall - CPaaS: Solução de Software de Comunicação</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="shortcut icon" href="./assets/media/Icons/favicon.ico" type="image/x-icon">
+    <script src="./assets/JavaScript/index.js"></script>
 </head>
 
 <body>
@@ -20,7 +19,7 @@
     <section class="cpaas-oque-e">
         <div class="fundo-modavo">
             <figure>
-                <img src="./media/SpaaS/modavo_teteu.PNG" alt="modavo">
+                <img src="./assets/media/SpaaS/modavo_teteu.PNG" alt="modavo">
             </figure>
         </div>
         <div class="container">
@@ -29,7 +28,7 @@
                 <div class="info-conteudo">
                     <h1 class="titulo">CPaaS: O que é?</h1>
 
-                    <h2 class="azul">Communications Platform as a Service</h2>
+                    <h2 class="h2-azul">Communications Platform as a Service</h2>
                     
                     <h2>Plataforma de Comunicação como Serviço</h2>
 
@@ -44,7 +43,7 @@
                     </p>
                 </div>
                 <div class="info-image">
-                    <img src="./media/SVG/App-development-amico.svg" alt="">
+                    <img src="./assets/media/SVG/App-development-amico.svg" alt="">
                 </div>
             </div>
         </div>
@@ -128,7 +127,7 @@
                     </div>
 
                     <figure>
-                        <img src="media/SVG/Online calendar-cuate.svg" alt="">
+                        <img src="./assets/media/SVG/Online calendar-cuate.svg" alt="">
                     </figure>
 
                     <div>
@@ -136,7 +135,7 @@
                     </div>
 
                     <figure>
-                        <img src="media/SVG/Emails-amico.svg" alt="">
+                        <img src="./assets/media/SVG/Emails-amico.svg" alt="">
                     </figure>
                 </div>
                 <div class="container-2">
@@ -145,7 +144,7 @@
                     </div>
 
                     <figure>
-                        <img src="media/SVG/Sign in-amico.svg" alt="">
+                        <img src="./assets/media/SVG/Sign in-amico.svg" alt="">
                     </figure>
 
                     <div>
@@ -153,7 +152,7 @@
                     </div>
 
                     <figure>
-                        <img src="media/SVG/Enter OTP-bro.svg" alt="">
+                        <img src="./assets/media/SVG/Enter OTP-bro.svg" alt="">
                     </figure>
                 </div>
                 <div class="container-2">
@@ -162,7 +161,7 @@
                     </div>
 
                     <figure>
-                        <img src="media/SVG/Calendar-amico.svg" alt="">
+                        <img src="./assets/media/SVG/Calendar-amico.svg" alt="">
                     </figure>
 
                     <div>
@@ -170,7 +169,7 @@
                     </div>
 
                     <figure>
-                        <img src="media/SVG/New message-amico.svg" alt="">
+                        <img src="./assets/media/SVG/New message-amico.svg" alt="">
                     </figure>
                 </div>
                 <div class="container-1">
@@ -179,7 +178,7 @@
                     </div>
 
                     <figure>
-                        <img src="media/SVG/Annotation-cuate.svg" alt="">
+                        <img src="./assets/media/SVG/Annotation-cuate.svg" alt="">
                     </figure>
 
                     <div>
@@ -187,7 +186,7 @@
                     </div>
 
                     <figure>
-                        <img src="media/SVG/New message-bro.svg" alt="">
+                        <img src="./assets/media/SVG/New message-bro.svg" alt="">
                     </figure>
                 </div>
             </div>
@@ -219,7 +218,7 @@
             </div>
         </div>
     </section>
-    <script src="JavaScript/Darkmode.js"></script>
+    <script src="./assets/JavaScript/Darkmode.js"></script>
 </body>
 
 <!-- Inclui footer -->
