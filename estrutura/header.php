@@ -1,3 +1,4 @@
+
 <header class="menu-bg">
     <div class="container">
         <div class="menu">
@@ -12,7 +13,15 @@
                         <li><a href="numeromascara.php">Número Máscara</a></li>
                         <li><a href="google.php">Google Verified Calls</a></li>
                         <li><a href="sms.php">SMS Programável</a></li>
-                        <li class="log"><a href="log.php">Já é cliente?</a></li>
+                        <?php
+
+                        if(isset($_SESSION["Usuario"])){
+                            echo '<a href="Include/desconectar.php">Bem Vindo '. $_SESSION["Usuario"] . '</a>';
+                        }else{
+                            echo "<li class='log'><a href='log.php'>Já é cliente?</a></li>";
+                        }
+                        ?>
+                        
                 
                         <div class="dark" id="dark">
                             <button><img src="./assets/media/Icons/dark_mode_FILL0_wght400_GRAD0_opsz48.svg" alt="Modo Escuro" title="Modo Escuro" ></button>
