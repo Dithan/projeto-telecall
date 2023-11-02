@@ -1,4 +1,5 @@
-<?php include('./conf.php');
+<?php 
+include('./conf.php');
 session_start();
 ?>
 <!DOCTYPE html>
@@ -13,7 +14,12 @@ session_start();
 </head>
 <body>
     <!-- Inclui Header -->
-    <?php include('./estrutura/header.php')?>
+    <?php include('./estrutura/header.php');
+     include_once 'Include/connection.php';
+     $Sql = new mysqldb();
+     $Sql->create_Table_Usuario();
+     
+     ?>
 
     <main class="cadastro-section container">
         <div class="conteudo-cadastro">
@@ -22,7 +28,7 @@ session_start();
             </div>
 
             <div class="form">
-                <form action="./">
+                <form id = "registrationForm" method="POST" action= "Include/Cadastro.php">
                     <div class="form-header">
                         <div class="title">
                             <h1>CADASTRE-SE</h1>
@@ -31,85 +37,107 @@ session_start();
 
                     <div class="input-group">
                         <div class="group">
-                            <div class="input-box1">
-                                <label for="nome">Nome completo</label>
-                                <input type="text" id="nome" name="nome" required>
-
-                                <label for="cpf">CPF</label>
-                                <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required onblur="mascaraCpf(this)">
-
-
-                                <label for="nomematerno">Nome Materno</label>
-                                <input type="text" id="nomematerno" name="nomematerno" required>
-
-                                <label for="endereco">Endereço</label>
-                                <input type="text" id="endereco" name="endereco" required>
                             
-                                <label for="fixo">Telefone Fixo</label>
-                                <input type="tel" id="fixo" name="fixo" placeholder="(xx) xxxx-xxxx" onblur="mascaraTele(this)" onfocus="tiraHifen(this)">
-                            </div>
-                            <div class="input-box2">
-                                <label for="celular">Telefone Celular</label>
-                                <input type="text" id="celular" name="celular"
-                                placeholder="(xx) xxxxx-xxxx" onblur="mascaraCell(this)" onfocus="tiraHifen(this)">
+                            <div class="input-box1">
+                              
+                                <label for="nome">Nome Completo:</label>
+                                <input type="text" id="nome" required minlength="15" maxlength="80" pattern="[A-Za-z ]+" name="nome"/>
 
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required>
+                                <label for="login">Login:</label>
+                                <input type="text" id="login" required minlength="6" maxlength="6" pattern="[A-Za-z]{6}" name="login" />
 
-                                <label for="senha">Senha</label>
-                                <input type="password" id="senha" name="senha" required>
+                                <label for="cpf">CPF:</label>
+                                <input type="text" id="cpf" required placeholder="xxx.xxx.xxx-xx" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}" name="cpf" />
 
-                                <label for="confirme">Confirme sua senha</label>
-                                <input type="password" id="confirme" name="confirme" required>
+                                <label for="nomeMaterno">Nome Materno:</label>
+                                <input type="text" id="nomeMaterno" required  name="nomeMaterno"/>
+
+                                <label for="senha">Senha:</label>
+                                <input type="password" id="senha" required minlength="8" name="senha" />
+
+                                <label for="confirmSenha">Confirmação da Senha:</label>
+                                <input type="password" id="confirmSenha" required minlength="8" />
 
                                 <div class="birth">
                                     <div class="birth-input1">
-                                        <label for="nasc">Data de Nascimento</label>
-                                        <input type="date" id="nasc" name="nasc" required>
+                                        <label for="dataNascimento">Data de Nascimento:</label>
+                                        <input type="date" id="dataNascimento" required  name="dataNascimento"/>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <div class="gender-inputs">
-                        <div class="gender-itens">
+                            <div class="input-box2">
+                                <label for="telefoneFixo">Telefone Fixo:</label>
+                                <input type="text" id="telefoneFixo" placeholder="(+21)xx-xxxxxxxx" required pattern="\+[0-9]{2}\[0-9]{2}-[0-9]{8}" name="telefoneFixo" />
 
-                            
-                            <p>Gênero:</p>
-                            <div class="gender-box1">
-                                
-                                <div class="gender-input">
-                                    <label for="famele">Feminino</label>
-                                    <input type="radio" id="famele" name="gender">
-                                </div>
+                                <label for="telefoneCelular">Telefone Celular:</label>
+                                <input type="text" id="telefoneCelular" placeholder="(+21)xx-xxxxxxxx" required pattern="\+[0-9]{2}\[0-9]{2}-[0-9]{8}" name="telefoneCelular" />
 
-                                <div class="gender-input">
-                                    <label for="mele">Masculino</label>
-                                    <input type="radio" id="mele" name="gender">
-                                </div>
-                            </div>
-                            <div class="gender-box2">
-                                <div class="gender-input">
-                                    <label for="others">Outro</label>
-                                    <input type="radio" id="others" name="gender">
-                                </div>
+                                <label for="endereco">Endereço Completo:</label>
+                                <input type="text" id="endereco" required name="endereco" />
 
-                                <div class="gender-input">
-                                    <label for="none">Prefiro não dizer</label>
-                                    <input type="radio" id="none" name="gender">
-                                </div>
+                                <label for="complemento">Complemento:   </label>
+                                <input type="text" id="complemento" placeholder="Casa, Apartamento, etc. "  required name="complemento">
+
+                                <label for="sexo">Sexo:</label>
+                                <select id="sexo" required name="sexo">
+                                    <option value="masculino">Masculino</option>
+                                    <option value="feminino">Feminino</option>
+                                    <option value="Outros">Outros</option>
+                                    <option value="PrefiroNaoDizer">Prefiro Nao Dizer</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                     <div class="cadastrar">
-                        <input type="submit" value="CADASTRAR" onclick="verificar(this.form)">
-                    </div>
+                         <input  value="CADASTRAR" type="submit" id="enviarButton">
+                         <input value="Limpar" id="limparButton">
+                    </div>      
                 </form>
             </div>
         </div>
     </main>
-    <script src="JavaScript/Cadastro.js"></script>
+
+    <script>
+    // Função para formatar o CPF
+    function formatarCPF(cpf) {
+        return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+    }
+
+    // Função para formatar o telefone (celular e fixo)
+    function formatarTelefone(telefone) {
+        return telefone.replace(/(\+\d{2})(\d{2})(\d{8})/, '$1 $2-$3');
+    }
+
+    // Função para formatar campos enquanto o usuário digita
+    function formatarCampos() {
+        const cpfInput = document.getElementById("cpf");
+        const telefoneCelularInput = document.getElementById("telefoneCelular");
+        const telefoneFixoInput = document.getElementById("telefoneFixo");
+
+        cpfInput.value = formatarCPF(cpfInput.value);
+        telefoneCelularInput.value = formatarTelefone(telefoneCelularInput.value);
+        telefoneFixoInput.value = formatarTelefone(telefoneFixoInput.value);
+    }
+
+
+    document.getElementById("cpf").addEventListener("input", formatarCampos);
+    document.getElementById("telefoneCelular").addEventListener("input", formatarCampos);
+    document.getElementById("telefoneFixo").addEventListener("input", formatarCampos);
+
+    document.getElementById("enviarButton").addEventListener("click", function () {
+    if (document.getElementById("senha").value !== document.getElementById("confirmSenha").value) {
+        alert("As senhas não coincidem.");
+    }
+});
+
+
+document.getElementById("limparButton").addEventListener("click", function () {
+    document.getElementById("registrationForm").reset();
+});
+
+    
+    </script>
     <script src="./assets/JavaScript/Darkmode.js"></script>
 
 </body>
