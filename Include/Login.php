@@ -16,7 +16,4 @@ require 'connection.php';
 $minhaConexao = new mysql();
 $minhaConexao->search($email, $senha);
 
-
-
-
 ?>

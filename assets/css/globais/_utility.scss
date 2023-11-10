@@ -99,8 +99,28 @@ h2 {
   border: none;
   display: inline-block;
   cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
 
   &:hover {
     background: linear-gradient(180deg, #b72735 0%, #851621 100%);
+  }
+}
+
+.btn-secundario {
+  color: #fff6f9;
+  padding: 10px 20px;
+  margin-top: 20px;
+  background: linear-gradient(180deg, #196499 0%, #0d4e7c 100%);
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+
+  &:hover {
+    background: linear-gradient(180deg, #0a4773 0%, #073d63 100%);
   }
 }

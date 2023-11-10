@@ -15,11 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo$login = $_POST["login"];
     echo$senha = md5($_POST["senha"]);
 
-
-
-    $servername = "172.22.0.4";
+    $servername = "localhost";
     $username = "root";
-    $password = "root";
+    $password = "";
     $databaseU = 'Telecall';
 
     $conn = new mysqli($servername, $username, $password,$databaseU);
@@ -35,5 +33,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Erro: " . $sql . "<br>" . $conn->error;
     }
-
 }

@@ -57,16 +57,16 @@ session_start();
 
                                 <label for="confirmSenha">Confirmação da Senha:</label>
                                 <input type="password" id="confirmSenha" required minlength="8" />
+                            </div>
 
+                            <div class="input-box2">
                                 <div class="birth">
                                     <div class="birth-input1">
                                         <label for="dataNascimento">Data de Nascimento:</label>
                                         <input type="date" id="dataNascimento" required  name="dataNascimento"/>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="input-box2">
                                 <label for="telefoneFixo">Telefone Fixo:</label>
                                 <input type="text" id="telefoneFixo" placeholder="(+21)xx-xxxxxxxx" required pattern="\+[0-9]{2}\[0-9]{2}-[0-9]{8}" name="telefoneFixo" />
 
@@ -80,7 +80,7 @@ session_start();
                                 <input type="text" id="complemento" placeholder="Casa, Apartamento, etc. "  required name="complemento">
 
                                 <label for="sexo">Sexo:</label>
-                                <select id="sexo" required name="sexo">
+                                <select class="sexo" id="sexo" required name="sexo">
                                     <option value="masculino">Masculino</option>
                                     <option value="feminino">Feminino</option>
                                     <option value="Outros">Outros</option>
@@ -89,9 +89,9 @@ session_start();
                             </div>
                         </div>
                     </div>
-                    <div class="cadastrar">
-                         <input  value="CADASTRAR" type="submit" id="enviarButton">
-                         <input value="Limpar" id="limparButton">
+                    <div class="cadastrar-btns">
+                         <button class="btn-primario" type="submit" value="CADASTRAR" id="enviarButton">Cadastrar</button>
+                         <button class="btn-secundario" type="submit" value="Limpar" id="limparButton">Limpar</button>
                     </div>      
                 </form>
             </div>

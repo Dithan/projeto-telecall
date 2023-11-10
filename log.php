@@ -17,8 +17,8 @@ session_start();
     <!-- Inclui Header -->
     <?php include('./estrutura/header.php');
      include_once 'Include/connection.php';
-     $minhaConexao = new mysql();
-     $minhaConexao->create();
+     $minhaConexao = new mysqldb();
+     $minhaConexao->Create_Db();
     ?>
 
     <section class="login-section container">

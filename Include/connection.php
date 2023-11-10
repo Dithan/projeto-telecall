@@ -3,14 +3,14 @@
 //Classe Gerencia 
 class mysqldb
 {   //Docker
-    public static $servername = "172.22.0.4";
-    public static $username = "root";
-    public static $password = "root";
+    // public static $servername = "172.22.0.4";
+    // public static $username = "root";
+    // public static $password = "root";
 
     //Xammp
-    // public static $servername = "localhost";
-    // public static $username = "root";
-    // public static $password = " ";
+     public static $servername = "localhost";
+     public static $username = "root";
+     public static $password = "";
     
   
 
