@@ -4,7 +4,7 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se o campo "senha" foi preenchido
     if (isset($_POST["senha"])) {
-         $email = $_POST["email"];
+         $nome = $_POST["nome"];
          $senha = $_POST['senha'];
     }
 } else {
@@ -13,7 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 require 'connection.php';
-$minhaConexao = new mysql();
-$minhaConexao->search($email, $senha);
+$minhaConexao = new mysqldb();
+$minhaConexao->Login_Usuario($nome, $senha);
+
+
+
+
 
 ?>
