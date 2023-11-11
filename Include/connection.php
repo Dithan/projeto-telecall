@@ -75,6 +75,9 @@ class mysqldb
             }
         }
         else{
+            // //Xampp
+            // header('location: http://localhost:8080/projeto-telecall');
+            // exit;
             header('location: http://localhost:8080/projeto-telecall');
             exit;
         }
@@ -110,7 +113,6 @@ class mysqldb
 class mysqldbUsuario extends mysqldb {
 
     public static $databaseU = 'Telecall';
-    $conn = new mysqli(self::$servername, self::$username, self::$password);
 
     public function Login_Usuario($NomeUsuario,$SenhaUsuario){
         $conn = new mysqli(self::$servername, self::$username, self::$password, self::$databaseU);
@@ -128,7 +130,7 @@ class mysqldbUsuario extends mysqldb {
             }
         }
         else{
-            $minhaConexao = new mysqldb()
+            $minhaConexao = new mysqldb();
             $minhaConexao ->SearchLogin_Gerencia($NomeUsuario,$SenhaUsuario);
             // header('location: http://localhost:8080/projeto-telecall');
             // exit;
@@ -147,6 +149,9 @@ class mysqldbUsuario extends mysqldb {
         if ($conn->query($result) === TRUE) {
             header('location: http://localhost:8080/projeto-telecall/log.php');
             exit;
+            //Xampp
+            // header('location: /projeto-telecall/log.php');
+            // exit;
         } else {
             echo 'Erro 404 Tente novamento mais Tarde';
             echo "Erro: " . $sql . "<br>" . $conn->error;
