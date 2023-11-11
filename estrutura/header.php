@@ -52,7 +52,6 @@
                         echo "<li class='log'><a href='log.php'>Já é cliente?</a></li>";
                     }
                 ?>
-        
                 <div class="dark">
                     <button><img src="./assets/media/Icons/dark_mode_FILL0_wght400_GRAD0_opsz48.svg" alt="Modo Escuro" title="Modo Escuro" id="dark2"></button>
                 </div>
