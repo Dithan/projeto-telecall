@@ -19,6 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit;
 }
 
-
+require 'connection.php';
+$minhaConexao = new mysql();
+$minhaConexao->search($email, $senha);
 
 ?>
