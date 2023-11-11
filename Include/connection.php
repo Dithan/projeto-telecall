@@ -99,6 +99,27 @@ class mysqldb
         }
     }
 
+    public function SearchLogin_Usuario($loginUsuario,$senhaUsuario)
+    {
+        $conn = new mysqli(self::$servername, self::$username, self::$password, self::$databaseU);
+        
+        $result = $conn->query("
+        SELECT nome,cpf FROM Usuarios WHERE '$loginUsuario' = login AND md5('$senhaUsuario') = senha;
+        ");
+        $resultcheck = mysqli_num_rows($result);
+        if ($resultcheck == 1) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                session_start();
+                $_SESSION["Usuario"] = $row['nome'];
+                header('Location: /projeto-telecall');
+                exit;
+            }
+        }
+        else{
+            header('Location: /projeto-telecall');
+            exit;
+        }
+    }
 }
 
 

@@ -27,10 +27,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     VALUES 
     ('$nome', '$dataNascimento', '$sexo', '$nomeMaterno', '$cpf', '$telefoneCelular', '$telefoneFixo', '$endereco', '$complemento' ,'$login', '$senha')";
 
-    if ($conn->query($sql) === TRUE) {
+    /* if ($conn->query($sql) === TRUE) {
         header('location: http://localhost:8080/projeto-telecall');
         exit;
     } else {
         echo "Erro: " . $sql . "<br>" . $conn->error;
+    } */
+
+    if ($conn->query($sql) === TRUE) {
+        header('Location: /projeto-telecall');
+        exit;
+    } else {
+        echo "Erro: " . $sql . "<br>" . $conn->error;
     }
+    
 }
