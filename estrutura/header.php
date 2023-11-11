@@ -44,7 +44,14 @@
                 <li><a href="numeromascara.php">Número Máscara</a></li>
                 <li><a href="google.php">Google Verified Calls</a></li>
                 <li><a href="sms.php">SMS Programável</a></li>
-                <li class="log"><a href="log.php">Já é cliente?</a></li>
+                <?php
+                    if(isset($_SESSION["Usuario"])){
+                        echo '<li><a href="./cliente/meus-dados.php">Meus Dados</a></li>
+                            <li><a href="./Include/desconectar.php">Sair</a></li>';
+                    }else{
+                        echo "<li class='log'><a href='log.php'>Já é cliente?</a></li>";
+                    }
+                ?>
         
                 <div class="dark">
                     <button><img src="./assets/media/Icons/dark_mode_FILL0_wght400_GRAD0_opsz48.svg" alt="Modo Escuro" title="Modo Escuro" id="dark2"></button>
