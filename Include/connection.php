@@ -4,14 +4,14 @@
 //Classe Gerencia 
 class mysqldb
 {   //Docker
-    public static $servername = "172.22.0.4";
+    /* public static $servername = "172.22.0.4";
     public static $username = "root";
-    public static $password = "root";
+    public static $password = "root"; */
 
     //Xammp
-    // public static $servername = "localhost";
-    // public static $username = "root";
-    // public static $password = " ";
+     public static $servername = "localhost";
+     public static $username = "root";
+     public static $password = "";
     
   
 
@@ -72,12 +72,12 @@ class mysqldb
             while ($row = mysqli_fetch_assoc($result)) {
                 session_start();
                 $_SESSION["Usuario"] = $row['nome'];
-                header('location: http://localhost:8080/projeto-telecall');
+                header('location: /projeto-telecall');
                 exit;
             }
         }
         else{
-            header('location: http://localhost:8080/projeto-telecall');
+            header('location: /projeto-telecall');
             exit;
         }
     }
@@ -100,10 +100,6 @@ class mysqldb
             );
         ");
     }
-
-
-    
-
 }
 
 
@@ -117,25 +113,25 @@ class mysqldbUsuario extends mysqldb {
         $this->conn = new mysqli(self::$servername, self::$username, self::$password, self::$databaseU);
     }
 
-    public function Login_Usuario($NomeUsuario,$SenhaUsuario){
+    public function Login_Usuario($loginUsuario,$SenhaUsuario){
         $conn = new mysqli(self::$servername, self::$username, self::$password, self::$databaseU);
         
         $result = $conn->query("
-        SELECT nome,cpf FROM Usuarios WHERE '$NomeUsuario' = nome AND md5('$SenhaUsuario') = senha;
+        SELECT nome,cpf FROM Usuarios WHERE '$loginUsuario' = login AND md5('$SenhaUsuario') = senha;
         ");
         $resultcheck = mysqli_num_rows($result);
         if ($resultcheck == 1) {
             while ($row = mysqli_fetch_assoc($result)) {
                 session_start();
                 $_SESSION["Usuario"] = $row['nome'];
-                header('location: http://localhost:8080/projeto-telecall');
+                header('location: /projeto-telecall');
                 exit;
             }
         }
         else{
             $minhaConexao = new mysqldb();
-            $minhaConexao ->SearchLogin_Gerencia($NomeUsuario,$SenhaUsuario);
-            // header('location: http://localhost:8080/projeto-telecall');
+            $minhaConexao ->SearchLogin_Gerencia($loginUsuario,$SenhaUsuario);
+            // header('location: /projeto-telecall');
             // exit;
         }
     }
@@ -150,13 +146,11 @@ class mysqldbUsuario extends mysqldb {
         ('$nome', '$dataNascimento', '$sexo', '$nomeMaterno', '$cpf', '$telefoneCelular', '$telefoneFixo', '$endereco', '$complemento' ,'$login', '$senha')";
 
         if ($conn->query($result) === TRUE) {
-            header('location: http://localhost:8080/projeto-telecall/log.php');
+            header('location: /projeto-telecall/log.php');
             exit;
         } else {
             echo 'Erro 404 Tente novamento mais Tarde';
             echo "Erro: " . $result . "<br>" . $conn->error;
         }
-
     }
-
 }

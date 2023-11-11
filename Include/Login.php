@@ -8,8 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $senha = $_POST['senha'];
 
         require 'connection.php';
-        $minhaConexao = new mysqldb();
-        $minhaConexao->SearchLogin_Usuario($login, $senha);
+        $minhaConexao = new mysqldbUsuario();
+        $minhaConexao->Login_Usuario($login, $senha);
     }
 
 } else {
@@ -18,9 +18,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Deu erro";
     exit;
 }
-
-require 'connection.php';
-$minhaConexao = new mysql();
-$minhaConexao->search($email, $senha);
-
 ?>
