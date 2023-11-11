@@ -14,8 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 } else {
     // REDIRECIONAR PARA PAGINA DE ERRO
-    /* header('Location: /projeto-telecall'); */
-    echo "Deu erro";
+    header('Location: /projeto-telecall/erro-login.php');
     exit;
 }
 ?>

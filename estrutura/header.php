@@ -14,9 +14,13 @@
                         <li><a href="google.php">Google Verified Calls</a></li>
                         <li><a href="sms.php">SMS Programável</a></li>
                         <?php
-
                         if(isset($_SESSION["Usuario"])){
-                            echo '<a href="Include/desconectar.php">Bem Vindo '. $_SESSION["Usuario"] . '</a>';
+                            echo '<li class="dropdown">Bem Vindo '.$_SESSION["Usuario"].'
+                                <ul class="fdx-menu-2-level">
+                                    <li><a href="./cliente/meus-dados.php">Meus Dados</a></li>
+                                    <li><a href="./Include/desconectar.php">Sair</a></li>
+                                </ul>
+                            </li>';
                         }else{
                             echo "<li class='log'><a href='log.php'>Já é cliente?</a></li>";
                         }

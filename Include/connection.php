@@ -120,19 +120,24 @@ class mysqldbUsuario extends mysqldb {
         SELECT nome,cpf FROM Usuarios WHERE '$loginUsuario' = login AND md5('$SenhaUsuario') = senha;
         ");
         $resultcheck = mysqli_num_rows($result);
-        if ($resultcheck == 1) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                session_start();
-                $_SESSION["Usuario"] = $row['nome'];
-                header('location: /projeto-telecall');
-                exit;
+        if($resultcheck){
+            if ($resultcheck == 1) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    session_start();
+                    $_SESSION["Usuario"] = $row['nome'];
+                    header('location: /projeto-telecall');
+                    exit;
+                }
             }
-        }
-        else{
-            $minhaConexao = new mysqldb();
-            $minhaConexao ->SearchLogin_Gerencia($loginUsuario,$SenhaUsuario);
-            // header('location: /projeto-telecall');
-            // exit;
+            else{
+                $minhaConexao = new mysqldb();
+                $minhaConexao ->SearchLogin_Gerencia($loginUsuario,$SenhaUsuario);
+                // header('Location: /projeto-telecall/');
+                // exit;
+            }
+        } else{
+            header('Location: /projeto-telecall/erro-login.php');
+            exit;
         }
     }
 
