@@ -1,16 +1,17 @@
 <?php
-// Criando conexao com o Banco 
+// Criando conexao com o Banco
+
 //Classe Gerencia 
 class mysqldb
 {   //Docker
-    public static $servername = "172.22.0.4";
+    /* public static $servername = "172.22.0.4";
     public static $username = "root";
-    public static $password = "root";
+    public static $password = "root"; */
 
     //Xammp
-    // public static $servername = "localhost";
-    // public static $username = "root";
-    // public static $password = " ";
+     public static $servername = "localhost";
+     public static $username = "root";
+     public static $password = "";
     
   
 
@@ -37,6 +38,7 @@ class mysqldb
     }
         
     public static $databaseG = 'Gerencia';
+    public static $databaseU = 'Telecall';
 
 
     public function create_Table_Gerencia()
@@ -70,22 +72,26 @@ class mysqldb
             while ($row = mysqli_fetch_assoc($result)) {
                 session_start();
                 $_SESSION["Usuario"] = $row['nome'];
-                header('location: http://localhost:8080/projeto-telecall');
+                header('location: /projeto-telecall');
                 exit;
             }
         }
         else{
+<<<<<<< HEAD
             // //Xampp
             // header('location: http://localhost:8080/projeto-telecall');
             // exit;
             header('location: http://localhost:8080/projeto-telecall');
+=======
+            header('location: /projeto-telecall');
+>>>>>>> 19647ce3ce6c9e2c52a0bdae9c307b9a04a6d294
             exit;
         }
     }
 
     public function create_Table_Usuario(){
-            $conn = new mysqli(self::$servername, self::$username, self::$password, self::$databaseU);
-            $result = $conn->query("
+        $conn = new mysqli(self::$servername, self::$username, self::$password, self::$databaseU);
+        $result = $conn->query("
             CREATE TABLE IF NOT EXISTS Usuarios(
             nome varchar(100) not null, 
             data_nascimento date not null , 
@@ -101,39 +107,56 @@ class mysqldb
             );
         ");
     }
-
-
-    
-
 }
 
 
 //Classe Usuario 
 
 class mysqldbUsuario extends mysqldb {
-
     public static $databaseU = 'Telecall';
+<<<<<<< HEAD
+=======
+    private $conn; // Definição da propriedade $conn
+>>>>>>> 19647ce3ce6c9e2c52a0bdae9c307b9a04a6d294
 
-    public function Login_Usuario($NomeUsuario,$SenhaUsuario){
+    public function __construct() {
+        $this->conn = new mysqli(self::$servername, self::$username, self::$password, self::$databaseU);
+    }
+
+    public function Login_Usuario($loginUsuario,$SenhaUsuario){
         $conn = new mysqli(self::$servername, self::$username, self::$password, self::$databaseU);
         
         $result = $conn->query("
-        SELECT nome,cpf FROM Usuarios WHERE '$NomeUsuario' = nome AND md5('$SenhaUsuario') = senha;
+        SELECT nome,cpf FROM Usuarios WHERE '$loginUsuario' = login AND md5('$SenhaUsuario') = senha;
         ");
         $resultcheck = mysqli_num_rows($result);
-        if ($resultcheck == 1) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                session_start();
-                $_SESSION["Usuario"] = $row['nome'];
-                header('location: http://localhost:8080/projeto-telecall');
-                exit;
+        if($resultcheck){
+            if ($resultcheck == 1) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    session_start();
+                    $_SESSION["Usuario"] = $row['nome'];
+                    header('location: /projeto-telecall');
+                    exit;
+                }
             }
+<<<<<<< HEAD
         }
         else{
             $minhaConexao = new mysqldb();
             $minhaConexao ->SearchLogin_Gerencia($NomeUsuario,$SenhaUsuario);
             // header('location: http://localhost:8080/projeto-telecall');
             // exit;
+=======
+            else{
+                $minhaConexao = new mysqldb();
+                $minhaConexao ->SearchLogin_Gerencia($loginUsuario,$SenhaUsuario);
+                // header('Location: /projeto-telecall/');
+                // exit;
+            }
+        } else{
+            header('Location: /projeto-telecall/erro-login.php');
+            exit;
+>>>>>>> 19647ce3ce6c9e2c52a0bdae9c307b9a04a6d294
         }
     }
 
@@ -147,17 +170,14 @@ class mysqldbUsuario extends mysqldb {
         ('$nome', '$dataNascimento', '$sexo', '$nomeMaterno', '$cpf', '$telefoneCelular', '$telefoneFixo', '$endereco', '$complemento' ,'$login', '$senha')";
 
         if ($conn->query($result) === TRUE) {
-            header('location: http://localhost:8080/projeto-telecall/log.php');
+            header('location: /projeto-telecall/log.php');
             exit;
             //Xampp
             // header('location: /projeto-telecall/log.php');
             // exit;
         } else {
             echo 'Erro 404 Tente novamento mais Tarde';
-            echo "Erro: " . $sql . "<br>" . $conn->error;
+            echo "Erro: " . $result . "<br>" . $conn->error;
         }
-
     }
-
 }
-

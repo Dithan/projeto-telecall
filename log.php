@@ -39,8 +39,8 @@ session_start();
                     <h1>Fazer Login</h1>
                     <form action="Include/Login.php" method="post" id="formulario">
 
-                        <label for="nome">nome</label>
-                        <input type="nome" id="email" name="nome" required>
+                        <label for="login">Login</label>
+                        <input type="text" id="login" name="login" required>
 
                         <label for="senha">Senha</label>
                         <input type="password" id="senha" name="senha" required>
