@@ -4,7 +4,7 @@
 
 .admin-content {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 313px auto;
 
   // TABLET
   @include mq(m) {
@@ -21,7 +21,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  background: $cor_primaria;
+  background: linear-gradient(180deg, #3477a7 0%, #0d4e7c 100%);
   min-height: 100vh;
   padding: 20px;
 
@@ -49,27 +49,112 @@
       font-size: 26px;
     }
   }
+
+  .admin-menu-list {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 20px;
+    width: 100%;
+
+    // TABLET
+    @include mq(m) {
+      flex-direction: row;
+      gap: 0px 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    // MOBILE
+    @include mq(s) {
+      flex-direction: row;
+      gap: 0px 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    li {
+      padding: 10px;
+      width: 100%;
+
+      // TABLET
+      @include mq(m) {
+        width: auto;
+      }
+
+      // MOBILE
+      @include mq(s) {
+        width: auto;
+      }
+    }
+
+    li a {
+      color: #fff;
+      font-size: 18px;
+    }
+
+    li a i {
+      margin-right: 5px;
+      font-size: 16px;
+    }
+  }
 }
 
 .admin-painel {
   min-height: 100vh;
   padding: 20px;
+
+  .painel-content {
+    padding: 20px;
+    background: #fff;
+  }
+
+  .header-painel {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    // MOBILE
+    @include mq(s) {
+      grid-template-columns: 1fr;
+    }
+
+    .icon-tabela {
+      color: $cor_secundaria;
+      font-size: 16px;
+      position: absolute;
+      right: 15px;
+      bottom: 10px;
+    }
+  }
 }
 
 .adimn-usuarios-table {
   display: inline-block;
   width: 100%;
+  max-width: calc(100vw - 393px);
   border-collapse: collapse;
   margin-top: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   border-radius: 8px;
-  overflow: hidden;
+  overflow-x: auto;
+
+  // TABLET
+  @include mq(m) {
+    overflow-x: auto;
+    max-width: calc(100vw - 80px);
+  }
 
   // MOBILE
   @include mq(s) {
     overflow-x: auto;
-    width: 600px;
+    max-width: calc(100vw - 80px);
+  }
+
+  tr {
   }
 
   th,
@@ -78,10 +163,15 @@
     text-align: left;
     padding: 12px;
     width: 100%;
+
+    // TABLET
+    @include mq(l) {
+      min-width: 100px;
+    }
   }
 
   th {
-    background-color: #4caf50;
+    background: linear-gradient(180deg, #3477a7 0%, #0d4e7c 100%);
     color: white;
   }
 
@@ -91,5 +181,25 @@
 
   tr:hover {
     background-color: #f1f1f1;
+  }
+
+  .delete-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+    cursor: pointer;
+
+    // MOBILE
+    @include mq(s) {
+      margin-left: 5px;
+    }
+
+    i {
+      font-size: 18px;
+      color: red;
+    }
   }
 }
