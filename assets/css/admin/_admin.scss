@@ -1,0 +1,80 @@
+.admin-body {
+  padding: 0;
+}
+
+.admin-content {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+
+  // TABLET
+  @include mq(m) {
+    grid-template-columns: 1fr;
+  }
+
+  // MOBILE
+  @include mq(s) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.admin-menu {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: $cor_primaria;
+  min-height: 100vh;
+  padding: 20px;
+
+  // TABLET
+  @include mq(m) {
+    min-height: 100px;
+  }
+
+  // MOBILE
+  @include mq(s) {
+    min-height: 100px;
+  }
+}
+
+.admin-painel {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.adimn-usuarios-table {
+  display: inline-block;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+
+  // MOBILE
+  @include mq(s) {
+    overflow-x: auto;
+    width: 600px;
+  }
+
+  th,
+  td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 12px;
+    width: 100%;
+  }
+
+  th {
+    background-color: #4caf50;
+    color: white;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+}
