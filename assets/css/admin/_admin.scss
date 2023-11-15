@@ -34,6 +34,21 @@
   @include mq(s) {
     min-height: 100px;
   }
+
+  .admin-tit {
+    color: #fff;
+    font-size: 28px;
+
+    // TABLET
+    @include mq(m) {
+      font-size: 26px;
+    }
+
+    // MOBILE
+    @include mq(s) {
+      font-size: 26px;
+    }
+  }
 }
 
 .admin-painel {
