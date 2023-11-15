@@ -7,16 +7,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $login = $_POST["login"];
         $senha = $_POST['senha'];
 
-        require 'connection.php';
-        $Connection = new mysqldbUsuario();
-        $Connection->Login_Usuario($login, $senha);
+        require '../Include/connection.php';
+        $Connection = new mysqldb();
+        $Connection->SearchLogin_Gerencia($login, $senha);
     }
 
 } else {
     //Xampp
     // header('location: /projeto-telecall');
     // exit; 
-    header('location: http://localhost:8080/projeto/erro-login.php');
+    header('location: http://localhost:8080/projeto');
     exit;
 }
 

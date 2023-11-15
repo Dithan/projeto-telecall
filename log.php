@@ -56,6 +56,8 @@ session_start();
                         <div class="cadastroii">
 
                     </form>
+                    <button class="btn-primario"><a href="admin/login.php">Administrador</a></button>
+
                 </div>
             </div>
         </div>

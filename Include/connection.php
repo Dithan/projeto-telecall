@@ -139,13 +139,13 @@ class mysqldbUsuario extends mysqldb {
                     exit;
                 }
             }
+            
+        }else {
+            header('location: http://localhost:8080/projeto/erro-login.php ');
+            exit;
         }
-        else{
-            $minhaConexao = new mysqldb();
-            $minhaConexao ->SearchLogin_Gerencia($NomeUsuario,$SenhaUsuario);
-            // header('location: http://localhost:8080/projeto-telecall');
-            // exit;
-        }
+
+        
     }
 
     public function Register_Usuario($nome ,$dataNascimento ,$sexo ,$nomeMaterno ,$cpf ,$telefoneCelular ,$telefoneFixo ,$endereco ,$complemento ,$login ,$senha){
@@ -164,8 +164,9 @@ class mysqldbUsuario extends mysqldb {
             // header('location: /projeto-telecall/log.php');
             // exit;
         } else {
-            echo 'Erro 404 Tente novamento mais Tarde';
-            echo "Erro: " . $result . "<br>" . $conn->error;
+            
+            header('location: http://localhost:8080/projeto/erro-login.php ');
+            exit;
         }
     }
 }
