@@ -64,9 +64,6 @@ class mysqldb
             Insert INTO Usuario values ('Alexandre S.', 'admin',md5('admin'), '12345678')
             ");
         }
-        
-
-
     }
 
     

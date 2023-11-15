@@ -18,7 +18,7 @@ session_start();
   <?php include('./estrutura/header.php')?>
 
   <main class="container erro-login">
-    <h1 class="titulo">Erro Inesperado</h1>
+    <h1 class="titulo">Ops, Login Não Encontrado</h1>
     <p class="texto-erro">Erro de Login, verifique seu Login e Senha e tente novamente</p>
     <a href="./log.php" class="btn-primario" type="submit">VOLTAR</a>
   </main>

@@ -1,0 +1,33 @@
+.admin-login {
+  padding: 0;
+
+  .login-section {
+    height: calc(100vh - 80px);
+  }
+}
+
+.login-fundo-admin {
+  border-radius: 5px;
+  padding: 20px;
+
+  @include mq(m) {
+    width: 400px;
+  }
+
+  @include mq(s) {
+    padding: 20px 30px;
+  }
+}
+
+.logo-admin {
+  max-width: 200px;
+  width: 100%;
+  margin: 0 auto 20px;
+
+  img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
