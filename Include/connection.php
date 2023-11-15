@@ -53,9 +53,7 @@ class mysqldb
             );
         ");
         // Criacao de admin
-        // $result = $conn->query("
-        // Insert INTO Usuario values ('Alexandre S.', 'admin@gamil.com',md5('admin'), '12345678')
-        // ");
+        $result = $conn->query("Insert INTO Usuario values ('Alexandre S.', 'admin@gmail.com',md5('admin'), '12345678')");
     }
 
     
