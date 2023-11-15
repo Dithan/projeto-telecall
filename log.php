@@ -17,10 +17,10 @@ session_start();
     <!-- Inclui Header -->
     <?php include('./estrutura/header.php');
      include_once 'Include/connection.php';
-     $Sql = new mysqldb();
+     $Connection = new mysqldb();
 
-     $Sql->Create_Db();
-     $Sql->create_Table_Gerencia();
+     $Connection->Create_Db();
+     $Connection->create_Table_Gerencia();
     ?>
 
 
@@ -56,6 +56,8 @@ session_start();
                         <div class="cadastroii">
 
                     </form>
+                    <button class="btn-primario"><a href="admin/login.php">Administrador</a></button>
+
                 </div>
             </div>
         </div>

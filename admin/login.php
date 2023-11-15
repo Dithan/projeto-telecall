@@ -31,7 +31,7 @@ session_start();
                     <figure class="logo-admin"><img src="../assets/media/imagens/telecall_logo_pq.png" alt=""></figure>
 
                     <h1>Acesso Restrito</h1>
-                    <form action="../Include/Login.php" method="post" id="formulario">
+                    <form action="LoginAdm.php" method="post" id="formulario">
 
                         <label for="login">Login</label>
                         <input type="text" id="login" name="login" required>
@@ -45,11 +45,13 @@ session_start();
                             <label for="lembrar-senha">Lembrar Senha</label>
                         </div>
 
-                        <button class="btn-primario" type="submit">ENVIAR</button>
                         
+                        <button class="btn-primario" type="submit">ENVIAR</button>
                         <div class="cadastroii">
 
                     </form>
+                    <button class="btn-primario" ><a href="../log.php">Voltar</a></button>
+
                 </div>
             </div>
         </div>
