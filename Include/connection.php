@@ -4,14 +4,14 @@
 //Classe Gerencia 
 class mysqldb
 {   //Docker
-    /* public static $servername = "172.22.0.4";
+     public static $servername = "172.22.0.3";
     public static $username = "root";
-    public static $password = "root"; */
+    public static $password = "root"; 
 
     //Xammp
-     public static $servername = "localhost";
-     public static $username = "root";
-     public static $password = "";
+    //  public static $servername = "localhost";
+    //  public static $username = "root";
+    //  public static $password = "";
     
   
 
@@ -52,10 +52,21 @@ class mysqldb
             cpf int primary key not null
             );
         ");
-        // Criacao de admin
-        // $result = $conn->query("
-        // Insert INTO Usuario values ('Alexandre S.', 'admin@gamil.com',md5('admin'), '12345678')
-        // ");
+
+        $resultdb = $conn->query("
+        SELECT * FROM Usuario;
+        ");
+        $resultcheck = mysqli_num_rows($resultdb);
+
+        if ($resultcheck == 0){
+            // Criacao de admin
+            $result = $conn->query("
+            Insert INTO Usuario values ('Alexandre S.', 'admin',md5('admin'), '12345678')
+            ");
+        }
+        
+
+
     }
 
     
@@ -72,19 +83,15 @@ class mysqldb
             while ($row = mysqli_fetch_assoc($result)) {
                 session_start();
                 $_SESSION["Usuario"] = $row['nome'];
-                header('location: /projeto-telecall');
+                header('location: /projeto');
                 exit;
             }
         }
         else{
-<<<<<<< HEAD
             // //Xampp
-            // header('location: http://localhost:8080/projeto-telecall');
+             // header('location: http://localhost:8080/projeto-telecall');
             // exit;
-            header('location: http://localhost:8080/projeto-telecall');
-=======
-            header('location: /projeto-telecall');
->>>>>>> 19647ce3ce6c9e2c52a0bdae9c307b9a04a6d294
+            header('location: http://localhost:8080/projeto');
             exit;
         }
     }
@@ -114,20 +121,16 @@ class mysqldb
 
 class mysqldbUsuario extends mysqldb {
     public static $databaseU = 'Telecall';
-<<<<<<< HEAD
-=======
-    private $conn; // Definição da propriedade $conn
->>>>>>> 19647ce3ce6c9e2c52a0bdae9c307b9a04a6d294
 
     public function __construct() {
         $this->conn = new mysqli(self::$servername, self::$username, self::$password, self::$databaseU);
     }
 
-    public function Login_Usuario($loginUsuario,$SenhaUsuario){
+    public function Login_Usuario($NomeUsuario,$SenhaUsuario){
         $conn = new mysqli(self::$servername, self::$username, self::$password, self::$databaseU);
         
         $result = $conn->query("
-        SELECT nome,cpf FROM Usuarios WHERE '$loginUsuario' = login AND md5('$SenhaUsuario') = senha;
+        SELECT nome,cpf FROM Usuarios WHERE '$NomeUsuario' = login AND md5('$SenhaUsuario') = senha;
         ");
         $resultcheck = mysqli_num_rows($result);
         if($resultcheck){
@@ -139,24 +142,12 @@ class mysqldbUsuario extends mysqldb {
                     exit;
                 }
             }
-<<<<<<< HEAD
         }
         else{
             $minhaConexao = new mysqldb();
             $minhaConexao ->SearchLogin_Gerencia($NomeUsuario,$SenhaUsuario);
             // header('location: http://localhost:8080/projeto-telecall');
             // exit;
-=======
-            else{
-                $minhaConexao = new mysqldb();
-                $minhaConexao ->SearchLogin_Gerencia($loginUsuario,$SenhaUsuario);
-                // header('Location: /projeto-telecall/');
-                // exit;
-            }
-        } else{
-            header('Location: /projeto-telecall/erro-login.php');
-            exit;
->>>>>>> 19647ce3ce6c9e2c52a0bdae9c307b9a04a6d294
         }
     }
 
