@@ -4,7 +4,7 @@
 //Classe Gerencia 
 class mysqldb
 {   //Docker
-     public static $servername = "172.22.0.3";
+     public static $servername = "172.22.0.4";
     public static $username = "root";
     public static $password = "root"; 
 
@@ -80,7 +80,7 @@ class mysqldb
             while ($row = mysqli_fetch_assoc($result)) {
                 session_start();
                 $_SESSION["Usuario"] = $row['nome'];
-                header('location: /projeto');
+                header('location: /projeto/admin/admin.php');
                 exit;
             }
         }

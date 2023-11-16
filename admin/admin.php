@@ -1,5 +1,8 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +15,12 @@
   <div class="admin-content">
     <div class="admin-menu">
       <figure class="logo-admin"><img src="../assets/media/imagens/logo_telecall_branco_vermelho_p.png" alt=""></figure>
-      <h1 class="admin-tit">Bem Vindo [Nome]</h1>
+      <h1 class="admin-tit">Bem Vindo <?php if(isset($_SESSION["Usuario"])){
+        echo $_SESSION["Usuario"];
+      }?></h1>
       <ul class="admin-menu-list">
         <li><a href="#"><i class="fas fa-solid fa-download"></i> Baixar Lista PDF</a></li>
-        <li><a href="#"><i class="fas fa-solid fa-door-open"></i> Sair</a></li>
+        <li><a href="../Include/desconectar.php"><i class="fas fa-solid fa-door-open"></i> Sair</a></li>
       </ul>
     </div>
     <div class="admin-painel">
@@ -45,28 +50,53 @@
           </tr>
 
           <?php
-            for($i = 0; $i < 10; $i++) { ?>
+            $servername = "172.22.0.4";
+            $username = "root";
+            $password = "root"; 
+            $databaseU = 'Telecall';
+            $conn = new mysqli($servername, $username, $password, $databaseU);
+
+
+      
+          $result = $conn->query("SELECT * FROM Usuarios");
+
+          $resultcheck = mysqli_num_rows($result);
+          if($resultcheck >= 1){
+            while ($row = mysqli_fetch_assoc($result)) { ?>
               <tr>
                 <!-- Exemplo de dados (substitua com dados reais do seu banco de dados) -->
-                <td class="editable" contenteditable="true" data-column="Nome">João Silva</td>
-                <td class="editable" contenteditable="true" data-column="DataNascimento">1990-01-01</td>
-                <td class="editable" contenteditable="true" data-column="Sexo">Masculino</td>
-                <td class="editable" contenteditable="true" data-column="NomeMaterno">Maria Silva</td>
-                <td class="editable" contenteditable="true" data-column="CPF">123.456.789-00</td>
-                <td class="editable" contenteditable="true" data-column="Celular">(11) 9 8765-4321</td>
-                <td class="editable" contenteditable="true" data-column="Telefone">(11) 1234-5678</td>
-                <td class="editable" contenteditable="true" data-column="Endereco">Rua Exemplo, 123</td>
-                <td class="editable" contenteditable="true" data-column="Complemento">Apt 4</td>
-                <td class="editable" contenteditable="true" data-column="Login">joao.silva</td>
-                <td class="editable" contenteditable="true" data-column="Senha">*******</td>
-                <td><button class="delete-btn"><i class="fas fa-solid fa-trash"></i></button></td>
+                <td class="editable" contenteditable="true" data-column="Nome"><?echo $row['nome'];?></td>
+                <td class="editable" contenteditable="true" data-column="DataNascimento"><?echo $row['data_nascimento'];?></td>
+                <td class="editable" contenteditable="true" data-column="Sexo"><?echo $row['sexo'];?></td>
+                <td class="editable" contenteditable="true" data-column="NomeMaterno"><?echo $row['nome_materno'];?></td>
+                <td class="editable" contenteditable="true" data-column="CPF"><?echo $row['cpf'];?></td>
+                <td class="editable" contenteditable="true" data-column="Celular"><?echo $row['telefone_celular'];?></td>
+                <td class="editable" contenteditable="true" data-column="Telefone"><?echo $row['telefone_fixo'];?></td>
+                <td class="editable" contenteditable="true" data-column="Endereco"><?echo $row['endereco'];?></td>
+                <td class="editable" contenteditable="true" data-column="Complemento"><?echo $row['complemento'];?></td>
+                <td class="editable" contenteditable="true" data-column="Login"><?echo $row['login'];?></td>
+                <td class="editable" contenteditable="true" data-column="Senha"><?echo $row['senha'];?></td>
+                <td><button class="delete-btn" onclick="confirmDelete(<?echo $row['cpf'];?>)"><i class="fas fa-solid fa-trash"></i></button></td>
               </tr>
               
-          <?php } ?>
+          <?php } 
+          }?>
         </table>
       </div>
     </div>
   </div>
-  
+  <script>
+    function confirmDelete(cpfUsuario) {
+    var resposta = confirm("Tem certeza que deseja excluir este usuário?");
+    if (resposta) {
+        // Se o usuário confirmar, redirecione para um script PHP que lida com a exclusão
+        window.location.href = "deletar.php?id=" + cpfUsuario;
+    } else {
+        // Caso contrário, não faça nada
+        alert("Usuário não excluído.");
+    }
+}
+
+  </script>
 </body>
 </html>
