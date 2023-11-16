@@ -15,8 +15,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = md5($_POST["senha"]);
 
 
-    
+
     require 'connection.php';
-    $minhaConexao = new mysqldbUsuario();
-    $minhaConexao->Register_Usuario($nome ,$dataNascimento ,$sexo ,$nomeMaterno ,$cpf ,$telefoneCelular ,$telefoneFixo ,$endereco ,$complemento ,$login ,$senha);
+
+    $Sql = new mysqldbUsuario();
+    $Sql->Register_Usuario($nome, $dataNascimento, $sexo, $nomeMaterno, $cpf, $telefoneCelular, $telefoneFixo, $endereco, $complemento, $login, $senha);
+} else {
+    //Xampp
+    // header('location: /projeto-telecall');
+    // exit; 
+    header('location: http://localhost:8080/projeto/erro-login.php');
+    exit;
 }
