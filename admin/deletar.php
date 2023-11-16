@@ -1,22 +1,18 @@
 <?php
+session_start();
 
-$servername = "172.22.0.4";
-$username = "root";
-$password = "root"; 
-$databaseU = 'Telecall';
-$conn = new mysqli($servername, $username, $password, $databaseU);
+if (isset($_SESSION["Usuario"])) {
 
-$idUsuario = $_GET['id'];;
+    include_once '../Include/connection.php';
 
-$sql = "DELETE FROM Usuarios WHERE cpf = $idUsuario";
+    $Sql = new Conn("172.22.0.4", "root", "root", "Telecall");
 
-if ($conn->query($sql) === TRUE) {
+    $CpfUsuario = $_GET['cpf'];
+ if ($Sql->deleteUser($CpfUsuario)=== TRUE) {
     header('location: /projeto/admin/admin.php');
-    exit;
+    exit;  // Certifique-se de encerrar a execução do script após o redirecionamento
 } else {
     header('location: /projeto/erro-login.php');
     exit;
 }
-
-
-?>
+}

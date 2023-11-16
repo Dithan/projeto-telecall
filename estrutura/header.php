@@ -17,7 +17,7 @@
                         if(isset($_SESSION["Usuario"])){
                             echo '<li class="dropdown">Bem Vindo '.$_SESSION["Usuario"].'
                                 <ul class="fdx-menu-2-level">
-                                    <li><a href="./cliente/meus-dados.php">Meus Dados</a></li>
+                                    <li><a href="./admin/admin.php">Meus Dados</a></li>
                                     <li><a href="./Include/desconectar.php">Sair</a></li>
                                 </ul>
                             </li>';
@@ -46,7 +46,7 @@
                 <li><a href="sms.php">SMS Programável</a></li>
                 <?php
                     if(isset($_SESSION["Usuario"])){
-                        echo '<li><a href="./cliente/meus-dados.php">Meus Dados</a></li>
+                        echo '<li><a href="./admin/admin.php">Meus Dados</a></li>
                             <li><a href="./Include/desconectar.php">Sair</a></li>';
                     }else{
                         echo "<li class='log'><a href='log.php'>Já é cliente?</a></li>";

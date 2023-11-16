@@ -15,12 +15,17 @@ session_start();
 
 <body>
     <!-- Inclui Header -->
-    <?php include('./estrutura/header.php');
-     include_once 'Include/connection.php';
-     $Connection = new mysqldb();
+    <?php
+    include('./estrutura/header.php');
 
-     $Connection->Create_Db();
-     $Connection->create_Table_Gerencia();
+    include_once 'Include/connection.php';
+
+    $Sql = new Conn("172.22.0.4", "root", "root");
+
+    $Sql->Create_Dbs();
+    $Sql->create_Table_Usuario();
+    $Sql->Create_Table_Gerencia();
+
     ?>
 
 
@@ -52,7 +57,7 @@ session_start();
                         </div>
 
                         <button class="btn-primario" type="submit">ENVIAR</button>
-                        
+
                         <div class="cadastroii">
 
                     </form>
@@ -68,6 +73,6 @@ session_start();
 
 </body>
 <!-- Inclui Footer -->
-<?php include('./estrutura/footer.php')?>
+<?php include('./estrutura/footer.php') ?>
 
 </html>

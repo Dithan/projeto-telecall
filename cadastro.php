@@ -16,8 +16,8 @@ session_start();
     <!-- Inclui Header -->
     <?php include('./estrutura/header.php');
      include_once 'Include/connection.php';
-     $Sql = new mysqldb();
-     $Sql->create_Table_Usuario();
+     $Sql = new mysqldbUsuario();
+   
      
      ?>
 
