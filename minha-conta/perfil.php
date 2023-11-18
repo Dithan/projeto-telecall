@@ -31,62 +31,60 @@ if (isset($_SESSION["Usuario"])) {
               <h2>Editar Dados</h2>
             </div>
 
-            <table class="adimn-usuarios-table usuarios-table">
-              <tr>
-                <th>Nome</th>
-                <th>Data de Nascimento</th>
-                <th>Sexo</th>
-                <th>Nome Materno</th>
-                <th>Celular</th>
-              </tr>
+            <form class="form-usuario" action="">
 
-              <!-- <?php
-              include_once '../Include/connection.php';
+              <div class="row-form">
+                <div>
+                  <label for="nome">Nome</label>
+                  <input type="text" id="nome" name="nome" value="Thiago">
+                </div>
 
-              $Sql = new Conn(HOST, USER, PASS, "Telecall");
+                <div>
+                  <label for="nasc">Data de Nascimento</label>
+                  <input type="text" id="nasc" name="nasc" value="13-11-2000">
+                </div>
+              </div>
 
-              $result = $Sql->getQueryAdmin();
+              <div class="row-form">
+                <div>
+                  <label for="sexo">Sexo</label>
+                  <input type="text" id="sexo" name="sexo" value="Masculino">
+                </div>
 
-              $resultcheck = mysqli_num_rows($result);
-              if ($resultcheck >= 1) {
-                while ($row = mysqli_fetch_assoc($result)) { ?> -->
-                  <tr>
-                    <!-- Exemplo de dados (substitua com dados reais do seu banco de dados) -->
-                    <td class="editable" contenteditable="true" data-column="Nome"><? echo $row['nome']; ?></td>
-                    <td class="editable" contenteditable="true" data-column="DataNascimento"><? echo $row['data_nascimento']; ?></td>
-                    <td class="editable" contenteditable="true" data-column="Sexo"><? echo $row['sexo']; ?></td>
-                    <td class="editable" contenteditable="true" data-column="NomeMaterno"><? echo $row['nome_materno']; ?></td>
-                    <td class="editable" contenteditable="true" data-column="Celular"><? echo $row['telefone_celular']; ?></td>
-                  </tr>
+                <div>
+                  <label for="nome-materno">Nome Materno</label>
+                  <input type="text" id="nome-materno" name="nome-materno" value="Maria">
+                </div>
+              </div>
 
-              <!-- <?php }
-              } ?> -->
-            </table>
-            <table class="adimn-usuarios-table usuarios-table">
-              <tr>
-                <th>Telefone</th>
-                <th>Endereço</th>
-                <th>Complemento</th>
-              </tr>
+              <div class="row-form">
+                <div>
+                  <label for="cel">Celular</label>
+                  <input type="tel" id="cel" name="cel" value="21 9999-9999">
+                </div>
 
-              <?php
-              include_once '../Include/connection.php';
+                <div>
+                  <label for="tel">Telefone</label>
+                  <input type="text" id="tel" name="tel" value="21 8888-8888">
+                </div>
+              </div>
 
-              $Sql = new Conn(HOST, USER, PASS, "Telecall");
+              <div class="row-form">
+                <div>
+                  <label for="endereco">Endereço</label>
+                  <input type="text" id="endereco" name="endereco" value="Rua Gastão Rangel">
+                </div>
 
-              $result = $Sql->getQueryAdmin();
+                <div>
+                  <label for="complemento">Complemento</label>
+                  <input type="text" id="complemento" name="complemento" value="apartamento 00"> 
+                </div>
+              </div>
 
-              $resultcheck = mysqli_num_rows($result);
-              if ($resultcheck >= 1) {
-                while ($row = mysqli_fetch_assoc($result)) { ?>
-                  <tr>
-                    <td class="editable" contenteditable="true" data-column="Telefone"><? echo $row['telefone_fixo']; ?></td>
-                    <td class="editable" contenteditable="true" data-column="Endereco"><? echo $row['endereco']; ?></td>
-                    <td class="editable" contenteditable="true" data-column="Complemento"><? echo $row['complemento']; ?></td>
-                  </tr>
-                <?php }
-              } ?>
-            </table>
+              <div class="btn-container">
+                <button class="btn-primario">Salvar</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>

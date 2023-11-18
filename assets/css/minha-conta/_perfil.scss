@@ -1,13 +1,41 @@
-.usuarios-table {
-  th,
-  td {
-    width: 100%;
+.form-usuario {
+  margin-bottom: 40px;
+  .row-form {
+    max-width: 600px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 20px;
 
     // TABLET
-    @include mq(l) {
-      min-width: 200px;
-      max-width: 300px !important;
-      width: 300px;
+    @include mq(m) {
+      max-width: 100%;
+    }
+
+    // MOBILE
+    @include mq(s) {
+      max-width: 100%;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  input {
+    width: 100%;
+  }
+
+  label {
+    margin-top: 0;
+  }
+
+  .btn-container {
+    // TABLET
+    @include mq(m) {
+      text-align: center;
+    }
+
+    // MOBILE
+    @include mq(s) {
+      text-align: center;
     }
   }
 }

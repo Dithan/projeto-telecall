@@ -31,31 +31,32 @@ if (isset($_SESSION["Usuario"])) {
               <h2>Configurações de Conta</h2>
             </div>
 
-            <table class="adimn-usuarios-table usuarios-table">
-              <tr>
-                <th>Login</th>
-                <th>Senha</th>
-                <th>CPF</th>
-              </tr>
+            <form class="form-usuario" action="">
 
-              <!-- <?php
-              include_once '../Include/connection.php';
+              <div class="row-form">
+                <div>
+                  <label for="login">Login</label>
+                  <input type="text" id="login" name="login" value="Thiago">
+                </div>
 
-              $Sql = new Conn(HOST, USER, PASS, "Telecall");
+                <div>
+                  <label for="senha">Senha</label>
+                  <input type="text" id="senha" name="senha" value="12345678">
+                </div>
+              </div>
 
-              $result = $Sql->getQueryAdmin();
+              <div class="row-form">
+                <div>
+                  <label for="cpf">CPF</label>
+                  <input type="text" id="cpf" name="cpf" value="12345678998">
+                </div>
+              </div>
 
-              $resultcheck = mysqli_num_rows($result);
-              if ($resultcheck >= 1) {
-                while ($row = mysqli_fetch_assoc($result)) { ?> -->
-                  <tr>
-                    <td class="editable" contenteditable="true" data-column="Login"><? echo $row['login']; ?></td>
-                    <td class="editable" contenteditable="true" data-column="Senha"><? echo $row['senha']; ?></td>
-                    <td class="editable" contenteditable="true" data-column="CPF"><? echo $row['cpf']; ?></td>
-                  </tr>
-              <!-- <?php }
-              } ?> -->
-            </table>
+              <div class="btn-container">
+                <button class="btn-primario">Salvar</button>
+              </div>
+            </form>
+
             <div class="encerrar">
               <h2>Encerrar Conta</h2>
               <li><button class="delete-btn" onclick="confirmDelete(<?php echo $row['cpf']; ?>)"><i class="fas fa-solid fa-trash"></i>Encerrar</button></li>
