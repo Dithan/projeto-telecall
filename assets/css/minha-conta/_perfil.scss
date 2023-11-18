@@ -1,0 +1,13 @@
+.usuarios-table {
+  th,
+  td {
+    width: 100%;
+
+    // TABLET
+    @include mq(l) {
+      min-width: 200px;
+      max-width: 300px !important;
+      width: 300px;
+    }
+  }
+}

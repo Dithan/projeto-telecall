@@ -31,13 +31,12 @@ if (isset($_SESSION["Usuario"])) {
               <h2>Editar Dados</h2>
             </div>
 
-            <table class="adimn-usuarios-table">
+            <table class="adimn-usuarios-table usuarios-table">
               <tr>
                 <th>Nome</th>
                 <th>Data de Nascimento</th>
                 <th>Sexo</th>
                 <th>Nome Materno</th>
-                <th>CPF</th>
                 <th>Celular</th>
               </tr>
 
@@ -57,20 +56,17 @@ if (isset($_SESSION["Usuario"])) {
                     <td class="editable" contenteditable="true" data-column="DataNascimento"><? echo $row['data_nascimento']; ?></td>
                     <td class="editable" contenteditable="true" data-column="Sexo"><? echo $row['sexo']; ?></td>
                     <td class="editable" contenteditable="true" data-column="NomeMaterno"><? echo $row['nome_materno']; ?></td>
-                    <td class="editable" contenteditable="true" data-column="CPF"><? echo $row['cpf']; ?></td>
                     <td class="editable" contenteditable="true" data-column="Celular"><? echo $row['telefone_celular']; ?></td>
                   </tr>
 
               <!-- <?php }
               } ?> -->
             </table>
-            <table class="adimn-usuarios-table">
+            <table class="adimn-usuarios-table usuarios-table">
               <tr>
                 <th>Telefone</th>
                 <th>Endereço</th>
                 <th>Complemento</th>
-                <th>Login</th>
-                <th>Senha</th>
               </tr>
 
               <?php
@@ -87,8 +83,6 @@ if (isset($_SESSION["Usuario"])) {
                     <td class="editable" contenteditable="true" data-column="Telefone"><? echo $row['telefone_fixo']; ?></td>
                     <td class="editable" contenteditable="true" data-column="Endereco"><? echo $row['endereco']; ?></td>
                     <td class="editable" contenteditable="true" data-column="Complemento"><? echo $row['complemento']; ?></td>
-                    <td class="editable" contenteditable="true" data-column="Login"><? echo $row['login']; ?></td>
-                    <td class="editable" contenteditable="true" data-column="Senha"><? echo $row['senha']; ?></td>
                   </tr>
                 <?php }
               } ?>
