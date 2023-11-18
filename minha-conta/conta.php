@@ -36,34 +36,35 @@ if (isset($_SESSION["Usuario"])) {
                 <th>Login</th>
                 <th>Senha</th>
                 <th>CPF</th>
+                
               </tr>
 
-              <!-- <?php
-              include_once '../Include/connection.php';
-
-              $Sql = new Conn(HOST, USER, PASS, "Telecall");
-
-              $result = $Sql->getQueryAdmin();
-
-              $resultcheck = mysqli_num_rows($result);
-              if ($resultcheck >= 1) {
-                while ($row = mysqli_fetch_assoc($result)) { ?> -->
                   <tr>
-                    <td class="editable" contenteditable="true" data-column="Login"><? echo $row['login']; ?></td>
-                    <td class="editable" contenteditable="true" data-column="Senha"><? echo $row['senha']; ?></td>
-                    <td class="editable" contenteditable="true" data-column="CPF"><? echo $row['cpf']; ?></td>
+                    <td class="editable" contenteditable="true" data-column="Login"><? echo $_SESSION["Login"]; ?></td>
+                    <td class="editable" contenteditable="true" data-column="Senha"></td>
+                    <td class="editable" contenteditable="true" data-column="CPF"><? echo $_SESSION['Cpf']; ?></td>
+                    
                   </tr>
-              <!-- <?php }
-              } ?> -->
+              
             </table>
             <div class="encerrar">
               <h2>Encerrar Conta</h2>
-              <li><button class="delete-btn" onclick="confirmDelete(<?php echo $row['cpf']; ?>)"><i class="fas fa-solid fa-trash"></i>Encerrar</button></li>
+              <li><button class="delete-btn" onclick="confirmDelete(<?php echo $_SESSION['Cpf']; ?>)"><i class="fas fa-solid fa-trash"></i>Encerrar</button></li>
             </div>
           </div>
         </div>
       </div>
       <script>
+        function confirmDelete(cpfUsuario) {
+          var resposta = confirm("Tem certeza que deseja excluir este usuário?");
+          if (resposta) {
+            // Se o usuário confirmar, redirecione para um script PHP que lida com a exclusão
+            window.location.href = "../admin/deletar.php?cpf=" + cpfUsuario;
+          } else {
+            // Caso contrário, não faça nada
+            alert("Usuário não excluído.");
+          }
+        }
       </script>
     </body>
 

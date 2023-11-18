@@ -40,32 +40,52 @@ if (isset($_SESSION["Usuario"])) {
                 <th>Celular</th>
               </tr>
 
-             
+              <!-- <?php
+              include_once '../Include/connection.php';
+
+              $Sql = new Conn(HOST, USER, PASS, "Telecall");
+
+              $result = $Sql->getQueryAdmin();
+
+              $resultcheck = mysqli_num_rows($result);
+              if ($resultcheck >= 1) {
+                while ($row = mysqli_fetch_assoc($result)) { ?> -->
                   <tr>
                     <!-- Exemplo de dados (substitua com dados reais do seu banco de dados) -->
-                    <td class="editable" contenteditable="true" data-column="Nome"><? echo $_SESSION['nome']; ?></td>
-                    <td class="editable" contenteditable="true" data-column="Data_de_nascimento"><? echo $_SESSION["data_nascimento"]; ?></td>
-                    <td class="editable" contenteditable="true" data-column="Sexo"><? echo $_SESSION['sexo']; ?></td>
-                    <td class="editable" contenteditable="true" data-column="NomeMaterno"><? echo $_SESSION['nome_materno']; ?></td>
-                    <td class="editable" contenteditable="true" data-column="Celular"><? echo $_SESSION['telefone_celular']; ?></td>
+                    <td class="editable" contenteditable="true" data-column="Nome"><? echo $row['nome']; ?></td>
+                    <td class="editable" contenteditable="true" data-column="DataNascimento"><? echo $row['data_nascimento']; ?></td>
+                    <td class="editable" contenteditable="true" data-column="Sexo"><? echo $row['sexo']; ?></td>
+                    <td class="editable" contenteditable="true" data-column="NomeMaterno"><? echo $row['nome_materno']; ?></td>
+                    <td class="editable" contenteditable="true" data-column="Celular"><? echo $row['telefone_celular']; ?></td>
                   </tr>
 
-              
+              <!-- <?php }
+              } ?> -->
             </table>
             <table class="adimn-usuarios-table usuarios-table">
               <tr>
-              
-                <th>Telefone Fixo</th>
+                <th>Telefone</th>
                 <th>Endereço</th>
                 <th>Complemento</th>
               </tr>
+
+              <?php
+              include_once '../Include/connection.php';
+
+              $Sql = new Conn(HOST, USER, PASS, "Telecall");
+
+              $result = $Sql->getQueryAdmin();
+
+              $resultcheck = mysqli_num_rows($result);
+              if ($resultcheck >= 1) {
+                while ($row = mysqli_fetch_assoc($result)) { ?>
                   <tr>
-                  
-                    <td class="editable" contenteditable="true" data-column="Telefone_fixo"><? echo $_SESSION["telefone_fixo"]; ?></td>
-                    <td class="editable" contenteditable="true" data-column="Endereco"><? echo $_SESSION['endereco']; ?></td>
-                    <td class="editable" contenteditable="true" data-column="Complemento"><? echo $_SESSION['complemento']; ?></td>
+                    <td class="editable" contenteditable="true" data-column="Telefone"><? echo $row['telefone_fixo']; ?></td>
+                    <td class="editable" contenteditable="true" data-column="Endereco"><? echo $row['endereco']; ?></td>
+                    <td class="editable" contenteditable="true" data-column="Complemento"><? echo $row['complemento']; ?></td>
                   </tr>
-               
+                <?php }
+              } ?>
             </table>
           </div>
         </div>

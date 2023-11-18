@@ -81,7 +81,9 @@ class Conn
             nome varchar(100),
             usuario varchar(100),
             senha varchar(100),
+            admin bool,
             cpf int primary key not null
+
             );
         ");
 
@@ -94,7 +96,7 @@ class Conn
         if ($resultcheck == 0) {
             // Criacao de admin
             $result = $this->conn->query("
-            Insert INTO Usuario values ('Alexandre S.', 'admin',md5('admin'), '12345678')
+            Insert INTO Usuario values ('Alexandre S.', 'admin',md5('admin'),1, '12345678')
             ");
         }
     }
@@ -156,13 +158,14 @@ class mysqldb
         $conn = new mysqli($this->connection->getServerName(), $this->connection->getUserName(), $this->connection->getPassword(), $this->connection->getDatabase());
 
         $result = $conn->query("
-        SELECT nome,cpf FROM Usuario WHERE '$NomeUsuarioGerente' = usuario AND md5('$SenhaUsuarioGerente') = senha;
+        SELECT nome,cpf,admin FROM Usuario WHERE '$NomeUsuarioGerente' = usuario AND md5('$SenhaUsuarioGerente') = senha;
         ");
         $resultcheck = mysqli_num_rows($result);
         if ($resultcheck == 1) {
             while ($row = mysqli_fetch_assoc($result)) {
                 session_start();
                 $_SESSION["Usuario"] = $row['nome'];
+                $_SESSION["admin"] = $row['admin'];
                 header('location: '. URL);
                 exit;
             }
@@ -195,7 +198,7 @@ class mysqldbUsuario
         $conn = new mysqli($this->connection->getServerName(), $this->connection->getUserName(), $this->connection->getPassword(), $this->connection->getDatabase());
 
         $result = $conn->query("
-        SELECT nome,cpf FROM Usuarios WHERE '$NomeUsuario' = login AND md5('$SenhaUsuario') = senha;
+        SELECT * FROM Usuarios WHERE '$NomeUsuario' = login AND md5('$SenhaUsuario') = senha;
         ");
         $resultcheck = mysqli_num_rows($result);
         if ($resultcheck) {
@@ -203,6 +206,13 @@ class mysqldbUsuario
                 while ($row = mysqli_fetch_assoc($result)) {
                     session_start();
                     $_SESSION["Usuario"] = $row['nome'];
+                    $_SESSION["Login"] = $row['login'];
+                    $_SESSION["Cpf"] = $row['cpf'];
+                    $_SESSION["data_nascimento"]= $row['data_nascimento'];;
+                    $_SESSION['telefone_celular']= $row['telefone_celular'];
+                    $_SESSION["telefone_fixo"]= $row['telefone_fixo'];; 
+                    $_SESSION['endereco']= $row['endereco'];; 
+                    $_SESSION['complemento']= $row['complemento'];; 
                     header('location: '. URL);
                     exit;
                 }
