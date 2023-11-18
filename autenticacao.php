@@ -21,8 +21,8 @@
 
             <div class="container-form">
                 <form>
-                    <label for="redefinir">Email</label>
-                    <input type="email" id="redefinir" name="redefinir" required>
+                    <label for="2faCliente">Qual o nome da sua mãe?</label>
+                    <input type="resposta" id="2faCliente" name="2faCliente" required>
                     <br>
                     <!--Definir botão para submit-->
                     <div class="enviar">
