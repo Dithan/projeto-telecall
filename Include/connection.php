@@ -36,7 +36,8 @@ class Conn
 
         //conectando no banco
         if ($this->conn->connect_error) {
-            header('location: http://localhost:8080/projeto/nao-encontrado.php');
+            /* header('location: http://localhost:8080/projeto/nao-encontrado.php'); */
+            header('location: '. URL .'nao-encontrado.php');
             exit;
         }
     }
@@ -61,7 +62,8 @@ class Conn
             );
         ");
         if ($this->conn->connect_error) {
-            header('location: http://localhost:8080/projeto/nao-encontrado.php');
+            /* header('location: http://localhost:8080/projeto/nao-encontrado.php'); */
+            header('location: '. URL .'nao-encontrado.php');
             exit;
         }
     }
@@ -143,7 +145,7 @@ class mysqldb
     public function __construct()
     {
         // Crie uma instância de Conn ao instanciar a classe Gerencia
-        $this->connection = new Conn("172.22.0.4", "root", "root");
+        $this->connection = new Conn(HOST, USER, PASS);
     }
 
 
@@ -161,14 +163,13 @@ class mysqldb
             while ($row = mysqli_fetch_assoc($result)) {
                 session_start();
                 $_SESSION["Usuario"] = $row['nome'];
-                header('location: /projeto');
+                header('location: '. URL);
                 exit;
             }
         } else {
-            // //Xampp
-            // header('location: http://localhost:8080/projeto-telecall');
             // exit;
-            header('location: http://localhost:8080/projeto');
+            /* header('location: http://localhost:8080/projeto'); */
+            header('location: '. URL .'erro-login.php');
             exit;
         }
     }
@@ -176,7 +177,7 @@ class mysqldb
 
 
 //Classe Usuario 
-
+include(__DIR__ . '/../conf.php');
 class mysqldbUsuario
 {
     private $connection; // Propriedade para armazenar a instância de Conn
@@ -184,7 +185,7 @@ class mysqldbUsuario
     public function __construct()
     {
         // Crie uma instância de Conn ao instanciar a classe Gerencia
-        $this->connection = new Conn("172.22.0.4", "root", "root", "Telecall");
+        $this->connection = new Conn(HOST, USER, PASS, "Telecall");
     }
 
 
@@ -202,12 +203,13 @@ class mysqldbUsuario
                 while ($row = mysqli_fetch_assoc($result)) {
                     session_start();
                     $_SESSION["Usuario"] = $row['nome'];
-                    header('location: /projeto');
+                    header('location: '. URL);
                     exit;
                 }
             }
         } else {
-            header('location: http://localhost:8080/projeto/erro-login.php ');
+            /* header('location: http://localhost:8080/projeto/erro-login.php '); */
+            header('location: '. URL .'erro-login.php');
             exit;
         }
     }
@@ -223,14 +225,15 @@ class mysqldbUsuario
         ('$nome', '$dataNascimento', '$sexo', '$nomeMaterno', '$cpf', '$telefoneCelular', '$telefoneFixo', '$endereco', '$complemento' ,'$login', '$senha')";
 
         if ($conn->query($result) === TRUE) {
-            header('location: /projeto/log.php');
+            header('location: '. URL .'log.php');
             exit;
             //Xampp
             // header('location: /projeto-telecall/log.php');
             // exit;
         } else {
 
-            header('location: http://localhost:8080/projeto/erro-login.php ');
+            /* header('location: http://localhost:8080/projeto/erro-login.php '); */
+            header('location: '. URL .'erro-login.php');
             exit;
         }
     }

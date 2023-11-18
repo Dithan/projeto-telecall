@@ -22,7 +22,7 @@
                                 </ul>
                             </li>';
                         }else{
-                            echo "<li class='log'><a href='log.php'>Já é cliente?</a></li>";
+                            echo "<li class='log'><a href='./log.php'>Já é cliente?</a></li>";
                         }
                         ?>
                         

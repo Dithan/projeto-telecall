@@ -14,9 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 } else {
     //Xampp
-    // header('location: /projeto-telecall');
     // exit; 
-    header('location: http://localhost:8080/projeto');
+    header('location: ' . URL);
     exit;
 }
 

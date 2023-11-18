@@ -14,13 +14,14 @@ session_start();
 </head>
 
 <body class="admin-login">
-    <!-- Inclui Header -->
     <?php
-     include_once '../Include/connection.php';
-     $Sql = new mysqldb();
+    include_once '../Include/connection.php';
 
-     $Sql->Create_Db();
-     $Sql->create_Table_Gerencia();
+    $Sql = new Conn(HOST, USER, PASS);
+
+    // Cria o banco de dados e a tabela
+    $Sql->Create_Dbs();
+    $Sql->Create_Table_Gerencia();
     ?>
 
 

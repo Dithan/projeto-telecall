@@ -18,9 +18,9 @@ session_start();
     <?php
     include('./estrutura/header.php');
 
-    include_once 'Include/connection.php';
+    include_once './Include/connection.php';
 
-    $Sql = new Conn("172.22.0.4", "root", "root");
+    $Sql = new Conn(HOST, USER, PASS);
 
     $Sql->Create_Dbs();
     $Sql->create_Table_Usuario();
@@ -42,7 +42,7 @@ session_start();
             <div class="login-fundo">
                 <div class="login">
                     <h1>Fazer Login</h1>
-                    <form action="Include/Login.php" method="post" id="formulario">
+                    <form action="./Include/Login.php" method="post" id="formulario">
 
                         <label for="login">Login</label>
                         <input type="text" id="login" name="login" required>
