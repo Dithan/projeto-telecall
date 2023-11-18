@@ -1,5 +1,5 @@
 <?php
-/* Constante URL */
+/* CONEXÃO DB E URL */
 
 // XAMPP
 define('URL', 'http://localhost/projeto-telecall/');

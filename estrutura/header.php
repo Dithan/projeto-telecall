@@ -17,7 +17,8 @@
                         if(isset($_SESSION["Usuario"])){
                             echo '<li class="dropdown">Bem Vindo '.$_SESSION["Usuario"].'
                                 <ul class="fdx-menu-2-level">
-                                    <li><a href="./admin/admin.php">Meus Dados</a></li>
+                                    <li><a href="./minha-conta/perfil.php">Meus Dados</a></li>
+                                    <li><a href="./admin/admin.php">Admin</a></li>
                                     <li><a href="./Include/desconectar.php">Sair</a></li>
                                 </ul>
                             </li>';

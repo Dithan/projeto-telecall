@@ -55,7 +55,7 @@ if (isset($_SESSION["Usuario"])) {
             <?php
             include_once '../Include/connection.php';
 
-            $Sql = new Conn("172.22.0.4", "root", "root", "Telecall");
+            $Sql = new Conn(HOST, USER, PASS, "Telecall");
 
             $result = $Sql->getQueryAdmin();
 
@@ -104,7 +104,7 @@ if (isset($_SESSION["Usuario"])) {
   //Xampp
   // header('location: /projeto-telecall');
   // exit; 
-  header('location: http://localhost:8080/projeto');
+  header('location: ' . URL);
   exit;
 }
 ?>
