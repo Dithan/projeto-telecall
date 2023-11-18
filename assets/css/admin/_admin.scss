@@ -38,6 +38,7 @@
   .admin-tit {
     color: #fff;
     font-size: 28px;
+    text-align: center;
 
     // TABLET
     @include mq(m) {
