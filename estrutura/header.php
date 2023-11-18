@@ -19,6 +19,7 @@
                                 <ul class="fdx-menu-2-level">
                                     <li><a href="./minha-conta/perfil.php">Meus Dados</a></li>
                                     <li><a href="./admin/admin.php">Admin</a></li>
+                                    <li><a href="./modelo-db.php">Modelo Data Base</a></li>
                                     <li><a href="./Include/desconectar.php">Sair</a></li>
                                 </ul>
                             </li>';
