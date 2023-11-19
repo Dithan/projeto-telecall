@@ -37,7 +37,7 @@ class Conn
         //conectando no banco
         if ($this->conn->connect_error) {
             /* header('location: http://localhost:8080/projeto/nao-encontrado.php'); */
-            header('location: '. URL .'nao-encontrado.php');
+            header('location: ' . URL . 'nao-encontrado.php');
             exit;
         }
     }
@@ -63,7 +63,7 @@ class Conn
         ");
         if ($this->conn->connect_error) {
             /* header('location: http://localhost:8080/projeto/nao-encontrado.php'); */
-            header('location: '. URL .'nao-encontrado.php');
+            header('location: ' . URL . 'nao-encontrado.php');
             exit;
         }
     }
@@ -166,13 +166,13 @@ class mysqldb
                 session_start();
                 $_SESSION["Usuario"] = $row['nome'];
                 $_SESSION["admin"] = $row['admin'];
-                header('location: '. URL);
+                header('location: ' . URL);
                 exit;
             }
         } else {
             // exit;
             /* header('location: http://localhost:8080/projeto'); */
-            header('location: '. URL .'erro-login.php');
+            header('location: ' . URL . 'erro-login.php');
             exit;
         }
     }
@@ -208,43 +208,177 @@ class mysqldbUsuario
                     $_SESSION["Usuario"] = $row['nome'];
                     $_SESSION["Login"] = $row['login'];
                     $_SESSION["Cpf"] = $row['cpf'];
-                    $_SESSION["data_nascimento"]= $row['data_nascimento'];;
-                    $_SESSION['telefone_celular']= $row['telefone_celular'];
-                    $_SESSION["telefone_fixo"]= $row['telefone_fixo'];; 
-                    $_SESSION['endereco']= $row['endereco'];; 
-                    $_SESSION['complemento']= $row['complemento'];; 
-                    header('location: '. URL);
+                    $_SESSION["Sexo"] = $row['sexo'];
+                    $_SESSION["nome_materno"] = $row['nome_materno'];
+                    $_SESSION["data_nascimento"] = $row['data_nascimento'];;
+                    $_SESSION['telefone_celular'] = $row['telefone_celular'];
+                    $_SESSION["telefone_fixo"] = $row['telefone_fixo'];;
+                    $_SESSION['endereco'] = $row['endereco'];;
+                    $_SESSION['complemento'] = $row['complemento'];;
+                    header('location: ' . URL);
                     exit;
                 }
             }
         } else {
             /* header('location: http://localhost:8080/projeto/erro-login.php '); */
-            header('location: '. URL .'erro-login.php');
+            header('location: ' . URL . 'erro-login.php');
             exit;
         }
     }
 
     public function Register_Usuario($nome, $dataNascimento, $sexo, $nomeMaterno, $cpf, $telefoneCelular, $telefoneFixo, $endereco, $complemento, $login, $senha)
+{
+    $conn = new mysqli($this->connection->getServerName(), $this->connection->getUserName(), $this->connection->getPassword(), $this->connection->getDatabase());
+
+    // Verifique a conexão
+    if ($conn->connect_error) {
+        die("Conexão falhou: " . $conn->connect_error);
+    }
+
+    // Use instruções preparadas para evitar injeção de SQL
+    $stmt = $conn->prepare("INSERT INTO Usuarios (nome, data_nascimento, sexo, nome_materno, cpf, telefone_celular, telefone_fixo, endereco, complemento, login, senha) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+    // Verifique se a preparação da instrução foi bem-sucedida
+    if (!$stmt) {
+        die("Erro na preparação da instrução: " . $conn->error);
+    }
+
+    // Bind dos parâmetros
+    $stmt->bind_param("sssssssssss", $nome, $dataNascimento, $sexo, $nomeMaterno, $cpf, $telefoneCelular, $telefoneFixo, $endereco, $complemento, $login, $senha);
+
+    // Execução da consulta
+    $stmt->execute();
+
+    // Verifique se a execução foi bem-sucedida
+    if ($stmt->affected_rows > 0) {
+        // Registro bem-sucedido, redirecione
+        header('Location: ' . URL . 'log.php');
+        exit;
+    } else {
+        // Erro no registro
+        header('Location: ' . URL . 'erro-login.php');
+        exit;
+    }
+
+    // Fechamento do statement
+    $stmt->close();
+    $conn->close();
+}
+
+
+
+    public function Update_UsuarioPerfil($nome, $dataNascimento, $sexo, $nomeMaterno, $telefoneCelular, $telefoneFixo, $endereco, $complemento, $cpf)
     {
-
         $conn = new mysqli($this->connection->getServerName(), $this->connection->getUserName(), $this->connection->getPassword(), $this->connection->getDatabase());
+    
+        // Verifique a conexão
+        if ($conn->connect_error) {
+            die("Conexão falhou: " . $conn->connect_error);
+        }
+    
+        // Use instruções preparadas para evitar injeção de SQL
+        $stmt = $conn->prepare("UPDATE Usuarios SET nome=?, data_nascimento=?, sexo=?, nome_materno=?, telefone_celular=?, telefone_fixo=?, endereco=?, complemento=? WHERE cpf=?");
+    
+        // Verifique se a preparação da instrução foi bem-sucedida
+        if (!$stmt) {
+            die("Erro na preparação da instrução: " . $conn->error);
+        }
+    
+        // Bind dos parâmetros
+        $stmt->bind_param("sssssssss", $nome, $dataNascimento, $sexo, $nomeMaterno, $telefoneCelular, $telefoneFixo, $endereco, $complemento, $cpf);
+    
+        // Execução da consulta
+        $stmt->execute();
+    
+        // Verifique se a execução foi bem-sucedida
+        if ($stmt->affected_rows > 0) {
+            // Atualização bem-sucedida, redirecione
+            $result = $conn->query("SELECT * FROM Usuarios WHERE cpf='$cpf'");
 
-        $result = "INSERT INTO Usuarios 
-        (nome, data_nascimento, sexo, nome_materno, cpf, telefone_celular, telefone_fixo, endereco, complemento, login, senha) 
-        VALUES 
-        ('$nome', '$dataNascimento', '$sexo', '$nomeMaterno', '$cpf', '$telefoneCelular', '$telefoneFixo', '$endereco', '$complemento' ,'$login', '$senha')";
-
-        if ($conn->query($result) === TRUE) {
-            header('location: '. URL .'log.php');
+            if ($result->num_rows > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                // Dados encontrados, você pode processar ou exibir os dados como necessário
+                $_SESSION["Usuario"] = $row['nome'];
+                $_SESSION["Login"] = $row['login'];
+                $_SESSION["Cpf"] = $row['cpf'];
+                $_SESSION["Sexo"] = $row['sexo'];
+                $_SESSION["nome_materno"] = $row['nome_materno'];
+                $_SESSION["data_nascimento"] = $row['data_nascimento'];;
+                $_SESSION['telefone_celular'] = $row['telefone_celular'];
+                $_SESSION["telefone_fixo"] = $row['telefone_fixo'];;
+                $_SESSION['endereco'] = $row['endereco'];;
+                $_SESSION['complemento'] = $row['complemento'];;
+                // Faça o que precisar com $dadosAtualizados
+            }
+        }
+            header('Location: ' . URL . 'minha-conta/perfil.php');
             exit;
-            //Xampp
-            // header('location: /projeto-telecall/log.php');
-            // exit;
         } else {
-
-            /* header('location: http://localhost:8080/projeto/erro-login.php '); */
-            header('location: '. URL .'erro-login.php');
+            // Erro na atualização
+            header('Location: ' . URL . 'erro-login.php');
             exit;
         }
+    
+        // Fechamento do statement
+        $stmt->close();
+        $conn->close();
     }
+
+    public function Update_UsuarioConta($login, $senha, $cpf)
+{
+    $conn = new mysqli($this->connection->getServerName(), $this->connection->getUserName(), $this->connection->getPassword(), $this->connection->getDatabase());
+
+    // Use instruções preparadas para evitar injeção de SQL
+    $stmt = $conn->prepare("UPDATE Usuarios SET login=?, senha=MD5(?), cpf=? WHERE cpf=?");
+
+    // Verifique se a preparação da instrução foi bem-sucedida
+    if (!$stmt) {
+        die("Erro na preparação da instrução: " . $conn->error);
+    }
+
+    // Bind dos parâmetros
+    $stmt->bind_param("ssss", $login, $senha, $cpf, $cpf);
+
+    // Execução da consulta
+    $stmt->execute();
+
+    // Verifique se a execução foi bem-sucedida
+    if ($stmt->affected_rows > 0) {
+        // Atualização bem-sucedida, redirecione
+        $result = $conn->query("SELECT * FROM Usuarios WHERE cpf='$cpf'");
+
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+
+            // Atualize as variáveis de sessão com os novos dados
+            $_SESSION["Usuario"] = $row['nome'];
+            $_SESSION["Login"] = $row['login'];
+            $_SESSION["Cpf"] = $row['cpf'];
+            $_SESSION["Sexo"] = $row['sexo'];
+            $_SESSION["nome_materno"] = $row['nome_materno'];
+            $_SESSION["data_nascimento"] = $row['data_nascimento'];
+            $_SESSION['telefone_celular'] = $row['telefone_celular'];
+            $_SESSION["telefone_fixo"] = $row['telefone_fixo'];
+            $_SESSION['endereco'] = $row['endereco'];
+            $_SESSION['complemento'] = $row['complemento'];
+
+            // Redirecione para a página de perfil
+            header('Location: ' . URL . 'minha-conta/perfil.php');
+            exit;
+        } else {
+            // Se os dados não puderem ser recuperados após a atualização, redirecione para a página de erro
+            header('Location: ' . URL . 'erro-login.php');
+            exit;
+        }
+    } else {
+        // Erro na atualização
+        header('Location: ' . URL . 'erro-login.php');
+        exit;
+    }
+
+    // Fechamento do statement
+    $stmt->close();
+}
+
+    
 }
