@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-if (isset($_SESSION["Usuario"])) {
+if (isset($_SESSION["admin"])) {
 
     include_once '../Include/connection.php';
 
-    $Sql = new Conn("172.22.0.4", "root", "root", "Telecall");
+    $Sql = new Conn(HOST, USER, PASS,"Telecall");
 
     $CpfUsuario = $_GET['cpf'];
  if ($Sql->deleteUser($CpfUsuario)=== TRUE) {
