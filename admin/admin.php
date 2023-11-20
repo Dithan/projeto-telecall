@@ -23,7 +23,7 @@ if (isset($_SESSION["admin"])) {
                                             echo $_SESSION["Usuario"];
                                           } ?></h1>
           <ul class="admin-menu-list">
-            <li><a href="#"><i class="fas fa-solid fa-download"></i> Baixar Lista PDF</a></li>
+            <li><a href="pdf.php"><i class="fas fa-solid fa-download"></i> Baixar Lista PDF</a></li>
             <li><a href="../Include/desconectar.php"><i class="fas fa-solid fa-door-open"></i> Sair</a></li>
           </ul>
         </div>
