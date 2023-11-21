@@ -21,10 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Sql = new mysqldbUsuario();
     $Sql->Register_Usuario($nome, $dataNascimento, $sexo, $nomeMaterno, $cpf, $telefoneCelular, $telefoneFixo, $endereco, $complemento, $login, $senha);
 } else {
-    //Xampp
-    // header('location: /projeto-telecall');
-    // exit; 
-    /* header('location: http://localhost:8080/projeto/erro-login.php'); */
-    header('location: '. URL .'erro-login.php');
+    header('location: '. URL .'erro-cadastro.php');
     exit;
 }

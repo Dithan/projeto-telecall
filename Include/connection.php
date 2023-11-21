@@ -57,7 +57,7 @@ class Conn
             telefone_fixo varchar(17) not null, 
             endereco varchar(255) not null, 
             complemento varchar(255) not null, 
-            login varchar(6) not null , 
+            login varchar(255) not null , 
             senha varchar(100) not null
             );
         ");
@@ -256,7 +256,7 @@ class mysqldbUsuario
         exit;
     } else {
         // Erro no registro
-        header('Location: ' . URL . 'erro-login.php');
+        header('Location: ' . URL . 'erro-cadastro.php');
         exit;
     }
 
