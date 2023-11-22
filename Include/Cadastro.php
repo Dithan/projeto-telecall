@@ -21,6 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $Sql = new mysqldbUsuario();
     $Sql->Register_Usuario($nome, $dataNascimento, $sexo, $nomeMaterno, $cpf, $telefoneCelular, $telefoneFixo, $endereco, $complemento, $login, $senha);
 } else {
-    header('location: '. URL .'erro-cadastro.php');
+    header('location: http://localhost:8080/projeto/erro-cadastro.php');
     exit;
 }

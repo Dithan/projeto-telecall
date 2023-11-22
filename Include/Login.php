@@ -16,6 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // header('location: /projeto-telecall');
     // exit; 
     /* header('location: http://localhost:8080/projeto/erro-login.php'); */
-    header('location: '. URL .'erro-login.php');
+    header('location: http://localhost:8080/projeto/erro-login.php');
     exit;
 }
