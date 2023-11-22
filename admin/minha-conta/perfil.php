@@ -9,19 +9,21 @@ if (isset($_SESSION["Usuario"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil - Tellecal</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="shortcut icon" href="../assets/media/Icons/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="shortcut icon" href="../../assets/media/Icons/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
   </head>
 
   <body class="admin-body">
     <div class="admin-content">
       <div class="admin-menu">
-        <figure class="logo-admin"><img src="../assets/media/imagens/logo_telecall_branco_vermelho_p.png" alt=""></figure>
-        <h1 class="admin-tit">Bem Vindo <?php if (isset($_SESSION["Usuario"])) {echo $_SESSION["Usuario"];} ?></h1>
+        <figure class="logo-admin"><img src="../../assets/media/imagens/logo_telecall_branco_vermelho_p.png" alt=""></figure>
+        <h1 class="admin-tit">Bem Vindo <?php if (isset($_SESSION["Usuario"])) {
+                                          echo $_SESSION["Usuario"];
+                                        } ?></h1>
         <ul class="admin-menu-list">
           <li><a href="./conta.php"><i class="fas fa-solid fa-wrench"></i>Configurações</a></li>
-          <li><a href="../Include/desconectar.php"><i class="fas fa-solid fa-door-open"></i> Sair</a></li>
+          <li><a href="../../Include/desconectar.php"><i class="fas fa-solid fa-door-open"></i> Sair</a></li>
         </ul>
       </div>
       <div class="admin-painel">
@@ -31,42 +33,22 @@ if (isset($_SESSION["Usuario"])) {
             <h2>Editar Dados</h2>
           </div>
 
-          <form class="form-usuario" action="../Include/Atualizarperfil.php" id="formulario" method="post" >
+          <form class="form-usuario" action="../Atualizarperfil.php" id="formulario" method="post" >
 
           <table class="adimn-usuarios-table usuarios-table" >
               <tr>
 
                 <th>Nome</th>
-                <th>Data Nascimento</th>
-                <th>Sexo</th>
-                <th>Nome Materno</th>
+                
               </tr>
             <tr>
               <!-- Exemplo de dados (substitua com dados reais do seu banco de dados) -->
               <td class="editable" contenteditable="true" data-column="Nome"> <input type="text" value="<? echo $_SESSION['Usuario']; ?>" name="nome"></td>
-              <td class="editable" contenteditable="true" data-column="Data_de_nascimento"> <input type="date" value="<? echo $_SESSION["data_nascimento"]; ?>" name="datansc"></td>
-              <td class="editable" contenteditable="true" data-column="Sexo"> <input type="text" value="<? echo $_SESSION['Sexo']; ?>" name="sexo"></td>
-              <td class="editable" contenteditable="true" data-column="NomeMaterno"> <input type="text" value="<? echo $_SESSION['nome_materno']; ?>" name="nomeM"></td>
+              <input type="hidden" value="<? echo $_SESSION['Cpf']; ?>" name="cpf">
+
             </tr>
         
-            </table>
-            <table class="adimn-usuarios-table usuarios-table">
-              <tr>
-                <th>Celular</th>
-                <th>Telefone Fixo</th>
-                <th>Endereço</th>
-                <th>Complemento</th>
-              </tr>
-              <tr>
-              <td class="editable" contenteditable="true" data-column="Celular"> <input type="number" value="<? echo $_SESSION['telefone_celular']; ?>" name="celular"></td>
-
-                <td class="editable" contenteditable="true" data-column="Telefone_fixo"> <input type="number" value="<? echo $_SESSION["telefone_fixo"]; ?>" name="teleF"></td>
-                <td class="editable" contenteditable="true" data-column="Endereco"> <input type="text" value="<? echo $_SESSION['endereco']; ?>" name="endereco"></td>
-                <td class="editable" contenteditable="true" data-column="Complemento"> <input type="text" value="<? echo $_SESSION['complemento']; ?>" name="complemento"></td>
-                <input type="hidden" value="<? echo $_SESSION['Cpf']; ?>" name="cpf">
-              </tr>
-            </table>  
-                                                 
+                                    
             <li>
               <button class="delete-btn" id="update_button" disabled>
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">

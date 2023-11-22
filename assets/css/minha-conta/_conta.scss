@@ -1,15 +1,36 @@
 .encerrar {
+  margin-top: 40px;
   .delete-btn {
     border-radius: 6px;
     border: 2px solid red;
     padding: 7px 14px;
     font-size: 16px;
     font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+
+    &:hover {
+      background: red;
+      color: #fff;
+    }
   }
 
   i {
     font-size: 20px;
     color: red;
+    margin-right: 10px;
+    transition: 0.3s ease-in-out;
+  }
+
+  .delete-btn:hover i {
+    color: #fff;
+  }
+}
+
+.btn-cliente {
+  i {
+    font-size: 16px;
+    color: #fff;
     margin-right: 10px;
   }
 }

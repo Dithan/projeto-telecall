@@ -12,6 +12,6 @@ define('PASS', '');
 /* define('URL', 'http://localhost:8080/projeto/');
 define('HOST', '172.22.0.2');
 define('USER', 'root');
-define('PASS', 'root');  */
+define('PASS', 'root');  */ 
 
 ?>
