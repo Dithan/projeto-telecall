@@ -9,7 +9,7 @@ define('PASS', '');
 
 
 // DOCKER
-/* define('URL', 'http://localhost:8080/projeto/');
+/* define('URL', 'localhost:8080/projeto/');
 define('HOST', '172.22.0.2');
 define('USER', 'root');
 define('PASS', 'root');  */ 

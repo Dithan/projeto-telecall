@@ -16,15 +16,15 @@
 
     <section class="container-redefinir">
         <div class="conteudo-redefinir2">
-            <h1>Confime seus dados</h1>
-            <p>Responda abaixo para confirmar sua identidade</p>
+            <h1>Altere sua senha</h1>
+            <p>Insira sua nova senha</p>
 
             <form>
-                <label for="nome-mat">Nome da Mãe</label>
-                <input type="text" id="nome-mat" name="nome-mat" required>
+                <label for="senha">Nova Senha</label>
+                <input type="password" id="senha" required minlength="8" name="senha" />
 
-                <label for="data-nasc">Data de Nascimento</label>
-                <input type="date" id="data-nasc" name="data-nasc" required>
+                <label for="confirmSenha">Confirmação da Senha</label>
+                <input type="password" id="confirmSenha" required minlength="8" />
                 <br>
                 <!--Definir botão para submit-->
                 <div class="enviar">
