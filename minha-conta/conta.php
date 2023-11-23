@@ -45,8 +45,7 @@ if (isset($_SESSION["Usuario"])) {
 
             <div class="row-form">
               <div>
-                <label for="cpf">CPF</label>
-                <input type="number" value="<? echo $_SESSION['Cpf']; ?>" name="cpf" disabled>
+                <input type="number" value="<? echo $_SESSION['Cpf']; ?>" name="cpf" hidden>
               </div>
             </div>
 

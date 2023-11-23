@@ -313,7 +313,7 @@ class mysqldbUsuario
                     $_SESSION["telefone_fixo"] = $row['telefone_fixo'];;
                     $_SESSION['endereco'] = $row['endereco'];;
                     $_SESSION['complemento'] = $row['complemento'];;
-                    header('location: ' . URL.'/autenticacao.php');
+                    header('location: ' . URL.'autenticacao.php');
                     exit;
                 }
             }
@@ -480,6 +480,7 @@ class mysqldbUsuario
 
     public function twoFA($numeroRandomico,$userAnswer){
        
+        session_start();
 
     // Função para verificar a resposta da pergunta
     function verifySecurityAnswer($numeroRandomico, $userAnswer)
@@ -494,6 +495,20 @@ class mysqldbUsuario
 
         return $userAnswer === $answers[$numeroRandomico];
     }
+    if(verifySecurityAnswer($numeroRandomico,$userAnswer)){
+        header('location: http://localhost:8080/projeto');
+        exit;
+    }
+    else {
+        //Xampp
+        // header('location: /projeto-telecall');
+        // exit; 
+        /* header('location: http://localhost:8080/projeto/erro-login.php'); */
+        header('location: http://localhost:8080/projeto/Include/desconectar.php');
+        exit;
+    }
+    
+    
 
     }
 }

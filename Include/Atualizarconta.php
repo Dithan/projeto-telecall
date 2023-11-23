@@ -7,7 +7,7 @@ require 'connection.php';
 // Verifica se a sessão está definida
 if (isset($_SESSION["Cpf"])) {
     // Verifica se os campos obrigatórios foram preenchidos
-    if (!empty(($_POST["login"]) || !empty($_POST["senha"]) || !empty($_POST["cpf"]))) {
+    if (!empty(($_POST["login"]) || !empty($_POST["senha"]) )) {
         $login = $_POST["login"];
         $senha = $_POST["senha"];
         $cpf = strtr($_POST["cpf"], array('.' => '', '-' => ''));

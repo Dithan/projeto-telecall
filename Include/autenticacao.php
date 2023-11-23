@@ -7,22 +7,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $Pergunta = $_POST['2faClientenumber'];
 
         require 'connection.php';
+       
         $Connection = new mysqldbUsuario();
-        if($Connection->twoFA($Pergunta, $Resposta)){
-            header('location: http://localhost:8080/projeto');
-            exit;
-        }
+        
+        $Connection->twoFA($Pergunta, $Resposta);
+        
     }
 
 } 
-else {
-    //Xampp
-    // header('location: /projeto-telecall');
-    // exit; 
-    /* header('location: http://localhost:8080/projeto/erro-login.php'); */
-    header('location: http://localhost:8080/projeto/erro-login.php');
-    exit;
-}
-
 
 ?>

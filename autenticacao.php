@@ -42,7 +42,7 @@ session_start();
                 <form method="post" action="Include/autenticacao.php">
                     <!-- Adicione campos ocultos para enviar o número e o CPF -->
                     <label for="pergunta"><?php echo getSecurityQuestion($numeroRandomico); ?></label>
-                    <input type="text" name="2faClientenumber" value="<?php $numeroRandomico; ?>" hidden>
+                    <input type="text" name="2faClientenumber" value="<?php echo $numeroRandomico; ?>" hidden>
                     <?php if ($numeroRandomico == 1) {
                     ?>
                         <input type="text" id="resposta" name="resposta" required>
@@ -53,7 +53,7 @@ session_start();
                     <?php
                     } else{
                         ?>
-                        <input type="number" placeholder="(+21)xx-xxxxxxxx" id="resposta" name="resposta" required>
+                        <input type="number" placeholder="+21xx-xxxxxxxx" id="resposta" name="resposta" required>
                     <?php
                     }?>
 
