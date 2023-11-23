@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -12,31 +16,62 @@
 
 <body>
     <!-- Inclui Header -->
-    <?php include('./estrutura/header.php')?>
+    <?php include('./estrutura/header.php');
+    $numeroRandomico = mt_rand(1, 3);
+
+    // Função para obter a pergunta de segurança de um usuário
+    function getSecurityQuestion($num)
+    {
+        // Lógica para recuperar a pergunta do banco de dados ou de outra fonte
+        // Substitua isso com a lógica real da sua aplicação
+        $questions = [
+            1 => 'Qual é o nome da Sua Mãe?', // if text 
+            2 => 'Qual a data do seu nascimento?', // if date
+            3 => 'Qual o Telefone Fixo do seu endereço?' // if number
+        ];
+        return $questions[$num];
+    }
+    ?>
 
     <section class="container-redefinir">
         <div class="conteudo-redefinir1">
             <h1>Autenticação de Dois Fatores</h1>
-            <p>Informe o dado correto para proseguir</p>
+            <p>Informe o dado correto para prosseguir</p>
 
             <div class="container-form">
-                <form>
-                    <label for="2faCliente">Qual o nome da sua mãe?</label>
-                    <input type="resposta" id="2faCliente" name="2faCliente" required>
+                <form method="post" action="Include/autenticacao.php">
+                    <!-- Adicione campos ocultos para enviar o número e o CPF -->
+                    <label for="pergunta"><?php echo getSecurityQuestion($numeroRandomico); ?></label>
+                    <input type="text" name="2faClientenumber" value="<?php echo $numeroRandomico; ?>" hidden>
+                    <?php if ($numeroRandomico == 1) {
+                    ?>
+                        <input type="text" id="resposta" name="resposta" required>
+                    <?php
+                    } elseif ($numeroRandomico == 2) {
+                    ?>
+                        <input type="date" id="resposta" name="resposta" required>
+                    <?php
+                    } else{
+                        ?>
+                        <input type="number" placeholder="+21xx-xxxxxxxx" id="resposta" name="resposta" required>
+                    <?php
+                    }?>
+
                     <br>
-                    <!--Definir botão para submit-->
+                    <!-- Definir botão para submit -->
                     <div class="enviar">
-                        <button class="btn-primario" onclick="" class="botao" >Enviar</button>
+                        <button type="submit" class="btn-primario">Enviar</button>
                     </div>
                 </form>
             </div>
         </div>
     </section>
-<script src="./assets/JavaScript/Redefinir.js"></script>
+
+    <script src="./assets/JavaScript/Redefinir.js"></script>
 
 </body>
 
 <!-- Inclui Footer -->
-<?php include('./estrutura/footer.php')?>
+<?php include('./estrutura/footer.php') ?>
 
 </html>
