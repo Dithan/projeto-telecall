@@ -30,7 +30,7 @@ if (isset($_SESSION["Usuario"])) {
           <div class="header-painel">
             <h2>Configurações de Conta</h2>
           </div>
-          <form action="../Include/Atualizarconta.php" id="formulario" method="post">
+          <form class="form-usuario" action="../Include/Atualizarconta.php" id="formulario" method="post">
             <div class="row-form">
               <div>
                 <label for="login">Login</label>
@@ -46,7 +46,7 @@ if (isset($_SESSION["Usuario"])) {
             <div class="row-form">
               <div>
                 <label for="cpf">CPF</label>
-                <input type="number" value="<? echo $_SESSION['Cpf']; ?>" name="cpf">
+                <input type="number" value="<? echo $_SESSION['Cpf']; ?>" name="cpf" disabled>
               </div>
             </div>
 

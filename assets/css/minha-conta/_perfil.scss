@@ -21,6 +21,11 @@
 
   input {
     width: 100%;
+
+    &:disabled {
+      border-color: #919191;
+      background: #b9b9b9;
+    }
   }
 
   label {
@@ -28,6 +33,11 @@
   }
 
   .btn-container {
+    button:disabled {
+      background: #919191;
+      cursor: default;
+    }
+
     // TABLET
     @include mq(m) {
       text-align: center;

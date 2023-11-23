@@ -16,17 +16,17 @@
 
     <section class="container-redefinir">
         <div class="conteudo-redefinir1">
-            <h1>Redefinir Senha</h1>
-            <p>Informe seu email cadastrado.</p>
+            <h1 style="margin-bottom: 20px;">Redefinir Senha</h1>
+            <p style="margin-bottom: 20px;">Por favor, informe seu CPF</p>
 
             <div class="container-form">
                 <form>
-                    <label for="redefinir">Email</label>
-                    <input type="email" id="redefinir" name="redefinir" required>
+                    <label for="redefinir">CPF</label>
+                    <input type="text" id="redefinir" name="redefinir" required minlength="11" maxlength="11" placeholder="xxx.xxx.xxx-xx" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}">
                     <br>
                     <!--Definir botão para submit-->
                     <div class="enviar">
-                        <button class="btn-primario" onclick="validarEmail(this.form)" class="botao" >Enviar um email de redefinição de senha</button>
+                        <button class="btn-primario" onclick="validarEmail(this.form)" class="botao" >Enviar</button>
                     </div>
                 </form>
             </div>

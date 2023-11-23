@@ -182,7 +182,6 @@ class mysqldb
                     // Dados encontrados, você pode processar ou exibir os dados como necessário
                     $_SESSION["Usuario"] = $row['nome'];
                     $_SESSION["Cpf"] = $row['cpf'];
-                    // Faça o que precisar com $dadosAtualizados
                 }
             }
             header('Location: ' . URL . 'admin/minha-conta/perfil.php');
@@ -320,7 +319,7 @@ class mysqldbUsuario
             }
         } else {
             /* header('location: http://localhost:8080/projeto/erro-login.php '); */
-            header('location: http://localhost:8080/projeto/erro-login.php');
+            header('location: ' . URL . 'erro-login.php');
             exit;
         }
     }
