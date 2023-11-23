@@ -1,15 +1,17 @@
 <?php
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verifica se o campo "senha" foi preenchido
-    if (isset($_POST["senha"])) {
-        $NomeUsuario = $_POST["login"];
-        $SenhaUsuario = $_POST['senha'];
+    if (isset($_POST["resposta"])) {
+        $Resposta = $_POST["resposta"];
+        $Pergunta = $_POST['2faClientenumber'];
 
         require 'connection.php';
         $Connection = new mysqldbUsuario();
-        $Connection->Login_Usuario($NomeUsuario, $SenhaUsuario);
+        if($Connection->twoFA($Pergunta, $Resposta)){
+            header('location: http://localhost:8080/projeto');
+            exit;
+        }
     }
 
 } 
@@ -21,3 +23,6 @@ else {
     header('location: http://localhost:8080/projeto/erro-login.php');
     exit;
 }
+
+
+?>

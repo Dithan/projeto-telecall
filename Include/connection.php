@@ -314,7 +314,7 @@ class mysqldbUsuario
                     $_SESSION["telefone_fixo"] = $row['telefone_fixo'];;
                     $_SESSION['endereco'] = $row['endereco'];;
                     $_SESSION['complemento'] = $row['complemento'];;
-                    header('location: ' . URL);
+                    header('location: ' . URL.'/autenticacao.php');
                     exit;
                 }
             }
@@ -477,5 +477,24 @@ class mysqldbUsuario
 
         // Fechamento do statement
         $stmt->close();
+    }
+
+    public function twoFA($numeroRandomico,$userAnswer){
+       
+
+    // Função para verificar a resposta da pergunta
+    function verifySecurityAnswer($numeroRandomico, $userAnswer)
+    {
+        // Lógica para verificar se a resposta está correta
+        // Substitua isso com a lógica real da sua aplicação
+        $answers = [
+            1 => $_SESSION["nome_materno"],
+            2 => $_SESSION["data_nascimento"],
+            3 => $_SESSION["telefone_fixo"]
+        ];
+
+        return $userAnswer === $answers[$numeroRandomico];
+    }
+
     }
 }
