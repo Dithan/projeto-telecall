@@ -13,8 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 } else {
-    //Xampp
-    // exit; 
     header('location: ' . URL);
     exit;
 }

@@ -100,10 +100,7 @@ if (isset($_SESSION["admin"])) {
     </html>
 <?php
   } else {
-    //Xampp
-    // header('location: /projeto-telecall');
-    // exit; 
-    header('location: http://localhost:8080/projeto/');
+    header('location: ' . URL);
     exit;
   }
 //}

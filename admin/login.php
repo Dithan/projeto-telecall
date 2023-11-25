@@ -46,13 +46,11 @@ session_start();
                             <label for="lembrar-senha">Lembrar Senha</label>
                         </div>
 
-                        
-                        <button class="btn-primario" type="submit">ENVIAR</button>
-                        <div class="cadastroii">
-
+                        <div class="btn-container">
+                            <button class="btn-primario" type="submit">ENVIAR</button>
+                            <a class="btn-secundario" href="../log.php">VOLTAR</a>
+                        </div>
                     </form>
-                    <button class="btn-primario" ><a href="../log.php">Voltar</a></button>
-
                 </div>
             </div>
         </div>

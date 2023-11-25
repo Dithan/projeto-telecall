@@ -21,14 +21,17 @@
                                         <li><a href="./admin/minha-conta/perfil.php">Meus Dados</a></li>
 
                                     <?php
+<<<<<<< HEAD
                                     } else{
 
                                         ?>
+=======
+                                    } else{ ?>
+>>>>>>> ede32791a95f44cfc4572c0dfe7fedcc09c16e5f
                                         <li><a href="./minha-conta/perfil.php">Meus Dados</a></li>
-                                        <?php
-                                    }?>
-                                    
-                                   
+                                        <?php } ?>
+                                        
+                                    <li><a href="./modelo-db.php">Modelo DB</a></li>
                                     <li><a href="./Include/desconectar.php">Sair</a></li>
                                 </ul>
                             </li>

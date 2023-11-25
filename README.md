@@ -1,4 +1,4 @@
-# Versão 1.0 (Front-End)
+# Versão 1.0 (Front-End) 2022
 
 Projeto: Telecall - Unisuam 1°periodo 2022
 
@@ -25,7 +25,7 @@ https://undraw.co/
 Icones:
 https://fonts.google.com/icons
 
-# Versão 2.0 (Front-End - Back-End)
+# Versão 2.0 (Front-End - Back-End) 2023
 
 Projeto: Telecall - Unisuam 1°periodo 2022
 
