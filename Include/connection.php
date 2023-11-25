@@ -503,7 +503,7 @@ class mysqldbUsuario
         //Xampp
         // header('location: /projeto-telecall');
         // exit; 
-        /* header('location: http://localhost:8080/projeto/erro-login.php'); */
+        /* header('location: http://localhost:8080/projeto/Include/desconectar.php'); */
         header('location: http://localhost:8080/projeto/Include/desconectar.php');
         exit;
     }

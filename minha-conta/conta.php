@@ -34,7 +34,7 @@ if (isset($_SESSION["Usuario"])) {
             <div class="row-form">
               <div>
                 <label for="login">Login</label>
-                <input type="text" value="<? echo $_SESSION['Login']; ?>" name="login">
+                <input type="text" value="<?php echo $_SESSION['Login']; ?>" name="login">
               </div>
 
               <div>
@@ -45,7 +45,7 @@ if (isset($_SESSION["Usuario"])) {
 
             <div class="row-form">
               <div>
-                <input type="number" value="<? echo $_SESSION['Cpf']; ?>" name="cpf" hidden>
+                <input type="number" value="<?php echo $_SESSION['Cpf']; ?>" name="cpf" hidden>
               </div>
             </div>
 

@@ -15,12 +15,12 @@
                         if (isset($_SESSION["Usuario"])) {
                         ?> <li class="dropdown">Bem Vindo <?php echo $_SESSION["Usuario"] ?>
                                 <ul class="fdx-menu-2-level">
-                                     <? if (isset($_SESSION["admin"])) {
+                                     <?php if (isset($_SESSION["admin"])) {
                                     ?>
                                         <li><a href="./admin/admin.php">Admin</a></li>
                                         <li><a href="./admin/minha-conta/perfil.php">Meus Dados</a></li>
 
-                                    <?
+                                    <?php
                                     } else{
 
                                         ?>
