@@ -9,7 +9,7 @@ if (isset($_SESSION["Cpf"])) {
     // Verifica se os campos obrigatórios foram preenchidos
     if (!empty(($_POST["login"]) || !empty($_POST["senha"]) )) {
         $login = $_POST["login"];
-        $senha = $_POST["senha"];
+        $senha = $_POST["senha"];       
         $cpf = strtr($_POST["cpf"], array('.' => '', '-' => ''));
 
         $Connection = new mysqldbUsuario();

@@ -2,7 +2,7 @@
 /* CONEXÃO DB E URL */
 
 // XAMPP
-// define('URL', 'http://localhost/projeto-telecall ');
+// define('URL', 'http://localhost/projeto-telecall/ ');
 // define('HOST', 'localhost');
 // define('USER', 'root');
 // define('PASS', '');

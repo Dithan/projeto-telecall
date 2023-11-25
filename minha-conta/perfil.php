@@ -60,12 +60,12 @@ if (isset($_SESSION["Usuario"])) {
             <div class="row-form">
               <div>
                 <label for="celular">Celular</label>
-                <input type="number" value="<?php echo $_SESSION['telefone_celular']; ?>" name="celular">
+                <input type="text" value="<?php echo $_SESSION['telefone_celular']; ?>" name="celular">
               </div>
 
               <div>
                 <label for="teleF">Telefone</label>
-                <input type="number" value="<?php echo $_SESSION["telefone_fixo"]; ?>" name="teleF">
+                <input type="text" value="<?php echo $_SESSION["telefone_fixo"]; ?>" name="teleF">
               </div>
             </div>
 
