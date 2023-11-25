@@ -48,7 +48,13 @@ if (isset($_SESSION["Usuario"])) {
             <div class="row-form">
               <div>
                 <label for="sexo">Sexo</label>
-                <input type="text" value="<? echo $_SESSION['Sexo']; ?>" name="sexo">
+                <select class="sexo" id="sexo" required name="sexo">
+                    <option value="<?php echo $_SESSION['Sexo']; ?>" style="background: #f2f2f2"><?php echo ucfirst($_SESSION['Sexo']); ?></option>
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="Outros">Outros</option>
+                    <option value="PrefiroNaoDizer">Prefiro Nao Dizer</option>
+                </select>
               </div>
 
               <div>
@@ -92,7 +98,7 @@ if (isset($_SESSION["Usuario"])) {
       </div>
     </div>
     <script>
-      formulario.addEventListener("change", function() {
+      formulario.addEventListener("keyup", function() {
         // Quando algo muda no formulário, ativa o botão de atualização
         document.getElementById("update_button").disabled = false;
         

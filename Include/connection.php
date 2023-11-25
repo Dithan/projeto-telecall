@@ -36,7 +36,6 @@ class Conn
 
         //conectando no banco
         if ($this->conn->connect_error) {
-            /* header('location: http://localhost:8080/projeto/nao-encontrado.php'); */
             header('location: ' . URL . 'nao-encontrado.php');
             exit;
         }
@@ -62,7 +61,6 @@ class Conn
             );
         ");
         if ($this->conn->connect_error) {
-            /* header('location: http://localhost:8080/projeto/nao-encontrado.php'); */
             header('location: ' . URL . 'nao-encontrado.php');
             exit;
         }
@@ -268,8 +266,6 @@ class mysqldb
                 exit;
             }
         } else {
-            // exit;
-            /* header('location: http://localhost:8080/projeto'); */
             header('location: ' . URL . 'erro-login.php');
             exit;
         }
@@ -318,7 +314,6 @@ class mysqldbUsuario
                 }
             }
         } else {
-            /* header('location: http://localhost:8080/projeto/erro-login.php '); */
             header('location: ' . URL . 'erro-login.php');
             exit;
         }
@@ -496,15 +491,11 @@ class mysqldbUsuario
         return $userAnswer === $answers[$numeroRandomico];
     }
     if(verifySecurityAnswer($numeroRandomico,$userAnswer)){
-        header('location: http://localhost:8080/projeto');
+        header('location: ' . URL);
         exit;
     }
     else {
-        //Xampp
-        // header('location: /projeto-telecall');
-        // exit; 
-        /* header('location: http://localhost:8080/projeto/erro-login.php'); */
-        header('location: http://localhost:8080/projeto/Include/desconectar.php');
+        header('location: '. URL . '/Include/desconectar.php');
         exit;
     }
     
