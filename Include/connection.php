@@ -36,7 +36,7 @@ class Conn
 
         //conectando no banco
         if ($this->conn->connect_error) {
-            header('location: ' . URL . 'nao-encontrado.php');
+            header('location: ' . URL . '/nao-encontrado.php');
             exit;
         }
     }
@@ -61,7 +61,7 @@ class Conn
             );
         ");
         if ($this->conn->connect_error) {
-            header('location: ' . URL . 'nao-encontrado.php');
+            header('location: ' . URL . '/nao-encontrado.php');
             exit;
         }
     }
@@ -182,11 +182,11 @@ class mysqldb
                     $_SESSION["Cpf"] = $row['cpf'];
                 }
             }
-            header('Location: ' . URL . 'admin/minha-conta/perfil.php');
+            header('Location: ' . URL . '/admin/minha-conta/perfil.php');
             exit;
         } else {
             // Erro na atualização
-            header('Location: ' . URL . 'erro-login.php');
+            header('Location: ' . URL . '/erro-login.php');
             exit;
         }
 
@@ -227,18 +227,18 @@ class mysqldb
                 
 
                 // Redirecione para a página de perfil
-                header('Location: ' . URL . 'admin/minha-conta/conta.php');
+                header('Location: ' . URL . '/admin/minha-conta/conta.php');
                 exit;
             } 
             else {
                 // Se os dados não puderem ser recuperados após a atualização, redirecione para a página de erro
-                header('Location: ' . URL . 'erro-login.php');
+                header('Location: ' . URL . '/erro-login.php');
                 exit;
             }
         } 
         else {
             // Erro na atualização
-            header('Location: ' . URL . 'erro-login.php');
+            header('Location: ' . URL . '/erro-login.php');
             exit;
         }
 
@@ -266,7 +266,7 @@ class mysqldb
                 exit;
             }
         } else {
-            header('location: ' . URL . 'erro-login.php');
+            header('location: ' . URL . '/erro-login.php');
             exit;
         }
     }
@@ -309,12 +309,12 @@ class mysqldbUsuario
                     $_SESSION["telefone_fixo"] = $row['telefone_fixo'];;
                     $_SESSION['endereco'] = $row['endereco'];;
                     $_SESSION['complemento'] = $row['complemento'];;
-                    header('location: ' . URL.'autenticacao.php');
+                    header('location: ' . URL.'/autenticacao.php');
                     exit;
                 }
             }
         } else {
-            header('location: ' . URL . 'erro-login.php');
+            header('location: ' . URL . '/erro-login.php');
             exit;
         }
     }
@@ -345,11 +345,11 @@ class mysqldbUsuario
         // Verifique se a execução foi bem-sucedida
         if ($stmt->affected_rows > 0) {
             // Registro bem-sucedido, redirecione
-            header('Location: ' . URL . 'log.php');
+            header('Location: ' . URL . '/log.php');
             exit;
         } else {
             // Erro no registro
-            header('Location: ' . URL . 'erro-cadastro.php');
+            header('Location: ' . URL . '/erro-cadastro.php');
             exit;
         }
 
@@ -404,11 +404,11 @@ class mysqldbUsuario
                     // Faça o que precisar com $dadosAtualizados
                 }
             }
-            header('Location: ' . URL . 'minha-conta/perfil.php');
+            header('Location: ' . URL . '/minha-conta/perfil.php');
             exit;
         } else {
             // Erro na atualização
-            header('Location: ' . URL . 'erro-login.php');
+            header('Location: ' . URL . '/erro-login.php');
             exit;
         }
 
@@ -456,16 +456,16 @@ class mysqldbUsuario
                 $_SESSION['complemento'] = $row['complemento'];
 
                 // Redirecione para a página de perfil
-                header('Location: ' . URL . 'minha-conta/perfil.php');
+                header('Location: ' . URL . '/minha-conta/perfil.php');
                 exit;
             } else {
                 // Se os dados não puderem ser recuperados após a atualização, redirecione para a página de erro
-                header('Location: ' . URL . 'erro-login.php');
+                header('Location: ' . URL . '/erro-login.php');
                 exit;
             }
         } else {
             // Erro na atualização
-            header('Location: ' . URL . 'erro-login.php');
+            header('Location: ' . URL . '/erro-login.php');
             exit;
         }
 
@@ -495,15 +495,10 @@ class mysqldbUsuario
         exit;
     }
     else {
-<<<<<<< HEAD
         //Xampp
         // header('location: /projeto-telecall');
         // exit; 
-        /* header('location: http://localhost:8080/projeto/Include/desconectar.php'); */
-        header('location: http://localhost:8080/projeto/Include/desconectar.php');
-=======
-        header('location: '. URL . '/Include/desconectar.php');
->>>>>>> ede32791a95f44cfc4572c0dfe7fedcc09c16e5f
+        header('location: '. URL.'/Include/desconectar.php');
         exit;
     }
     

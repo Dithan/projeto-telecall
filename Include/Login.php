@@ -14,6 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 } 
 else {
-    header('location: '. URL . 'erro-login.php');
+    header('location: '. URL . '/erro-login.php');
     exit;
 }

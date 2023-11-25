@@ -17,10 +17,10 @@ if (isset($_SESSION["Cpf"])) {
         // Atualiza o perfil do usuário
         if ($Connection->Update_Gerenciaconta($login, $senha, $cpf)) {
             // Redireciona em caso de sucesso
-            redirectTo('minha_conta/conta.php');
+            redirectTo('/minha_conta/conta.php');
         } else {
             // Redireciona em caso de falha
-            redirectTo('erro-login.php');
+            redirectTo('/erro-login.php');
         }
     } //else {
     //     // Redireciona se campos obrigatórios não foram preenchidos
@@ -28,7 +28,7 @@ if (isset($_SESSION["Cpf"])) {
     // }
 } else {
     // Redireciona se a sessão não está definida
-    redirectTo('erro-login.php');
+    redirectTo('/erro-login.php');
 }
 
 // Função para lidar com o redirecionamento
