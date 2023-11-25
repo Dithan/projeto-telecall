@@ -100,7 +100,8 @@ if (isset($_SESSION["admin"])) {
     </html>
 <?php
   } else {
-    header('location: ' . URL);
+    require '../conf.php';
+    header('location: '.URL);
     exit;
   }
 //}

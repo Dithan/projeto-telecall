@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION["admin"])) {
+if (isset($_SESSION["Usuario"])) {
 
     include_once '../Include/connection.php';
 

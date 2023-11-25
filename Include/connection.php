@@ -45,8 +45,8 @@ class Conn
         $this->database = 'Telecall';
 
         $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->database);
-        
-        
+
+
         $this->conn->query("
         CREATE TABLE IF NOT EXISTS UsuarioInfo(
             nome varchar(100) not null, 
@@ -67,7 +67,7 @@ class Conn
             cpf varchar(11),
 			FOREIGN KEY (cpf) REFERENCES UsuarioInfo(cpf)
             );
-        ");   
+        ");
         $this->conn->query("
         CREATE TABLE IF NOT EXISTS Assinatura(
 			id int auto_increment primary key,
@@ -83,7 +83,7 @@ class Conn
         if ($this->conn->connect_error) {
             header('location: ' . URL . '/nao-encontrado.php');
             exit;
-        }               
+        }
     }
 
     public function Create_Table_Gerencia()
@@ -129,7 +129,38 @@ class Conn
     public function deleteUser($CpfUsuario)
     {
         $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->database);
-        return $result = $this->conn->query("DELETE FROM UsuarioInfo,UsuarioLogin WHERE cpf = '$CpfUsuario'");
+        return $result = $this->conn->query("DELETE FROM UsuarioLogin WHERE cpf = '$CpfUsuario'");
+        $result = $this->conn->query("DELETE FROM UsuarioInfo WHERE cpf = '$CpfUsuario'");
+    }
+    public function CpfExist($CpfUsuario)
+    {
+        $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->database);
+        $result = $this->conn->query("SELECT *  FROM UsuarioLogin WHERE cpf = '$CpfUsuario'");
+
+        if ($result->num_rows > 0) {
+            return true;
+        }
+    
+    }
+    public function verifyCpf($CpfUsuario, $data_nascimento, $nome_mae)
+    {
+
+        $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->database);
+        $result = $this->conn->query("SELECT data_nascimento, nome_materno FROM UsuarioInfo WHERE cpf = '$CpfUsuario'");
+
+        if ($result->num_rows == 1) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $mae = $row['nome_materno'];
+                $data = $row['data_nascimento'];
+            }
+            if ($data_nascimento == $data && $nome_mae  == $mae) {
+                return true;
+            }
+         } //else {
+        //     // Se o formulário não foi enviado por POST, redirecione para a página de solicitação
+        //     header("Location: " . URL);
+        //     exit;
+        // }
     }
 
     public function getServerName()
@@ -246,19 +277,17 @@ class mysqldb
                 $_SESSION["Usuario"] = $row['nome'];
                 $_SESSION["Login"] = $row['usuario'];
                 $_SESSION["Cpf"] = $row['cpf'];
-                
+
 
                 // Redirecione para a página de perfil
                 header('Location: ' . URL . '/admin/minha-conta/conta.php');
                 exit;
-            } 
-            else {
+            } else {
                 // Se os dados não puderem ser recuperados após a atualização, redirecione para a página de erro
                 header('Location: ' . URL . '/erro-login.php');
                 exit;
             }
-        } 
-        else {
+        } else {
             // Erro na atualização
             header('Location: ' . URL . '/erro-login.php');
             exit;
@@ -338,7 +367,7 @@ class mysqldbUsuario
                     $_SESSION["telefone_fixo"] = $row['telefone_fixo'];;
                     $_SESSION['endereco'] = $row['endereco'];;
                     $_SESSION['complemento'] = $row['complemento'];;
-                    header('location: ' . URL.'/autenticacao.php');
+                    header('location: ' . URL . '/autenticacao.php');
                     exit;
                 }
             }
@@ -369,7 +398,7 @@ class mysqldbUsuario
             die("Erro na preparação da instrução: " . $conn->error);
         }
         // Bind dos parâmetros
-        $stmt->bind_param("sssssssss", $nome, $dataNascimento, $sexo, $nomeMaterno, $cpf, $telefoneCelular, $telefoneFixo, $endereco, $complemento, );
+        $stmt->bind_param("sssssssss", $nome, $dataNascimento, $sexo, $nomeMaterno, $cpf, $telefoneCelular, $telefoneFixo, $endereco, $complemento,);
         $stmti->bind_param("sss",  $login, $senha,  $cpf);
 
         // Execução da consulta
@@ -449,18 +478,46 @@ class mysqldbUsuario
         $stmt->close();
         $conn->close();
     }
+    public function Recover_Senha($cpf,$senha)
+    {
+        $conn = new mysqli($this->connection->getServerName(), $this->connection->getUserName(), $this->connection->getPassword(), $this->connection->getDatabase());
 
+        // Use instruções preparadas para evitar injeção de SQL
+        $stmt = $conn->prepare("UPDATE UsuarioLogin SET senha=MD5(?) WHERE cpf=?");
+
+        // Verifique se a preparação da instrução foi bem-sucedida
+        if (!$stmt) {
+            die("Erro na preparação da instrução: " . $conn->error);
+        }
+
+        
+        $stmt->bind_param("ss", $senha, $cpf);
+        // Execução da consulta
+        $stmt->execute();
+
+        // Verifique se a execução foi bem-sucedida
+        if ($stmt->affected_rows > 0) {
+                return true;
+            } else {
+                // Se os dados não puderem ser recuperados após a atualização, redirecione para a página de erro
+                return false;
+            }
+        
+
+        // Fechamento do statement
+        $stmt->close();
+    }
     public function Update_UsuarioConta($login, $senha, $cpf)
     {
         $conn = new mysqli($this->connection->getServerName(), $this->connection->getUserName(), $this->connection->getPassword(), $this->connection->getDatabase());
 
         // Use instruções preparadas para evitar injeção de SQL
-        $stmt = $conn->prepare("UPDATE UsuarioLogin SET login=?, ". ($senha !== '' ? "senha=MD5(?)" : "") .  ",cpf=? WHERE cpf=?");
+        $stmt = $conn->prepare("UPDATE UsuarioLogin SET login=?, " . ($senha !== '' ? "senha=MD5(?)" : "") .  ",cpf=? WHERE cpf=?");
 
         // Verifique se a preparação da instrução foi bem-sucedida
         if (!$stmt) {
             die("Erro na preparação da instrução: " . $conn->error);
-        }        
+        }
 
         // Bind dos parâmetros
         if ($senha !== '') {
@@ -502,54 +559,48 @@ class mysqldbUsuario
     }
 
     public function twoFA($numeroRandomico, $userAnswer)
-{
-    session_start();
-
-    // Função para verificar a resposta da pergunta
-    function verifySecurityAnswer($numeroRandomico, $userAnswer)
     {
-        // Lógica para verificar se a resposta está correta
-        // Substitua isso com a lógica real da sua aplicação
-        $answers = [
-            1 => $_SESSION["nome_materno"],
-            2 => $_SESSION["data_nascimento"],
-            3 => $_SESSION["telefone_fixo"]
-        ];
+        session_start();
 
-        return $userAnswer === $answers[$numeroRandomico];
-    }
+        // Função para verificar a resposta da pergunta
+        function verifySecurityAnswer($numeroRandomico, $userAnswer)
+        {
+            // Lógica para verificar se a resposta está correta
+            // Substitua isso com a lógica real da sua aplicação
+            $answers = [
+                1 => $_SESSION["nome_materno"],
+                2 => $_SESSION["data_nascimento"],
+                3 => $_SESSION["telefone_fixo"]
+            ];
 
-    // Verifique se a variável de tentativas está definida
-    if (!isset($_SESSION['attempts'])) {
-        $_SESSION['attempts'] = 0;
-    }
+            return $userAnswer === $answers[$numeroRandomico];
+        }
 
-    if (verifySecurityAnswer($numeroRandomico, $userAnswer)) {
-        // Resposta correta, reinicie o contador de tentativas
-        unset($_SESSION['attempts']);
-        header('Location: ' . URL);
-        exit;
-    } else {
-        // Resposta incorreta, aumente o contador de tentativas
-        $_SESSION['attempts']++;
+        // Verifique se a variável de tentativas está definida
+        if (!isset($_SESSION['attempts'])) {
+            $_SESSION['attempts'] = 0;
+        }
 
-        // Verifique se excedeu o número máximo de tentativas permitidas (por exemplo, 3)
-        if ($_SESSION['attempts'] >= 3) {
-            // Excedeu o número máximo de tentativas, faça logout e redirecione
-            session_destroy();
-            header('Location: ' . URL . '/Include/desconectar.php');
+        if (verifySecurityAnswer($numeroRandomico, $userAnswer)) {
+            // Resposta correta, reinicie o contador de tentativas
+            unset($_SESSION['attempts']);
+            header('Location: ' . URL);
             exit;
         } else {
-            // Ainda dentro do limite de tentativas, redirecione para a página de tentativa incorreta
-            header('Location: ' . URL . '/autenticacao.php');
-            exit;
+            // Resposta incorreta, aumente o contador de tentativas
+            $_SESSION['attempts']++;
+
+            // Verifique se excedeu o número máximo de tentativas permitidas (por exemplo, 3)
+            if ($_SESSION['attempts'] >= 3) {
+                // Excedeu o número máximo de tentativas, faça logout e redirecione
+                session_destroy();
+                header('Location: ' . URL . '/Include/desconectar.php');
+                exit;
+            } else {
+                // Ainda dentro do limite de tentativas, redirecione para a página de tentativa incorreta
+                header('Location: ' . URL . '/autenticacao.php');
+                exit;
+            }
         }
     }
-    }
-
-    
-                                                            
-
-    }
-    
-
+}
