@@ -128,8 +128,14 @@ class Conn
     public function deleteUser($CpfUsuario)
     {
         $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->database);
-        return $result = $this->conn->query("DELETE FROM UsuarioLogin WHERE cpf = '$CpfUsuario'");
-        $result = $this->conn->query("DELETE FROM UsuarioInfo WHERE cpf = '$CpfUsuario'");
+        $stmt = $this->conn->prepare("DELETE FROM UsuarioLogin WHERE cpf = '$CpfUsuario'");
+        $stmt2 = $this->conn->prepare("DELETE FROM UsuarioInfo WHERE cpf = '$CpfUsuario'");
+        $result1 = $stmt->execute();
+        $result2 = $stmt2->execute();
+        if($result1 && $result2){
+            return true;
+        }else{return false;}
+        
     }
     public function CpfExist($CpfUsuario)
     {
