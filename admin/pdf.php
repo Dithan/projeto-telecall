@@ -1,6 +1,6 @@
 <?php
 // Inclua a biblioteca TCPDF
-require_once('TCPDF/tcpdf.php');
+require_once(__DIR__ .'/TCPDF/tcpdf.php');
 
 // Crie uma instância do TCPDF
 $pdf = new TCPDF();
