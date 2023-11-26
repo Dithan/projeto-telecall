@@ -40,6 +40,6 @@ if (isset($_SESSION["Cpf"])) {
 // Função para lidar com o redirecionamento
 function redirectTo($location)
 {
-    header('Location: ' . URL . $location);
+    header('Location: ' . URL .$location);
     exit;
 }
