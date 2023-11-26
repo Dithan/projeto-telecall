@@ -15,7 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if( $result->verifyCpf($cpf,$data_nascimento,$nome_mae)){
        header("Location: " . URL . "/nova-senha.php?cpf=$cpf");
       exit;
-      }
+      }else {
+        // Erro na atualização
+        header('Location: ' . URL . '/nao-encontrado.php');
+        exit;
+    }
    
 } else {
     // Se o formulário não foi enviado por POST, redirecione para a página de solicitação
