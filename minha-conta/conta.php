@@ -73,7 +73,7 @@ if (isset($_SESSION["Usuario"])) {
     var resposta = confirm("Tem certeza que deseja excluir este usuário?");
     if (resposta) {
       // Se o usuário confirmar, redirecione para um script PHP que lida com a exclusão
-      window.location.href = "../admin/deletar.php?cpf=" + cpfUsuario;
+      window.location.href = "../Include/deletar.php?cpf=" + cpfUsuario;
     } else {
       // Caso contrário, não faça nada
       alert("Usuário não excluído.");
