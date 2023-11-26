@@ -34,12 +34,12 @@ if (isset($_SESSION["Usuario"])) {
           <div class="row-form">
             <div>
               <label for="login">Login</label>
-              <input type="text" value="<?php echo $_SESSION['Login']; ?>" name="login">
+              <input type="text" value="<?php echo $_SESSION['Login']; ?>" name="login" required minlength="4" maxlength="6" pattern="[A-Za-z0-9]+">
             </div>
 
             <div>
               <label for="senha">Senha</label>
-              <input type="password" name="senha">
+              <input type="password" name="senha" required minlength="8">
             </div>
           </div>
 
