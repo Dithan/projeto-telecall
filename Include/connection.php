@@ -532,15 +532,13 @@ class mysqldbUsuario
         $conn = new mysqli($this->connection->getServerName(), $this->connection->getUserName(), $this->connection->getPassword(), $this->connection->getDatabase());
 
         // Use instruções preparadas para evitar injeção de SQL
-        $stmt = $conn->prepare("UPDATE UsuarioLogin SET login=?, " . ($senha !== '' ? "senha=MD5(?)" : "") .  ",cpf=? WHERE cpf=?");
+        $stmt = $conn->prepare("UPDATE UsuarioLogin SET login=?," . ($senha !== '' ? "senha=MD5(?)," : " ") . "cpf=? WHERE cpf=?");
 
         // Verifique se a preparação da instrução foi bem-sucedida
-        if (!$stmt) {
-            die("Erro na preparação da instrução: " . $conn->error);
-        }else {
+        if (!$stmt){
             // Erro na atualização
             header('Location: ' . URL . '/erro.php');
-            exit;
+            exit;   
         }
 
         // Bind dos parâmetros
