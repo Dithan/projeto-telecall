@@ -20,13 +20,13 @@
             <p style="margin-bottom: 20px;">Por favor, informe seu CPF</p>
 
             <div class="container-form">
-                <form>
+                <form action="verificar-usuario.php" method="post">
                     <label for="redefinir">CPF</label>
-                    <input type="text" id="redefinir" name="redefinir" required minlength="11" maxlength="11" placeholder="xxx.xxx.xxx-xx" pattern="[0-9]{3}\.[0-9]{3}\.[0-9]{3}-[0-9]{2}">
+                    <input type="text" id="redefinir" name="cpf" required minlength="11" maxlength="11" placeholder="xxx.xxx.xxx-xx"  required>
                     <br>
                     <!--Definir botão para submit-->
                     <div class="enviar">
-                        <button class="btn-primario" onclick="validarEmail(this.form)" class="botao" >Enviar</button>
+                        <button class="btn-primario"  type="submit" class="botao" >Enviar</button>
                     </div>
                 </form>
             </div>

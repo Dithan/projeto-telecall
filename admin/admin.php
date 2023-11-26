@@ -23,7 +23,7 @@ if (isset($_SESSION["admin"])) {
                                             echo $_SESSION["Usuario"];
                                           } ?></h1>
           <ul class="admin-menu-list">
-            <li><a href="pdf.php"><i class="fas fa-solid fa-download"></i> Baixar Lista PDF</a></li>
+            <li><a href="pdf.php"   target="_blank"><i class="fas fa-solid fa-download"></i> Baixar Lista PDF</a></li>
             <li><a href="../Include/desconectar.php"><i class="fas fa-solid fa-door-open"></i> Sair</a></li>
           </ul>
         </div>
@@ -49,7 +49,6 @@ if (isset($_SESSION["admin"])) {
                 <th>Endereço</th>
                 <th>Complemento</th>
                 <th>Login</th>
-                <th>Senha</th>
                 <th>Excluir</th>
               </tr>
 
@@ -75,7 +74,6 @@ if (isset($_SESSION["admin"])) {
                     <td class="editable" contenteditable="true" data-column="Endereco"><? echo $row['endereco']; ?></td>
                     <td class="editable" contenteditable="true" data-column="Complemento"><? echo $row['complemento']; ?></td>
                     <td class="editable" contenteditable="true" data-column="Login"><? echo $row['login']; ?></td>
-                    <td class="editable" contenteditable="true" data-column="Senha"><? echo $row['senha']; ?></td>
                     <td><button class="delete-btn" onclick="confirmDelete(<?php echo $row['cpf']; ?>)"><i class="fas fa-solid fa-trash"></i></button></td>
                   </tr>
 
@@ -102,7 +100,8 @@ if (isset($_SESSION["admin"])) {
     </html>
 <?php
   } else {
-    header('location: ' . URL);
+    require '../conf.php';
+    header('location: '.URL);
     exit;
   }
 //}

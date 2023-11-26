@@ -36,57 +36,51 @@ if (isset($_SESSION["Usuario"])) {
             <div class="row-form">
               <div>
                 <label for="nome">Nome</label>
-                <input type="text" value="<? echo $_SESSION['Usuario']; ?>" name="nome">
+                <input type="text" value="<?php echo $_SESSION['Usuario']; ?>" name="nome">
               </div>
 
               <div>
                 <label for="datansc">Data de nascimento</label>
-                <input type="date" value="<? echo $_SESSION["data_nascimento"]; ?>" name="datansc">
+                <input type="date" value="<?php echo $_SESSION["data_nascimento"]; ?>" name="datansc">
               </div>
             </div>
 
             <div class="row-form">
               <div>
                 <label for="sexo">Sexo</label>
-                <select class="sexo" id="sexo" required name="sexo">
-                    <option value="<?php echo $_SESSION['Sexo']; ?>" style="background: #f2f2f2"><?php echo ucfirst($_SESSION['Sexo']); ?></option>
-                    <option value="masculino">Masculino</option>
-                    <option value="feminino">Feminino</option>
-                    <option value="Outros">Outros</option>
-                    <option value="PrefiroNaoDizer">Prefiro Nao Dizer</option>
-                </select>
+                <input type="text" value="<?php echo $_SESSION['Sexo']; ?>" name="sexo">
               </div>
 
               <div>
                 <label for="nomeM">Data Materno</label>
-                <input type="text" value="<? echo $_SESSION['nome_materno']; ?>" name="nomeM">
+                <input type="text" value="<?php echo $_SESSION['nome_materno']; ?>" name="nomeM">
               </div>
             </div>
 
             <div class="row-form">
               <div>
                 <label for="celular">Celular</label>
-                <input type="number" value="<? echo $_SESSION['telefone_celular']; ?>" name="celular">
+                <input type="text" value="<?php echo $_SESSION['telefone_celular']; ?>" name="celular">
               </div>
 
               <div>
                 <label for="teleF">Telefone</label>
-                <input type="number" value="<? echo $_SESSION["telefone_fixo"]; ?>" name="teleF">
+                <input type="text" value="<?php echo $_SESSION["telefone_fixo"]; ?>" name="teleF">
               </div>
             </div>
 
             <div class="row-form">
               <div>
                 <label for="endereco">Endereço</label>
-                <input type="text" value="<? echo $_SESSION['endereco']; ?>" name="endereco">
+                <input type="text" value="<?php echo $_SESSION['endereco']; ?>" name="endereco">
               </div>
 
               <div>
                 <label for="complemento">Complemento</label>
-                <input type="text" value="<? echo $_SESSION['complemento']; ?>" name="complemento">
+                <input type="text" value="<?php echo $_SESSION['complemento']; ?>" name="complemento">
               </div>
 
-              <input type="hidden" value="<? echo $_SESSION['Cpf']; ?>" name="cpf">
+              <input type="hidden" value="<?php echo $_SESSION['Cpf']; ?>" name="cpf">
             </div> 
                                                  
             <div class="btn-container">

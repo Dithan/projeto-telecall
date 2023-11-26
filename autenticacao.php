@@ -1,6 +1,8 @@
 <?php
 session_start();
-
+if (!isset($_SESSION['attempts'])) {
+    $_SESSION['attempts'] = 0;
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -63,12 +65,17 @@ session_start();
                         <button type="submit" class="btn-primario">Enviar</button>
                     </div>
                 </form>
-            </div>
+            </div>   
+            
         </div>
     </section>
 
     <script src="./assets/JavaScript/Redefinir.js"></script>
+ 
 
+</script>
+
+    </script>
 </body>
 
 <!-- Inclui Footer -->

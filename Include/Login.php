@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["senha"])) {
         $NomeUsuario = $_POST["login"];
         $SenhaUsuario = $_POST['senha'];
-
+        
         require 'connection.php';
         $Connection = new mysqldbUsuario();
         $Connection->Login_Usuario($NomeUsuario, $SenhaUsuario);
