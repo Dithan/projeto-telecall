@@ -48,3 +48,12 @@ https://undraw.co/
 
 Icones:
 https://fonts.google.com/icons
+
+1 -  Credenciais.
+Abra o arquivo Conf.php, e configure seu HOST, USER E PASSWORD respectivamente.
+
+2 - Banco de Dados.
+O banco de dados está programado para ser criado automaticamente, caso não aja em sua máquina bancos com os nomes "telecall" e "gerencia"
+
+3 - Iniciação
+Ative seu SQL e Apache, abra o local no navegador

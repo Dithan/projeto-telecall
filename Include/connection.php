@@ -121,9 +121,8 @@ class Conn
     public function getQueryAdmin()
     {
         $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->database);
-        return $result = $this->conn->query("SELECT UsuarioInfo.nome,UsuarioInfo.endereco,UsuarioLogin.cpf,Assinatura.preco,Assinatura.nome
-        FROM UsuarioLogin JOIN UsuarioInfo ON UsuarioInfo.cpf = UsuarioLogin.cpf
-        JOIN Assinatura ON UsuarioInfo.cpf = Assinatura.cpf;");
+        return $result = $this->conn->query("SELECT UsuarioInfo.nome,UsuarioInfo.endereco,UsuarioLogin.cpf,UsuarioInfo.sexo,UsuarioInfo.nome_materno,UsuarioInfo.data_nascimento,UsuarioInfo.telefone_celular,UsuarioInfo.telefone_fixo,UsuarioInfo.endereco,UsuarioInfo.complemento,UsuarioLogin.login 
+        FROM UsuarioLogin JOIN UsuarioInfo ON UsuarioInfo.cpf = UsuarioLogin.cpf;");
     }
 
     public function deleteUser($CpfUsuario)

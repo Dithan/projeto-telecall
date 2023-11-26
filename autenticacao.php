@@ -55,7 +55,7 @@ if (!isset($_SESSION['attempts'])) {
                     <?php
                     } else{
                         ?>
-                        <input type="number" placeholder="+21xx-xxxxxxxx" id="resposta" name="resposta" required>
+                        <input type="text" placeholder="+21xx-xxxxxxxx" id="resposta" name="resposta" required>
                     <?php
                     }?>
 
@@ -68,10 +68,7 @@ if (!isset($_SESSION['attempts'])) {
             </div>   
             
         </div>
-    </section>
-
-    <script src="./assets/JavaScript/Redefinir.js"></script>
- 
+    </section> 
 
 </script>
 
