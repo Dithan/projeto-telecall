@@ -382,9 +382,23 @@ class mysqldbUsuario
         $conn = new mysqli($this->connection->getServerName(), $this->connection->getUserName(), $this->connection->getPassword(), $this->connection->getDatabase());
 
         // Verifique a conexão
-        if ($conn->connect_error) {        
+        if ($conn->connect_error) {
             // Erro no registro
             header('Location: ' . URL . '/erro-cadastro.php');
+            exit;
+        }
+
+        // Verificar se o login já existe
+        $stmt_check_login = $conn->prepare("SELECT COUNT(*) FROM UsuarioLogin WHERE login = ?");
+        $stmt_check_login->bind_param("s", $login);
+        $stmt_check_login->execute();
+        $stmt_check_login->bind_result($login_count);
+        $stmt_check_login->fetch();
+        $stmt_check_login->close();
+
+        if ($login_count > 0) {
+            // O login já existe, redirecione ou trate conforme necessário
+            header('Location: ' . URL . '/login-existente.php');
             exit;
         }
 
@@ -393,22 +407,18 @@ class mysqldbUsuario
         $stmti = $conn->prepare("INSERT INTO UsuarioLogin (login,senha,cpf) VALUES (?, ?, ?)");
 
         // Verifique se a preparação da instrução foi bem-sucedida
-        if (!$stmt) {
+        if (!$stmt || !$stmti) {
             header('Location: ' . URL . '/erro-cadastro.php');
             exit;
         }
-        if (!$stmti) {
-            header('Location: ' . URL . '/erro-cadastro.php');
-            exit;
-        }
+
         // Bind dos parâmetros
-        $stmt->bind_param("sssssssss", $nome, $dataNascimento, $sexo, $nomeMaterno, $cpf, $telefoneCelular, $telefoneFixo, $endereco, $complemento,);
+        $stmt->bind_param("sssssssss", $nome, $dataNascimento, $sexo, $nomeMaterno, $cpf, $telefoneCelular, $telefoneFixo, $endereco, $complemento);
         $stmti->bind_param("sss",  $login, $senha,  $cpf);
 
         // Execução da consulta
         $stmt->execute();
         $stmti->execute();
-
 
         if ($stmti->affected_rows > 0) {
             // Registro bem-sucedido, redirecione
@@ -419,11 +429,13 @@ class mysqldbUsuario
             header('Location: ' . URL . '/erro-cadastro.php');
             exit;
         }
+
         // Fechamento do statement
         $stmt->close();
         $stmti->close();
         $conn->close();
     }
+
 
 
 
@@ -527,7 +539,7 @@ class mysqldbUsuario
             die("Erro na preparação da instrução: " . $conn->error);
         }else {
             // Erro na atualização
-            header('Location: ' . URL . '/erro-login.php');
+            header('Location: ' . URL . '/erro.php');
             exit;
         }
 
