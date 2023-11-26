@@ -155,11 +155,7 @@ class Conn
             if ($data_nascimento == $data && $nome_mae  == $mae) {
                 return true;
             }
-         } //else {
-        //     // Se o formulário não foi enviado por POST, redirecione para a página de solicitação
-        //     header("Location: " . URL);
-        //     exit;
-        // }
+         }  
     }
 
     public function getServerName()
@@ -204,16 +200,20 @@ class mysqldb
         $conn = new mysqli($this->connection->getServerName(), $this->connection->getUserName(), $this->connection->getPassword(), $this->connection->getDatabase());
 
         // Verifique a conexão
-        if ($conn->connect_error) {
-            die("Conexão falhou: " . $conn->connect_error);
+        if ($conn->connect_error)  {
+            // Erro na atualização
+            header('Location: ' . URL . '/erro-login.php');
+            exit;
         }
 
         // Use instruções preparadas para evitar injeção de SQL
         $stmt = $conn->prepare("UPDATE Usuario SET nome=? WHERE cpf=?");
 
         // Verifique se a preparação da instrução foi bem-sucedida
-        if (!$stmt) {
-            die("Erro na preparação da instrução: " . $conn->error);
+        if (!$stmt)  {
+            // Erro na atualização
+            header('Location: ' . URL . '/erro-login.php');
+            exit;
         }
 
         // Bind dos parâmetros
@@ -254,10 +254,11 @@ class mysqldb
         $stmt = $conn->prepare("UPDATE Usuario SET usuario=?, senha=MD5(?), cpf=? WHERE cpf=?");
 
         // Verifique se a preparação da instrução foi bem-sucedida
-        if (!$stmt) {
-            die("Erro na preparação da instrução: " . $conn->error);
+        if (!$stmt)  {
+            // Erro na atualização
+            header('Location: ' . URL . '/erro-login.php');
+            exit;
         }
-
         // Bind dos parâmetros
         $stmt->bind_param("ssss", $login, $senha, $cpf, $cpf);
 
@@ -381,9 +382,7 @@ class mysqldbUsuario
         $conn = new mysqli($this->connection->getServerName(), $this->connection->getUserName(), $this->connection->getPassword(), $this->connection->getDatabase());
 
         // Verifique a conexão
-        if ($conn->connect_error) {
-            die("Conexão falhou: " . $conn->connect_error);
-        }else {
+        if ($conn->connect_error) {        
             // Erro no registro
             header('Location: ' . URL . '/erro-cadastro.php');
             exit;
@@ -395,16 +394,10 @@ class mysqldbUsuario
 
         // Verifique se a preparação da instrução foi bem-sucedida
         if (!$stmt) {
-            die("Erro na preparação da instrução: " . $conn->error);
-        }else {
-            // Erro no registro
             header('Location: ' . URL . '/erro-cadastro.php');
             exit;
         }
         if (!$stmti) {
-            die("Erro na preparação da instrução: " . $conn->error);
-        }else {
-            // Erro no registro
             header('Location: ' . URL . '/erro-cadastro.php');
             exit;
         }
@@ -440,15 +433,16 @@ class mysqldbUsuario
 
         // Verifique a conexão
         if ($conn->connect_error) {
-            die("Conexão falhou: " . $conn->connect_error);
+            header('Location: ' . URL . '/erro-cadastro.php');
+            exit;
         }
-
         // Use instruções preparadas para evitar injeção de SQL
         $stmt = $conn->prepare("UPDATE UsuarioInfo SET nome=?, data_nascimento=?, sexo=?, nome_materno=?, telefone_celular=?, telefone_fixo=?, endereco=?, complemento=? WHERE cpf=?");
 
         // Verifique se a preparação da instrução foi bem-sucedida
         if (!$stmt) {
-            die("Erro na preparação da instrução: " . $conn->error);
+            header('Location: ' . URL . '/erro-cadastro.php');
+            exit;
         }
 
         // Bind dos parâmetros
@@ -497,8 +491,10 @@ class mysqldbUsuario
         $stmt = $conn->prepare("UPDATE UsuarioLogin SET senha=MD5(?) WHERE cpf=?");
 
         // Verifique se a preparação da instrução foi bem-sucedida
-        if (!$stmt) {
-            die("Erro na preparação da instrução: " . $conn->error);
+        if (!$stmt)  {
+            // Erro na atualização
+            header('Location: ' . URL . '/erro-login.php');
+            exit;
         }
 
         
@@ -518,6 +514,7 @@ class mysqldbUsuario
         // Fechamento do statement
         $stmt->close();
     }
+
     public function Update_UsuarioConta($login, $senha, $cpf)
     {
         $conn = new mysqli($this->connection->getServerName(), $this->connection->getUserName(), $this->connection->getPassword(), $this->connection->getDatabase());
@@ -528,6 +525,10 @@ class mysqldbUsuario
         // Verifique se a preparação da instrução foi bem-sucedida
         if (!$stmt) {
             die("Erro na preparação da instrução: " . $conn->error);
+        }else {
+            // Erro na atualização
+            header('Location: ' . URL . '/erro-login.php');
+            exit;
         }
 
         // Bind dos parâmetros
