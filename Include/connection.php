@@ -384,6 +384,10 @@ class mysqldbUsuario
         // Verifique a conexão
         if ($conn->connect_error) {
             die("Conexão falhou: " . $conn->connect_error);
+        }else {
+            // Erro no registro
+            header('Location: ' . URL . '/erro-cadastro.php');
+            exit;
         }
 
         // Use instruções preparadas para evitar injeção de SQL
@@ -393,9 +397,17 @@ class mysqldbUsuario
         // Verifique se a preparação da instrução foi bem-sucedida
         if (!$stmt) {
             die("Erro na preparação da instrução: " . $conn->error);
+        }else {
+            // Erro no registro
+            header('Location: ' . URL . '/erro-cadastro.php');
+            exit;
         }
         if (!$stmti) {
             die("Erro na preparação da instrução: " . $conn->error);
+        }else {
+            // Erro no registro
+            header('Location: ' . URL . '/erro-cadastro.php');
+            exit;
         }
         // Bind dos parâmetros
         $stmt->bind_param("sssssssss", $nome, $dataNascimento, $sexo, $nomeMaterno, $cpf, $telefoneCelular, $telefoneFixo, $endereco, $complemento,);
