@@ -69,10 +69,10 @@ session_start();
                 </div>
 
                 <label for="telefoneFixo">Telefone Fixo:</label>
-                <input type="text" id="telefoneFixo" placeholder="(+21)xx-xxxxxxxx" required pattern="\+[0-9]{2}\[0-9]{2}-[0-9]{8}" name="telefoneFixo" />
+                <input type="text" id="telefoneFixo" placeholder="(55) xx-xxxxxxxx" required pattern="\+[0-9]{2}\[0-9]{2}-[0-9]{8}" name="telefoneFixo" minlength="12" maxlength="13" />
 
                 <label for="telefoneCelular">Telefone Celular:</label>
-                <input type="text" id="telefoneCelular" placeholder="(+21)xx-xxxxxxxx" required pattern="\+[0-9]{2}\[0-9]{2}-[0-9]{8}" name="telefoneCelular" />
+                <input type="text" id="telefoneCelular" placeholder="(55) xx-xxxxxxxx" required pattern="\+[0-9]{2}\[0-9]{2}-[0-9]{8}" name="telefoneCelular" minlength="13" maxlength="13" />
 
                 <label for="endereco">Endereço Completo:</label>
                 <input type="text" id="endereco" required name="endereco" />
