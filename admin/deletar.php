@@ -9,7 +9,7 @@ if (isset($_SESSION["Usuario"])) {
 
     $CpfUsuario = $_GET['cpf'];
  if ($Sql->deleteUser($CpfUsuario)=== TRUE) {
-    header('location: /projeto/admin/admin.php');
+    header('location: '.URL.'/admin/admin.php');
     exit;  // Certifique-se de encerrar a execução do script após o redirecionamento
 } else {
     header('location: '.URL.'/erro-login.php');
