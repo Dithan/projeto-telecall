@@ -19,16 +19,19 @@
             <h1>Altere sua senha</h1>
             <p>Insira sua nova senha</p>
 
-            <form>
+      
+            <form action="atualizar-senha.php" method="post">
+    
+  
                 <label for="senha">Nova Senha</label>
-                <input type="password" id="senha" required minlength="8" name="senha" />
+                <input type="hidden" name="cpf" value="<?= $_GET["cpf"] ?>">
 
-                <label for="confirmSenha">Confirmação da Senha</label>
-                <input type="password" id="confirmSenha" required minlength="8" />
+                <input type="password" id="senha" required minlength="8" name="nova_senha" />
+
                 <br>
                 <!--Definir botão para submit-->
                 <div class="enviar">
-                    <button class="btn-primario" onclick="" class="botao" >Enviar</button>
+                    <button class="btn-primario" type="submit" class="botao" >Enviar</button>
                 </div>
             </form>
         </div>

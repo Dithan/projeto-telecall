@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -12,23 +13,28 @@
 
 <body>
     <!-- Inclui Header -->
-    <?php include('./estrutura/header.php')?>
+    <?php include('./estrutura/header.php');
+    $cpf = $_GET["cpf"];
+    ?>
 
-    <section class="container-redefinir">
+   
+   <section class="container-redefinir">
         <div class="conteudo-redefinir2">
             <h1>Confime seus dados</h1>
             <p>Responda abaixo para confirmar sua identidade</p>
 
-            <form>
-                <label for="nome-mat">Nome da Mãe</label>
-                <input type="text" id="nome-mat" name="nome-mat" required>
+            <form action="redefinir-senha.php" method="post">
+            <input type="hidden" name="cpf" value="<?= $cpf ?>">
 
-                <label for="data-nasc">Data de Nascimento</label>
-                <input type="date" id="data-nasc" name="data-nasc" required>
+                <label for="nome_materno">Nome da Mãe</label>
+                <input type="text" id="nome-mat" name="nome_materno" required>
+
+                <label for="data_nascimento">Data de Nascimento</label>
+                <input type="date" id="data-nasc" name="data_nascimento" required>
                 <br>
                 <!--Definir botão para submit-->
                 <div class="enviar">
-                    <button class="btn-primario" onclick="" class="botao" >Enviar</button>
+                    <button class="btn-primario" type="submit" class="botao" >Enviar</button>
                 </div>
             </form>
         </div>

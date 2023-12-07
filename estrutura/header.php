@@ -21,7 +21,9 @@
                                         <li><a href="./admin/minha-conta/perfil.php">Meus Dados</a></li>
 
                                     <?php
-                                    } else{ ?>
+                                    } else{
+
+                                        ?>
                                         <li><a href="./minha-conta/perfil.php">Meus Dados</a></li>
                                         <?php } ?>
                                         

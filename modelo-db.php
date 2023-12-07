@@ -23,7 +23,8 @@ session_start();
         <h1 class="titulo">Modelo do Banco de Dados</h1>
         <p>Imagem:</p>
         <figure>
-          <img src="" alt="Modelo Banco de Dados">
+          <img src="./BD/BD1.png" alt="Modelo Banco de Dados">
+          <img src="./BD/BD2.png" alt="Modelo Banco de Dados">
         </figure>
       </div>
     </section>

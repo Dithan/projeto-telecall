@@ -1,6 +1,8 @@
 <?php
 session_start();
-
+if (!isset($_SESSION['attempts'])) {
+    $_SESSION['attempts'] = 0;
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -53,7 +55,7 @@ session_start();
                     <?php
                     } else{
                         ?>
-                        <input type="number" placeholder="+21xx-xxxxxxxx" id="resposta" name="resposta" required>
+                        <input type="text" placeholder="+21xx-xxxxxxxx" id="resposta" name="resposta" required>
                     <?php
                     }?>
 
@@ -63,12 +65,14 @@ session_start();
                         <button type="submit" class="btn-primario">Enviar</button>
                     </div>
                 </form>
-            </div>
+            </div>   
+            
         </div>
-    </section>
+    </section> 
 
-    <script src="./assets/JavaScript/Redefinir.js"></script>
+</script>
 
+    </script>
 </body>
 
 <!-- Inclui Footer -->

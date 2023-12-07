@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION["admin"])) {
+if (isset($_SESSION["Usuario"])) {
 
     include_once '../Include/connection.php';
 
@@ -12,7 +12,7 @@ if (isset($_SESSION["admin"])) {
     header('location: /projeto/admin/admin.php');
     exit;  // Certifique-se de encerrar a execução do script após o redirecionamento
 } else {
-    header('location: /projeto/erro-login.php');
+    header('location: '.URL.'/erro-login.php');
     exit;
 }
 }
